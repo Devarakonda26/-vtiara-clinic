@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VTIARA Hair & Skin Clinic – Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="announcement-bar-track">
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="#book">Book Now →</a></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="main-nav">
+  <div class="logo">
+    <img src="images/logo.png" alt="VTIARA Logo">
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#treatments" onclick="closeMenu()">Treatments</a></li>
+    <li><a href="#results" onclick="closeMenu()">Results</a></li>
+    <li><a href="#expert" onclick="closeMenu()">Our Expert</a></li>
+    <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="#faq" onclick="closeMenu()">FAQ's</a></li>
+    <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-book-nav" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Appointment
+    </button>
+    <a class="btn-phone-nav" href="tel:+916361347722">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      63613 47722
+    </a>
+  </div>
+  <!-- Hamburger -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- Mobile nav overlay -->
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge"><span class="badge-dot"></span> Bangalore's Premium Hair &amp; Skin Clinic</div>
+    <h1>Expert Hair &amp; Skin Care<br>That Restores <span>Confidence</span></h1>
+    <p>Advanced dermatology and hair treatments with proven results, personalized care, and expert specialists – all under one premium roof in the heart of Bangalore.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+      <a class="btn-whatsapp" href="https://wa.me/916361347722" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">60k+</div><div class="stat-label">Happy Clients</div></div>
+      <div><div class="stat-num">3+</div><div class="stat-label">Branches</div></div>
+      <div><div class="stat-num">15+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/hero.png" alt="Hero">
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    FDA Approved Technology
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    Experienced Dermatologists
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    </div>
+    Thousands of Happy Patients
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    </div>
+    Safe and Hygienic Environment
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <div class="about-slider" id="aboutSlider">
+        <div class="about-slide active"><img src="images/clinic.jpg" alt="VTIARA Clinic Interior"></div>
+        <div class="about-slide"><img src="images/clinic2.jpg" alt="VTIARA Reception Area"></div>
+      </div>
+      <div class="about-slider-dots">
+        <button class="asdot active" onclick="goToSlide(0)"></button>
+        <button class="asdot" onclick="goToSlide(1)"></button>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-tag"><span class="dot"></span> About Vtiara</div>
+      <h2 class="section-title">Where Clinical Precision<br>Meets <span>Luxury Care</span></h2>
+      <p class="section-desc">VTIARA Hair &amp; Skin Clinic combines advanced clinical technology with personalized treatment plans to deliver safe, effective, and long lasting results. Every patient is treated with the discretion, comfort, and expertise they deserve.</p>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Experienced Doctors</h4>
+          <p>Board-Certified Dermatologists &amp; Trichologists</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h4>Advanced Equipment</h4>
+          <p>USFDA Approved Lasers And Cutting Edge Devices</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Personalized Care</h4>
+          <p>Treatment Plans Tailored To Your Skin &amp; Goals.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Clinically Proven</h4>
+          <p>Evidence-Based Protocols With Measurable Results.</p>
+        </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatments" id="treatments">
+  <div class="treatments-header">
+    <div class="section-tag"><span class="dot"></span> Treatments</div>
+    <h2 class="section-title">Premium Care For <span>Hair</span> &amp; <span>Skin</span></h2>
+    <p class="section-desc">Personalized treatments delivered by board-certified specialists using globally trusted technology.</p>
+  </div>
+
+  <!-- Hair Treatments -->
+  <div class="treatment-group">
+    <div class="treatment-group-title">Hair Treatments</div>
+    <div class="treatment-row">
+      <div class="treatment-image-card">
+        <img src="images/hair-treatment.jpg" alt="Hair Treatment" />
+        <div class="treatment-image-overlay">
+          <p>Globally trusted technology · Personalized care · Visible results.</p>
+          <button class="btn-specialist" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Talk to a specialist →</button>
+        </div>
+      </div>
+      <div class="treatment-cards-grid">
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h4>Hair Loss Treatment</h4>
+          <p>Stop Hair Fall And Stimulate Regrowth With Proven Medical Protocols.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Hair Transplant</h4>
+          <p>Natural-Looking, Permanent Results With Advanced FUE Techniques.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>PRP Therapy</h4>
+          <p>Harness Your Body's Growth Factors To Revive Dormant Follicles.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Dandruff Treatment</h4>
+          <p>Targeted Therapies For A Healthy, Flake-Free Scalp.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skin Treatments -->
+  <div class="treatment-group">
+    <div class="treatment-group-title treatment-group-title--right">Skin Treatments</div>
+    <div class="treatment-row treatment-row--reverse">
+      <div class="treatment-image-card">
+        <img src="images/skin.jpg" alt="Skin Treatment" />
+        <div class="treatment-image-overlay">
+          <p>Globally trusted technology · Personalized care · Visible results.</p>
+          <button class="btn-specialist" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Talk to a specialist →</button>
+        </div>
+      </div>
+      <div class="treatment-cards-grid">
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h4>Acne Treatment</h4>
+          <p>Clear Skin Starts Here — Medical-Grade Protocols For All Acne Types.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+          </div>
+          <h4>Acne Scar Treatment</h4>
+          <p>Resurface And Restore — Advanced Scar Reduction Techniques.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <h4>Pigmentation Treatment</h4>
+          <p>Even Out Skin Tone And Fade Dark Spots With Targeted Care.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Anti-Aging Solutions</h4>
+          <p>Turn Back The Clock With Proven Rejuvenation Therapies.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premium Laser Suite -->
+  <div class="treatment-group">
+    <div class="treatment-group-title">Premium Laser Suite</div>
+    <div class="treatment-row">
+      <div class="treatment-image-card">
+        <img src="images/laser.jpg" alt="Laser Treatment" />
+        <div class="treatment-image-overlay">
+          <p>Globally trusted technology · Personalized care · Visible results.</p>
+          <button class="btn-specialist" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Talk to a specialist →</button>
+        </div>
+      </div>
+      <div class="treatment-cards-grid treatment-cards-grid--two">
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h4>Laser Hair Removal</h4>
+          <p>Smooth, Hair-Free Skin With US-FDA Approved Diode Lasers.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Skin Rejuvenation</h4>
+          <p>Hydrafacials, Peels &amp; Lasers For Radiant, Glowing Skin.</p>
+          <a href="#" class="know-more">Know More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="results-header">
+    <div class="section-tag"><span class="dot"></span> Real Results</div>
+    <h2 class="section-title">Visible Transformations, <span>Real Patients</span></h2>
+    <p class="section-desc">Before &amp; After results of Hair Treatments and Acne &amp; Pigmentation from VTIARA</p>
+  </div>
+  <div class="carousel-container">
+  <div class="carousel-track">
+
+    <div class="result-card">
+      <img src="images/before-after-acne.png" alt="Acne Treatment Before After">
+      <span class="result-label">ACNE TREATMENT</span>
+    </div>
+
+    <div class="result-card">
+      <img src="images/before-after-hair.png" alt="Hair Transplant Before After">
+      <span class="result-label">HAIR TRANSPLANT</span>
+    </div>
+
+    <div class="result-card">
+      <img src="images/hair-treatment.jpg" alt="Hair Treatment">
+      <span class="result-label">HAIR TREATMENT</span>
+    </div>
+
+   
+    <!-- Duplicate for infinite loop -->
+
+    <div class="result-card">
+      <img src="images/before-after-acne.png" alt="Acne Treatment Before After">
+      <span class="result-label">ACNE TREATMENT</span>
+    </div>
+
+    <div class="result-card">
+      <img src="images/before-after-hair.png" alt="Hair Transplant Before After">
+      <span class="result-label">HAIR TRANSPLANT</span>
+    </div>
+
+    <div class="result-card">
+      <img src="images/hair-treatment.jpg" alt="Hair Treatment">
+      <span class="result-label">HAIR TREATMENT</span>
+    </div>
+
+    
+
+</div>
+
+
+
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- OFFER BANNER -->
+<div class="offer-banner">
+  <div class="offer-left">
+    <div class="offer-badge">LIMITED TIME OFFER</div>
+    <h2>Get Upto <span>15% OFF</span> On<br>Selected Hair &amp; Skin<br>Treatments</h2>
+    <p>Premium dermatology care, now at a special price. Book your slot before the offer ends and start your transformation today.</p>
+    <div class="offer-btns">
+      <button class="btn-offer" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+      <a class="btn-offer-outline" href="https://wa.me/916361347722" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+  <div class="offer-circle">
+    <div class="offer-circle-num">15%</div>
+    <div class="offer-circle-sub">Off Selected<br>Treatments</div>
+  </div>
+</div>
+
+<!-- EXPERT -->
+<section class="expert" id="expert">
+  <div class="expert-header">
+    <div class="section-tag"><span class="dot"></span> Our Expert</div>
+    <h2 class="section-title">Meet Our <span>Specialist</span></h2>
+    <p class="section-desc" style="margin:0 auto;text-align:center;">Led by an experienced dermatologist and trichologist dedicated to delivering advanced skin and hair care with exceptional results.</p>
+  </div>
+  <div class="expert-card">
+    <div class="expert-photo">
+      <img src="images/specialist.jpg" alt="Dr Madan Kumar BJ" />
+    </div>
+    <div class="expert-info">
+      <div class="expert-name-row">
+        <h3>Dr MADAN KUMAR BJ</h3>
+        <div class="expert-rating"><span class="star">★</span> 4.9/5.0 Feedback</div>
+      </div>
+      <div class="expert-title">MD &amp; Co-Founder · Consultant Dermatologist &amp; Hair Transplant Surgeon</div>
+      <p class="expert-bio">Founder of Vtiara Hair &amp; Skin Clinic, Dr. Madan Kumar BJ specializes in advanced dermatology, trichology, and hair restoration treatments. With a patient-first approach and expertise in aesthetic dermatology, he is committed to delivering safe, effective, and personalized skin and hair care solutions.</p>
+      <div class="expert-tags">
+        <span class="expert-tag">Aesthetic Dermatology</span>
+        <span class="expert-tag">Hair Transplant</span>
+        <span class="expert-tag">Trichology</span>
+      </div>
+      <div class="expert-contacts">
+        <div class="expert-contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          manager@vtiaraclinic.com
+        </div>
+        <div class="expert-contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 6361347722
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <div class="section-tag"><span class="dot"></span> Testimonials</div>
+      <h2 class="section-title">Trusted By Patients. Proven By <span>Results</span></h2>
+      <p class="section-desc">From healthier skin to stronger hair, our patients' journeys reflect our commitment to excellence.</p>
+    </div>
+  </div>
+
+  <!-- SVG: Google G logo reusable -->
+  <svg style="display:none">
+    <symbol id="google-g" viewBox="0 0 48 48">
+      <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+      <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+      <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+      <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+    </symbol>
+  </svg>
+
+  <!-- NEW BEL ROAD BRANCH -->
+  <div class="branch-section">
+    <div class="branch-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      New BEL Road Branch
+    </div>
+    <div class="review-scroll-track">
+
+      <!-- Place badge -->
+      <div class="g-place-card">
+        <img class="g-place-photo" src="images/clinic.jpg" alt="Vtiara Clinic New BEL Road">
+        <div class="g-place-name">Vtiara Clinic New BEL Road</div>
+        <div class="g-place-rating">4.8 <span class="g-place-stars">★★★★★</span></div>
+        <div class="g-place-count">Based on 160 reviews</div>
+        <div class="g-powered">powered by <span class="google-brand"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></span></div>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJSxDRCMAXrjsRqxpRqomJkNM" target="_blank" class="g-review-btn">
+          review us on <svg class="g-gicon"><use href="#google-g"/></svg>
+        </a>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#E74C3C;">K</div>
+            <div>
+              <div class="g-reviewer-name">Karthik Varma</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">I have received good treatment for my hairfall. Very thankful to Dr Madan sir for the guidance and care throughout my sessions.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#1F618D;">S</div>
+            <div>
+              <div class="g-reviewer-name">Saubhik Mazumdar</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Pleasant experience here. Dr. Madan provides good directions and the staff are well trained. Would definitely recommend visiting.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#27AE60;">N</div>
+            <div>
+              <div class="g-reviewer-name">Nikhil BN</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">I visited Vtiara for excess of hair loss. Dr Madan Kumar explained about the GFC treatment. I had 2 sessions and I can see hair loss has reduced. I want to thank Dr Madan Kumar.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#2A9DBB;">Y</div>
+            <div>
+              <div class="g-reviewer-name">Yashswini T N</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">I'm consulting Dr. Madan for the past 2 years now. He is very good at his field — does the right diagnosis. His treatment has been very helpful. I recommend him very much.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#117864;">P</div>
+            <div>
+              <div class="g-reviewer-name">Pavan Kumar</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Very good clinic for HT, very hygienic place and good supporting staffs and Dr. Madan is the best dermatologist.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#8E44AD;">K</div>
+            <div>
+              <div class="g-reviewer-name">Kashif Naukhez</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">I've been receiving PRP treatment for the past year at Vtiara New Bel Road under Dr. Nikita's care. My hair has significantly improved. I highly recommend Vtiara to anyone struggling with hair-related issues.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#1A6B8A;">S</div>
+            <div>
+              <div class="g-reviewer-name">Srikanth Byalal</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">The best clinic for hair fall treatment — under Dr. Madan's consultation I have recovered my baldness. Highly recommended clinic with friendly people and advanced equipment.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#2980B9;">A</div>
+            <div>
+              <div class="g-reviewer-name">Arun Kumar</div>
+              <div class="g-reviewer-time">2 years ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Visiting from past 2 years for hair loss GFC treatment. All doctors are good, especially Dr. Madan sir — caring and periodic advice is excellent. Staff all are well trained and experienced.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#117A65;">S</div>
+            <div>
+              <div class="g-reviewer-name">Sai Girindra</div>
+              <div class="g-reviewer-time">2 years ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Exceptional care from Dr. Madan Kumar and Dr. Nikhitha. Their expertise and personalized approach have significantly improved my hair health. I recommend VTiara clinic for anyone seeking comprehensive healthcare.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INDIRANAGAR BRANCH -->
+  <div class="branch-section">
+    <div class="branch-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Indiranagar Branch
+    </div>
+    <div class="review-scroll-track">
+
+      <!-- Place badge -->
+      <div class="g-place-card">
+        <img class="g-place-photo" src="images/clinic2.jpg" alt="Vtiara Clinic Indiranagar" onerror="this.src='images/clinic.jpg'">
+        <div class="g-place-name">Vtiara Clinic Indiranagar</div>
+        <div class="g-place-rating">4.7 <span class="g-place-stars">★★★★★</span></div>
+        <div class="g-place-count">Based on 265 reviews</div>
+        <div class="g-powered">powered by <span class="google-brand"><span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></span></div>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJWzQK96kVrjsRjgEpimFB-LM" target="_blank" class="g-review-btn">
+          review us on <svg class="g-gicon"><use href="#google-g"/></svg>
+        </a>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#5D6D7E;">S</div>
+            <div>
+              <div class="g-reviewer-name">Shivani V</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">My visits to this clinic have been regular — this is one of the good dermatology clinics. Doctor and staff are polite and good at their job. Kudos to Pratima and Amrutha for providing exceptional care!</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#A93226;">A</div>
+            <div>
+              <div class="g-reviewer-name">Anoubhav Agarwaal</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Amrita and Rekha were very helpful in explaining the treatment and medicines. Great staff with a very professional approach.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#E67E22;">S</div>
+            <div>
+              <div class="g-reviewer-name">Safoora Noor</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Visited for Laser hair reduction. Very patient with how they explain the entire procedure and conduct with utmost hygiene and care.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#1A6B8A;">I</div>
+            <div>
+              <div class="g-reviewer-name">Inderkr Sharma</div>
+              <div class="g-reviewer-time">a year ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Dr Madan is good for all hair fall related issues — you can see significant results in couple of months. Staffs are also well behaved and help you at your doubts and sessions updates.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#C0392B;">J</div>
+            <div>
+              <div class="g-reviewer-name">Jhanvi Sharma</div>
+              <div class="g-reviewer-time">2 years ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">I have had flared up active acne and acne scars since years. Results from Dr. Madan's consultation are drastically positive in just 4 months. Definitely suggest his consultation for skin issues.</p>
+      </div>
+
+      <div class="g-review-card">
+        <div class="g-review-header">
+          <div class="g-reviewer">
+            <div class="g-avatar" style="background:#16A085;">V</div>
+            <div>
+              <div class="g-reviewer-name">Vinay Mahindrakar</div>
+              <div class="g-reviewer-time">2 years ago</div>
+            </div>
+          </div>
+          <svg class="g-gicon"><use href="#google-g"/></svg>
+        </div>
+        <div class="g-card-stars">★★★★★</div>
+        <p class="g-review-text">Dr. Madan was excellent — even though he was on leave, he made time to see me and performed my lengthy, nine-hour hair transplant procedure with precision and structure. Heartily recommended.</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left">
+      <div class="section-tag"><span class="dot"></span> FAQ's</div>
+      <h2>Expert Answers.<br>Honest <span style="color:var(--teal)">Guidance</span></h2>
+      <p>Have more questions? Our specialists are here to help you choose the right treatment for your skin and hair concerns.</p>
+      <button class="btn-book-faq" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+    </div>
+    <div class="faq-right">
+      <div class="faq-item open">
+        <div class="faq-question">
+          How much does a consultation with a dermatologist at Vtiara Clinic cost?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">Consultation fees vary by treatment type and doctor availability. Please call us or book online for the most current pricing. We also offer special packages for combined treatments.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          What types of skincare products do dermatologists at Vtiara Clinic recommend?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">Our dermatologists recommend clinically proven skincare products suited to your skin type and condition. After your consultation, you'll receive a personalized skincare routine.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Where is Vtiara Clinic located?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">We have branches in Indiranagar, Bangalore and New BEL Road, Bangalore. Please contact us for exact directions and branch timings.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          How is a dermatologist different from a skin-care specialist?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">A dermatologist is a licensed medical doctor who specializes in diagnosing and treating skin, hair, and nail conditions. They can prescribe medications and perform clinical procedures, unlike general skincare specialists.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          How can I schedule an appointment with a dermatologist at Vtiara Clinic?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">You can book online through our website, call us at +91 6361347722, or message us on WhatsApp for a quick response.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          What services does Vtiara Clinic offer?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">We offer Hair Transplant, PRP Therapy, Acne Treatment, Pigmentation Treatment, Laser Hair Removal, Anti-Aging Solutions, Skin Rejuvenation, and more.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Who are the dermatologists at Vtiara Clinic?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">Our clinic is led by Dr. Madan Kumar BJ, MD &amp; Co-Founder, a Consultant Dermatologist &amp; Hair Transplant Surgeon with over 15 years of experience.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          What happens during my first consultation?
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-answer">Your first consultation includes a detailed assessment of your skin or hair concern, a discussion of your medical history, and a personalized treatment plan tailored to your goals.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK APPOINTMENT -->
+<section class="book-section" id="book">
+  <div class="book-card">
+    <div class="book-left">
+      <div class="book-label">BOOK APPOINTMENT</div>
+      <h2>Begin Your <span>Transformation</span></h2>
+      <p>Fill in your details and our care team will reach out within 2 business hours to confirm your slot.</p>
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0">
+          <label>Full Name</label>
+          <input type="text" class="form-control" placeholder="Your name" />
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label>Mobile Number</label>
+          <input type="tel" class="form-control" placeholder="+91 XXXXXXXXXX" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Gmail</label>
+        <input type="email" class="form-control" placeholder="you@gmail.com" />
+      </div>
+      <div class="form-group">
+        <label>Treatments Interested In</label>
+        <select class="form-control">
+          <option value="">Select Treatments</option>
+          <optgroup label="── Hair Care Services ──">
+            <option>Hair Transplantation</option>
+            <option>PRP Therapy for Hair Loss</option>
+            <option>Mesotherapy for Hair Loss</option>
+            <option>Dandruff Treatment</option>
+            <option>Low Level Laser Therapy</option>
+          </optgroup>
+          <optgroup label="── Skin Care Services ──">
+            <option>Laser Hair Reduction</option>
+            <option>Acne Treatment</option>
+            <option>Acne / Pimple Scar Treatment</option>
+            <option>Skin Whitening / Pigmentation</option>
+            <option>Wrinkles Removal</option>
+            <option>Dark Circles Removal</option>
+            <option>Stretch Marks Removal</option>
+            <option>Skin Tightening</option>
+            <option>Anti-Aging Treatment</option>
+            <option>Laser Toning</option>
+            <option>Botox</option>
+            <option>Filler</option>
+            <option>Skin Hydration Treatment</option>
+            <option>Photo Facial</option>
+          </optgroup>
+          <optgroup label="── Other Services ──">
+            <option>Permanent Tattoo Removal</option>
+            <option>Wart Removal</option>
+            <option>Mole Removal</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea class="form-control" placeholder="Tell us briefly about your concern.."></textarea>
+      </div>
+      <button class="btn-submit">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+      <div class="form-disclaimer">By submitting, you agree to be contacted by VTIARA Hair &amp; Skin Clinic.</div>
+    </div>
+    <div class="book-right">
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">Visit Us</div>
+            <div class="contact-card-value">Indiranagar, Bangalore<br>New BEL Road, Bangalore</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">Call Us</div>
+            <div class="contact-card-value">+91 6361347722</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">WhatsApp</div>
+            <div class="contact-card-value">Chat instantly with our care team</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card-label">Website</div>
+            <div class="contact-card-value">www.vtiaraclinic.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9!2d77.64!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzgnMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="VTIARA Clinic Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="VTIARA" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+      </div>
+      <p>Premium dermatology and hair restoration in Bangalore.<br>Where clinical excellence meets personalized care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">Hair Transplant</a></li>
+        <li><a href="#">PRP Therapy</a></li>
+        <li><a href="#">Acne Treatment</a></li>
+        <li><a href="#">Pigmentation</a></li>
+        <li><a href="#">Laser Hair Removal</a></li>
+        <li><a href="#">Anti-Aging</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <ul>
+        <li><a href="#">Indiranagar, Bangalore</a></li>
+        <li><a href="#">New BEL Road, Bangalore</a></li>
+        <li><a href="tel:+916361347722">+91 6361347722</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 VTIARA Hair &amp; Skin Clinic. All rights reserved.</div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Twitter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="LinkedIn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="tel:+916361347722" class="phone-float" aria-label="Call us">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+<a href="https://wa.me/916361347722" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+    var navEl = document.getElementById('main-nav');
+    var navLinks = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    // Dynamically set top so menu always starts right below the nav
+    var navBottom = navEl.getBoundingClientRect().bottom;
+    navLinks.style.top = navBottom + 'px';
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  }
+  function closeMenu() {
+    var nav = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    nav.classList.remove('open');
+    nav.style.top = '';
+    hamburger.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+
+  /* About section image slider */
+  let asCurrentSlide = 0;
+  const asSlides = document.querySelectorAll('.about-slide');
+  const asDots = document.querySelectorAll('.asdot');
+
+  function goToSlide(n) {
+    asSlides[asCurrentSlide].classList.remove('active');
+    asDots[asCurrentSlide].classList.remove('active');
+    asCurrentSlide = n;
+    asSlides[asCurrentSlide].classList.add('active');
+    asDots[asCurrentSlide].classList.add('active');
+  }
+
+  // Auto-advance every 3.5 seconds
+  setInterval(() => {
+    goToSlide((asCurrentSlide + 1) % asSlides.length);
+  }, 3500);
+</script>
+</body>
+</html>

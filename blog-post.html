@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog – VTIARA Hair & Skin Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .post-hero {
+    background: var(--navy);
+    padding: 48px var(--px) 40px;
+  }
+  .post-breadcrumb {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .post-breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .post-breadcrumb a:hover { color: #fff; }
+  .post-hero-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .post-hero h1 {
+    font-size: clamp(22px, 2.6vw, 38px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    max-width: 780px;
+    margin-bottom: 20px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    flex-wrap: wrap;
+  }
+  .post-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Layout */
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px var(--px);
+  }
+
+  /* Article */
+  .post-article {}
+  .post-cover {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 36px;
+    display: block;
+  }
+  .post-cover-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    border-radius: var(--radius);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .post-body h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 32px 0 12px;
+    line-height: 1.3;
+  }
+  .post-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 24px 0 10px;
+  }
+  .post-body p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .post-body ul, .post-body ol {
+    padding-left: 22px;
+    margin-bottom: 18px;
+  }
+  .post-body li {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 6px;
+  }
+  .post-body blockquote {
+    border-left: 4px solid var(--teal);
+    background: var(--bg-light);
+    padding: 16px 20px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .post-body th {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .post-body td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+  }
+  .post-body tr:nth-child(even) td { background: var(--bg-light); }
+  .post-highlight {
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 4px solid var(--yellow);
+  }
+  .post-highlight p { margin-bottom: 0; }
+  .post-cta {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 40px 0 0;
+  }
+  .post-cta h3 { color: #fff; font-size: 20px; margin-bottom: 10px; }
+  .post-cta p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 20px; }
+  .post-cta a {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--yellow); color: var(--navy);
+    font-weight: 700; font-size: 14px;
+    padding: 12px 24px; border-radius: 8px;
+    text-decoration: none; transition: background .2s;
+  }
+  .post-cta a:hover { background: var(--yellow-dark); }
+
+  /* Sidebar */
+  .post-sidebar {}
+  .sidebar-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+  .sidebar-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--teal);
+  }
+  .related-post {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    text-decoration: none;
+  }
+  .related-post:last-child { margin-bottom: 0; }
+  .related-thumb {
+    width: 72px;
+    height: 56px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--navy);
+  }
+  .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .related-info h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 4px;
+    transition: color .2s;
+  }
+  .related-post:hover .related-info h5 { color: var(--teal); }
+  .related-info span { font-size: 11px; color: var(--text-light); }
+
+  .sidebar-book {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .sidebar-book h4 { color: #fff; font-size: 16px; margin-bottom: 8px; }
+  .sidebar-book p { color: rgba(255,255,255,0.65); font-size: 13px; margin-bottom: 16px; }
+  .sidebar-book a {
+    display: block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 11px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: background .2s;
+  }
+  .sidebar-book a:hover { background: var(--yellow-dark); }
+  .sidebar-book a.whatsapp-btn {
+    background: #25D366; color: #fff;
+  }
+  .sidebar-book a.whatsapp-btn:hover { background: #1ebe5d; }
+
+  .tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag-chip {
+    background: var(--bg-light);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    cursor: default;
+  }
+
+  @media (max-width: 1024px) {
+    .post-layout { grid-template-columns: 1fr; gap: 32px; }
+    .post-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .sidebar-book { grid-column: span 2; }
+  }
+  @media (max-width: 768px) {
+    .post-hero { padding: 32px 20px 28px; }
+    .post-layout { padding: 32px 20px; }
+    .post-cover, .post-cover-placeholder { height: 220px; }
+    .post-sidebar { grid-template-columns: 1fr; }
+    .sidebar-book { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="announcement-bar-track">
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="main-nav">
+  <div class="logo"><img src="images/logo.png" alt="VTIARA Logo"></div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="index.html#about" onclick="closeMenu()">About</a></li>
+    <li><a href="index.html#treatments" onclick="closeMenu()">Treatments</a></li>
+    <li><a href="index.html#results" onclick="closeMenu()">Results</a></li>
+    <li><a href="index.html#expert" onclick="closeMenu()">Our Expert</a></li>
+    <li><a href="index.html#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="index.html#faq" onclick="closeMenu()">FAQ's</a></li>
+    <li><a href="blog.html" onclick="closeMenu()" style="color:var(--teal)">Blog</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="btn-book-nav" href="index.html#book">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Appointment
+    </a>
+    <a class="btn-phone-nav" href="tel:+916361347722">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      63613 47722
+    </a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<!-- POST HERO -->
+<div class="post-hero" id="post-hero">
+  <div class="post-breadcrumb">
+    <a href="index.html">Home</a> &rsaquo; <a href="blog.html">Blog</a> &rsaquo; <span id="breadcrumb-title">Article</span>
+  </div>
+  <div id="post-tag" class="post-hero-tag">Hair Care</div>
+  <h1 id="post-title">Loading...</h1>
+  <div class="post-meta">
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+      Vtiara Editorial Team
+    </span>
+    <span id="post-date">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </span>
+    <span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      5 min read
+    </span>
+  </div>
+</div>
+
+<!-- POST LAYOUT -->
+<div class="post-layout">
+  <!-- ARTICLE -->
+  <article class="post-article">
+    <div id="post-cover-wrap"></div>
+    <div class="post-body" id="post-body">Loading content...</div>
+    <div class="post-cta">
+      <h3>Ready to Start Your Transformation?</h3>
+      <p>Consult with our expert dermatologists at Vtiara Clinic for personalized treatment tailored to your needs.</p>
+      <a href="index.html#book">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Free Consultation
+      </a>
+    </div>
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="post-sidebar">
+    <!-- Book Appointment -->
+    <div class="sidebar-book">
+      <h4>Get Expert Care</h4>
+      <p>Consult with Bangalore's top dermatologists at Vtiara Clinic.</p>
+      <a href="index.html#book">Book Appointment</a>
+      <a href="https://wa.me/916361347722" class="whatsapp-btn" target="_blank">WhatsApp Us</a>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="sidebar-card">
+      <h4>Related Posts</h4>
+      <div id="related-posts"></div>
+    </div>
+
+    <!-- Tags -->
+    <div class="sidebar-card">
+      <h4>Topics</h4>
+      <div class="tags-list">
+        <span class="tag-chip">Hair Transplant</span>
+        <span class="tag-chip">Laser Hair Removal</span>
+        <span class="tag-chip">Skin Care</span>
+        <span class="tag-chip">Acne</span>
+        <span class="tag-chip">Anti-Aging</span>
+        <span class="tag-chip">Hair Loss</span>
+        <span class="tag-chip">Dark Spots</span>
+        <span class="tag-chip">Bangalore</span>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="sidebar-card">
+      <h4>Recent Posts</h4>
+      <div id="recent-posts"></div>
+    </div>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="VTIARA" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+      </div>
+      <p>Premium dermatology and hair restoration in Bangalore.<br>Where clinical excellence meets personalized care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">Hair Transplant</a></li>
+        <li><a href="#">PRP Therapy</a></li>
+        <li><a href="#">Acne Treatment</a></li>
+        <li><a href="#">Pigmentation</a></li>
+        <li><a href="#">Laser Hair Removal</a></li>
+        <li><a href="#">Anti-Aging</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <ul>
+        <li><a href="#">Indiranagar, Bangalore</a></li>
+        <li><a href="#">New BEL Road, Bangalore</a></li>
+        <li><a href="tel:+916361347722">+91 6361347722</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 VTIARA Hair &amp; Skin Clinic. All rights reserved.</div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="social-link" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" class="social-link" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+916361347722" class="phone-float" aria-label="Call us">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+<a href="https://wa.me/916361347722" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script>
+function toggleMenu(){var n=document.getElementById('nav-links'),h=document.getElementById('hamburger'),o=document.getElementById('nav-overlay');n.classList.toggle('open');h.classList.toggle('open');o.classList.toggle('open');document.body.classList.toggle('menu-open');}
+function closeMenu(){var n=document.getElementById('nav-links'),h=document.getElementById('hamburger'),o=document.getElementById('nav-overlay');n.classList.remove('open');h.classList.remove('open');o.classList.remove('open');document.body.classList.remove('menu-open');}
+
+/* ── ALL BLOG POSTS DATA ── */
+const POSTS = [
+  {
+    id: 1,
+    slug: 'hair-transplant-science',
+    tag: 'Hair Care',
+    title: 'The Science of Permanent Hair Growth: Why Your Hair Transplant in Bangalore Lasts',
+    date: 'November 14, 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2023/12/Best-Hair-Transplant-Bangalore-.jpeg',
+    content: `
+      <blockquote>You've searched for the "best hair transplant in Bangalore," compared the hair transplant cost, and read reviews. But have you ever wondered <em>why</em> a hair transplant works at a fundamental biological level? The secret lies in a brilliant principle called <strong>Donor Dominance</strong>.</blockquote>
+      <h2>1. The Root Cause of Hair Loss: Genetics, Hormones & DHT</h2>
+      <p>The vast majority of hair loss is due to <strong>Androgenetic Alopecia</strong> (pattern baldness), caused by a genetic sensitivity to Dihydrotestosterone (DHT). DHT is a powerful derivative of testosterone formed on the scalp. When DHT binds to genetically susceptible hair follicles on the top and crown, it triggers a process called <strong>miniaturisation</strong> — shrinking the follicle until it stops growing hair altogether.</p>
+      <h2>2. The Breakthrough: Donor Dominance & Permanent Hair</h2>
+      <p>The reason a hair transplant is considered permanent is <strong>donor dominance</strong>.</p>
+      <ul>
+        <li><strong>The Safe Zone:</strong> Hair follicles on the back and sides of your scalp are genetically programmed to be <em>resistant</em> to DHT.</li>
+        <li><strong>The Transplant:</strong> When a hair doctor extracts these superior follicles and transplants them to balding areas, they retain their original DHT-resistant programming.</li>
+        <li><strong>The Result:</strong> Transplanted hair continues to grow for a lifetime, regardless of the hormonal environment at the recipient site.</li>
+      </ul>
+      <h2>3. FUE vs. FUT — The Two Main Techniques</h2>
+      <table>
+        <tr><th>Feature</th><th>FUE</th><th>FUT</th></tr>
+        <tr><td>Harvesting</td><td>Individual units via micro-punch</td><td>Strip of tissue removed & dissected</td></tr>
+        <tr><td>Scarring</td><td>Tiny scattered dots (often invisible)</td><td>Single fine linear scar</td></tr>
+        <tr><td>Recovery</td><td>5–7 days, no stitches</td><td>10–15 days with sutures</td></tr>
+        <tr><td>Graft Yield</td><td>High yield per session</td><td>Typically 2000–2200 grafts</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Cost in Bangalore:</strong> FUE is approximately ₹30–₹50 per graft. A 2000-graft session typically costs ₹75,000–₹1,50,000. Costs vary based on the clinic, doctor expertise, and extent of baldness.</p></div>
+      <h2>4. Why Expertise Matters</h2>
+      <p>While biology guarantees the hair will grow, the artistry of the surgeon determines how natural it looks. A qualified hair doctor ensures:</p>
+      <ul>
+        <li><strong>Optimal Graft Survival:</strong> Minimising out-of-body time for the follicle.</li>
+        <li><strong>Natural Hairline Design:</strong> A custom hairline that complements your facial structure and age.</li>
+        <li><strong>Correct Angulation & Density:</strong> Placing grafts at the right angle for undetectable results.</li>
+      </ul>
+      <p>Choosing the right clinic means choosing an experienced medical professional who respects the delicate biology of the follicle and maximises the success of your hair restoration journey.</p>
+    `
+  },
+  {
+    id: 2,
+    slug: 'laser-hair-removal-guide',
+    tag: 'Laser',
+    title: 'The Ultimate Laser Hair Removal Guide for Bangalore: Costs, Experts, & Results',
+    date: 'November 12, 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/11/Laser-Hair-Removal-Cost-Bangalore-1.jpg',
+    content: `
+      <h2>What is the Goal? Permanent Hair Reduction</h2>
+      <p>Laser hair removal doesn't promise 100% permanent removal, but it delivers significant and lasting <strong>permanent reduction</strong>. The primary goal is to destroy the hair follicle, resulting in far less regrowth. Most patients see <strong>80–90% hair reduction</strong> after 6–8 sessions.</p>
+      <h2>How It Works: The Science</h2>
+      <p>The laser operates on a principle called <strong>Selective Photothermolysis</strong>. It targets the pigment (melanin) in the hair without damaging surrounding skin. The light energy is absorbed by melanin, converted to heat, and damages the follicle permanently.</p>
+      <h2>The Procedure: Step-by-Step</h2>
+      <h3>Before the Session</h3>
+      <ul>
+        <li>Shave the area 12–24 hours prior</li>
+        <li>Avoid waxing or plucking for 6 weeks</li>
+        <li>Avoid sun exposure on the treatment area</li>
+        <li>Arrive with clean, lotion-free skin</li>
+      </ul>
+      <h3>During the Session</h3>
+      <ul>
+        <li>Technician preps area and provides protective eyewear</li>
+        <li>Cooling gel may be applied for comfort</li>
+        <li>Laser is applied — feels like a warm pinprick</li>
+        <li>Duration: 1 minute (upper lip) to 1 hour (full legs)</li>
+      </ul>
+      <h3>After the Session</h3>
+      <ul>
+        <li>Expect mild redness and swelling (similar to mild sunburn)</li>
+        <li>Treated hairs shed over 1–3 weeks</li>
+        <li>Avoid heat, saunas, and strenuous workouts for 24–48 hrs</li>
+        <li>Apply strict sun protection on treated areas</li>
+      </ul>
+      <h2>Understanding the Cost in Bangalore</h2>
+      <table>
+        <tr><th>Treatment Area</th><th>Estimated Cost (Per Session)</th></tr>
+        <tr><td>Upper Lip</td><td>₹1,000 – ₹2,500</td></tr>
+        <tr><td>Underarms</td><td>₹2,000 – ₹4,000</td></tr>
+        <tr><td>Full Arms</td><td>₹5,000 – ₹9,000</td></tr>
+        <tr><td>Full Legs</td><td>₹8,000 – ₹15,000</td></tr>
+        <tr><td>Full Body</td><td>₹20,000 – ₹40,000</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Long-term savings:</strong> Over 10 years, the cumulative cost of waxing and shaving often far exceeds a one-time laser package. LHR is an investment in time saved and freedom gained.</p></div>
+      <h2>Expert Insight: Dr. Madan Kumar BJ</h2>
+      <blockquote>"For our clients in Bangalore, safety and results are paramount. We tailor our laser technology to the individual's skin type — which is the most critical step in achieving beautiful, lasting hair reduction." — Dr. Madan Kumar BJ, Chief Dermatologist, Vtiara Hair & Skin Clinic</blockquote>
+    `
+  },
+  {
+    id: 3,
+    slug: 'dermatologist-bangalore',
+    tag: 'Skin Care',
+    title: 'Dermatologist Bangalore: How to Find the Best Skin & Hair Specialist',
+    date: 'July 20, 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/07/1920x1080-80.png',
+    content: `
+      <p>The condition of your skin and hair directly affects your physical appearance, confidence, and overall well-being. Finding the right dermatologist in Bangalore can feel overwhelming given the number of clinics available. This guide helps you navigate the choice.</p>
+      <h2>What Does a Dermatologist Treat?</h2>
+      <p>A qualified dermatologist specialises in conditions affecting the skin, hair, and nails. Common concerns they address include acne, eczema, psoriasis, hair loss (alopecia), pigmentation issues, skin infections, and cosmetic concerns like aging and scarring.</p>
+      <h2>Key Qualifications to Look For</h2>
+      <ul>
+        <li><strong>MD Dermatology:</strong> A post-graduate medical degree in dermatology — the minimum qualification for a skin specialist.</li>
+        <li><strong>DNB Dermatology:</strong> Diploma of National Board — equally recognised and rigorous.</li>
+        <li><strong>Fellowship Training:</strong> Additional specialisation in areas like hair restoration or laser dermatology.</li>
+        <li><strong>Board Certification:</strong> Membership with the Indian Association of Dermatologists (IADVL).</li>
+      </ul>
+      <h2>5 Questions to Ask Before Choosing a Clinic</h2>
+      <ol>
+        <li>Is the doctor a certified dermatologist (MD/DNB)?</li>
+        <li>Do they specialise in the condition you have?</li>
+        <li>What technology and equipment does the clinic use?</li>
+        <li>Are before-and-after results available from real patients?</li>
+        <li>Is a personalised treatment plan offered, or a one-size-fits-all approach?</li>
+      </ol>
+      <div class="post-highlight"><p><strong>Vtiara Advantage:</strong> At Vtiara Hair & Skin Clinic, every patient receives a personalised consultation with a board-certified dermatologist. We use FDA-approved technology and create customised treatment plans for every individual.</p></div>
+      <h2>Red Flags to Avoid</h2>
+      <ul>
+        <li>Clinics that promise guaranteed results without a proper consultation</li>
+        <li>Non-doctor practitioners performing medical-grade procedures</li>
+        <li>Extremely low prices that may compromise on product quality or safety</li>
+        <li>No visible before-and-after documentation</li>
+      </ul>
+      <h2>Why Bangalore is a Leader in Dermatology</h2>
+      <p>Bangalore is home to some of India's finest medical institutions and dermatology training programs. The city's dermatology clinics are equipped with the latest technology, from diode lasers to advanced PRP systems, making it a hub for world-class skin and hair care.</p>
+    `
+  },
+  {
+    id: 4,
+    slug: 'laser-hair-removal-cost',
+    tag: 'Laser',
+    title: 'How Much Does Laser Hair Removal Cost in Bangalore?',
+    date: 'July 20, 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/07/1920x1080-79.png',
+    content: `
+      <p>Laser hair removal is becoming an increasingly popular choice for individuals looking for a permanent solution to unwanted hair. One of the most common questions we receive at Vtiara Clinic is: <em>"How much does laser hair removal cost in Bangalore?"</em> The answer depends on several factors.</p>
+      <h2>Factors That Affect the Cost</h2>
+      <ul>
+        <li><strong>Treatment area size:</strong> Larger areas like the full back or legs cost significantly more than smaller areas like the upper lip.</li>
+        <li><strong>Number of sessions required:</strong> Most people need 6–8 sessions for optimal results, spaced 4–6 weeks apart.</li>
+        <li><strong>Technology used:</strong> Advanced diode or Alexandrite lasers may cost more but are safer for Indian skin tones.</li>
+        <li><strong>Clinic location:</strong> Premium clinics in areas like Indiranagar may charge more than suburban clinics.</li>
+        <li><strong>Doctor expertise:</strong> Dermatologist-administered treatments cost more than those by aestheticians but come with medical oversight.</li>
+      </ul>
+      <h2>Average Cost by Treatment Area</h2>
+      <table>
+        <tr><th>Area</th><th>Per Session (INR)</th><th>Full Course (6 Sessions)</th></tr>
+        <tr><td>Upper Lip</td><td>₹1,000–₹2,500</td><td>₹6,000–₹15,000</td></tr>
+        <tr><td>Chin</td><td>₹1,500–₹3,000</td><td>₹9,000–₹18,000</td></tr>
+        <tr><td>Underarms</td><td>₹2,000–₹4,000</td><td>₹12,000–₹24,000</td></tr>
+        <tr><td>Full Arms</td><td>₹5,000–₹9,000</td><td>₹30,000–₹54,000</td></tr>
+        <tr><td>Full Legs</td><td>₹8,000–₹15,000</td><td>₹48,000–₹90,000</td></tr>
+        <tr><td>Brazilian/Bikini</td><td>₹4,000–₹8,000</td><td>₹24,000–₹48,000</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Note:</strong> Many clinics including Vtiara offer package pricing that provides significant discounts when booking a full course of sessions upfront. Always ask about package deals.</p></div>
+      <h2>Is Laser Hair Removal Worth the Cost?</h2>
+      <p>When you factor in the lifetime cost of waxing (₹500–₹2,000 per session, every 3–4 weeks), laser hair removal pays for itself within 3–5 years — and then saves you money for the rest of your life. Beyond money, you save time, avoid ingrown hairs, and eliminate the discomfort of regular waxing.</p>
+      <h2>Getting the Best Value</h2>
+      <ul>
+        <li>Always consult with a board-certified dermatologist first</li>
+        <li>Ask what type of laser is being used for your skin tone</li>
+        <li>Request a patch test before committing to a full course</li>
+        <li>Compare package pricing vs. per-session pricing</li>
+      </ul>
+    `
+  },
+  {
+    id: 5,
+    slug: 'hair-transplant-cost',
+    tag: 'Hair Care',
+    title: 'Hair Transplant Cost in Bangalore: Key Factors & Pricing Guide',
+    date: 'July 20, 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/07/1920x1080-78.png',
+    content: `
+      <p>Hair transplant helps build confidence, restore hair loss, improve hairline, and positively affect a person's overall well-being. But one of the biggest concerns for those considering the procedure is the cost. This guide breaks down everything you need to know about hair transplant pricing in Bangalore.</p>
+      <h2>Key Factors That Affect Hair Transplant Cost</h2>
+      <ul>
+        <li><strong>Number of grafts needed:</strong> This is the single biggest cost factor. More grafts = higher total cost.</li>
+        <li><strong>Technique (FUE vs. FUT):</strong> FUE costs more per graft due to labour intensity but leaves less visible scarring.</li>
+        <li><strong>Doctor's expertise:</strong> A highly experienced hair transplant surgeon typically charges more but delivers superior results.</li>
+        <li><strong>Clinic standards:</strong> Hospitals with sterile operating rooms and modern equipment charge a premium.</li>
+        <li><strong>Location:</strong> Clinics in premium Bangalore localities like Indiranagar or Koramangala may charge higher rates.</li>
+      </ul>
+      <h2>Pricing by Baldness Grade</h2>
+      <table>
+        <tr><th>Norwood Scale Grade</th><th>Grafts Required</th><th>Estimated Cost (INR)</th></tr>
+        <tr><td>Grade 2–3 (Early)</td><td>1,000–1,500 grafts</td><td>₹40,000–₹75,000</td></tr>
+        <tr><td>Grade 3–4 (Moderate)</td><td>1,500–2,500 grafts</td><td>₹75,000–₹1,25,000</td></tr>
+        <tr><td>Grade 4–5 (Advanced)</td><td>2,500–3,500 grafts</td><td>₹1,25,000–₹1,75,000</td></tr>
+        <tr><td>Grade 6–7 (Severe)</td><td>3,500–5,000+ grafts</td><td>₹1,75,000–₹2,50,000+</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Per Graft Rate in Bangalore:</strong> FUE typically costs ₹30–₹50 per graft. FUT is slightly less expensive at ₹25–₹40 per graft. Always get a personalised quote after a consultation and graft assessment.</p></div>
+      <h2>What's Included in the Cost?</h2>
+      <p>A reputable clinic's hair transplant cost should include: pre-procedure consultation, anaesthesia, the procedure itself, post-operative medications, follow-up appointments, and care instructions. Ask specifically what is and isn't included before confirming.</p>
+      <h2>Is the Cheapest Clinic a Good Choice?</h2>
+      <p>Hair transplant is a permanent, medical procedure. Choosing a clinic based on price alone can lead to poor graft survival, unnatural-looking results, or even scarring. Always prioritise a board-certified hair transplant surgeon over the lowest price.</p>
+    `
+  },
+  {
+    id: 6,
+    slug: 'hair-fall-treatment',
+    tag: 'Hair Care',
+    title: 'Best Hair Fall Treatment in Bangalore: Top Solutions for Hair Regrowth',
+    date: 'March 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/03/gloomy-girl-looking-her-hair-need-new-haircut_176420-21630.jpg',
+    content: `
+      <p>Hair loss is a widespread concern affecting both men and women across all age groups. In Bangalore's fast-paced urban environment, stress, pollution, and dietary deficiencies make it even more prevalent. Fortunately, modern dermatology offers highly effective solutions for hair regrowth.</p>
+      <h2>Common Causes of Hair Fall</h2>
+      <ul>
+        <li><strong>Androgenetic Alopecia:</strong> Genetic pattern baldness — the most common cause in both men and women.</li>
+        <li><strong>Telogen Effluvium:</strong> Sudden hair shedding triggered by stress, illness, childbirth, or nutritional deficiencies.</li>
+        <li><strong>Thyroid Disorders:</strong> Both hypothyroidism and hyperthyroidism can cause significant hair loss.</li>
+        <li><strong>Nutritional Deficiencies:</strong> Low iron, Vitamin D, Vitamin B12, or protein levels.</li>
+        <li><strong>Alopecia Areata:</strong> An autoimmune condition causing patchy hair loss.</li>
+      </ul>
+      <h2>Top Hair Fall Treatments Available in Bangalore</h2>
+      <h3>1. PRP (Platelet-Rich Plasma) Therapy</h3>
+      <p>PRP involves drawing a small amount of your blood, processing it to concentrate the platelets, and injecting it into the scalp. The growth factors in platelets stimulate dormant hair follicles, improving density and thickness. Results are typically visible within 3–6 months.</p>
+      <h3>2. GFC (Growth Factor Concentrate) Therapy</h3>
+      <p>A more advanced evolution of PRP, GFC delivers a higher concentration of growth factors directly to the scalp. It's gaining popularity as a more effective alternative for patients with moderate to severe hair loss.</p>
+      <h3>3. QR678 Hair Growth Therapy</h3>
+      <p>A proprietary non-surgical treatment involving a cocktail of growth factors injected into the scalp. Vtiara Clinic is an authorised provider of QR678, which has shown impressive results for both male and female pattern hair loss.</p>
+      <h3>4. Low Level Laser Therapy (LLLT)</h3>
+      <p>FDA-cleared laser devices stimulate cellular activity in hair follicles, increasing blood flow and nutrient delivery. Best used as a complementary treatment alongside other therapies.</p>
+      <h3>5. Minoxidil & Finasteride</h3>
+      <p>These medically-proven topical and oral treatments remain first-line options for androgenetic alopecia. They slow hair loss and can stimulate regrowth when used consistently.</p>
+      <div class="post-highlight"><p><strong>Important:</strong> The right treatment depends on your specific diagnosis. A dermatologist consultation is essential to identify the cause of your hair loss and create a targeted treatment plan.</p></div>
+    `
+  },
+  {
+    id: 7,
+    slug: 'best-skin-clinic-bangalore',
+    tag: 'Skin Care',
+    title: 'Glowing Skin Secrets: Best Skin Clinic in Bangalore',
+    date: 'March 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/03/portrait-beautiful-brunette-with-bare-shoulders-touching-her-cheek-looking-camera-smiling-gray_231208-13513.jpg',
+    content: `
+      <p>Everyone desires extraordinary and glowing skin. Vtiara Clinic understands this goal and stands tall as a premier skin clinic in Bangalore. But achieving radiant skin isn't just about the treatments — it's about the right combination of professional care and daily habits.</p>
+      <h2>What Makes Skin Glow?</h2>
+      <p>Glowing skin is a reflection of good skin health — proper hydration, even skin tone, minimal pores, and no active inflammation. Achieving it requires addressing your skin from multiple angles: from within through nutrition, and from without through targeted treatments.</p>
+      <h2>Top Treatments for Glowing Skin</h2>
+      <h3>1. Chemical Peels</h3>
+      <p>Chemical peels exfoliate the top layers of dead skin cells, revealing brighter, smoother skin underneath. Glycolic acid, salicylic acid, and lactic acid peels are popular for addressing dullness, uneven tone, and mild pigmentation.</p>
+      <h3>2. HydraFacial</h3>
+      <p>A multi-step treatment that simultaneously cleanses, exfoliates, extracts impurities, and delivers nourishing serums. Provides immediate glow with no downtime — ideal before events.</p>
+      <h3>3. Laser Skin Rejuvenation</h3>
+      <p>Fractional laser treatments stimulate collagen production, improving skin texture, tone, and luminosity. Best for addressing sun damage, fine lines, and uneven skin texture.</p>
+      <h3>4. Microneedling with PRP</h3>
+      <p>Tiny needles create micro-channels in the skin while PRP (rich in growth factors) is applied for deep absorption. This powerhouse combination dramatically improves skin texture and glow.</p>
+      <h2>Daily Habits for Glowing Skin</h2>
+      <ul>
+        <li>Use SPF 30+ sunscreen every morning — sun damage is the #1 cause of dull skin</li>
+        <li>Stay hydrated — aim for 8 glasses of water daily</li>
+        <li>Get 7–8 hours of quality sleep (your skin repairs itself at night)</li>
+        <li>Include antioxidant-rich foods like berries, leafy greens, and nuts</li>
+        <li>Cleanse gently but thoroughly — never sleep with makeup on</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Vtiara Tip:</strong> The most effective glow comes from combining professional treatments with consistent home care. Our dermatologists create personalised skin routines for every patient.</p></div>
+    `
+  },
+  {
+    id: 8,
+    slug: 'laser-hair-removal-bangalore',
+    tag: 'Laser',
+    title: 'Laser Hair Removal in Bangalore: Cost, Benefits, and What to Expect',
+    date: 'March 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/03/23406.jpg',
+    content: `
+      <p>Laser hair removal is one of the most popular and effective cosmetic procedures globally — and Bangalore is quickly becoming a hub for world-class treatments. If you're considering making the switch from waxing or shaving, here's everything you need to know.</p>
+      <h2>How Laser Hair Removal Works</h2>
+      <p>The laser emits concentrated light that is absorbed by the melanin (pigment) in your hair. This light energy converts to heat, which damages the hair follicle and inhibits future growth. Multiple sessions are needed because the laser is only effective on hairs in the active growth phase.</p>
+      <h2>Key Benefits</h2>
+      <ul>
+        <li><strong>Long-lasting results:</strong> 80–90% permanent hair reduction after a full course</li>
+        <li><strong>Precision:</strong> Targets hair without damaging surrounding skin</li>
+        <li><strong>Speed:</strong> Each pulse treats many hairs simultaneously</li>
+        <li><strong>Cost-effective long term:</strong> Eliminates lifetime waxing/shaving costs</li>
+        <li><strong>Prevents ingrown hairs:</strong> A major concern with waxing and shaving</li>
+        <li><strong>Minimal discomfort:</strong> Modern lasers with cooling systems are far more comfortable than waxing</li>
+      </ul>
+      <h2>What to Expect During Treatment</h2>
+      <p>Sessions are quick — as short as 5 minutes for small areas like the upper lip and up to 60 minutes for larger areas like the back or full legs. You'll feel a warm, rubber-band-like snapping sensation. Most patients describe it as significantly less painful than waxing.</p>
+      <h2>How Many Sessions Will You Need?</h2>
+      <table>
+        <tr><th>Area</th><th>Recommended Sessions</th><th>Interval</th></tr>
+        <tr><td>Face (upper lip, chin)</td><td>6–8</td><td>4 weeks</td></tr>
+        <tr><td>Underarms</td><td>6–8</td><td>4–6 weeks</td></tr>
+        <tr><td>Legs</td><td>8–10</td><td>6–8 weeks</td></tr>
+        <tr><td>Back / Chest</td><td>6–8</td><td>6–8 weeks</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Pro Tip:</strong> Consistency is key. Completing all recommended sessions is essential for maximum hair reduction. Skipping sessions allows untreated follicles to grow back normally.</p></div>
+      <h2>Is It Safe for Indian Skin Tones?</h2>
+      <p>Modern diode lasers (1064nm Nd:YAG and 810nm Diode) are specifically designed to be safe and effective for darker skin tones (Fitzpatrick Types IV–VI), which are common in India. At Vtiara Clinic, we select the appropriate laser technology based on your specific skin and hair type.</p>
+    `
+  },
+  {
+    id: 9,
+    slug: 'hair-transplant-guide',
+    tag: 'Hair Care',
+    title: 'Everything You Need to Know About Hair Transplants in Bangalore',
+    date: 'March 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/03/2149106303.jpg',
+    content: `
+      <p>Hair loss has become one of the most common problems in people of all ages. A hair transplant remains the only permanent, surgical solution to restore natural-looking hair. This comprehensive guide covers everything you need to know.</p>
+      <h2>Who is a Good Candidate?</h2>
+      <ul>
+        <li>Men and women with stable pattern hair loss (not actively progressing rapidly)</li>
+        <li>Adequate donor hair density on the back and sides of the scalp</li>
+        <li>Realistic expectations about results</li>
+        <li>Good overall health with no uncontrolled medical conditions</li>
+        <li>Aged 25 and above (when hair loss pattern is more predictable)</li>
+      </ul>
+      <h2>The Procedure: Step by Step</h2>
+      <ol>
+        <li><strong>Consultation:</strong> Hair loss assessment, donor area evaluation, and graft count estimation.</li>
+        <li><strong>Design:</strong> The surgeon draws the new hairline customised to your facial structure.</li>
+        <li><strong>Anaesthesia:</strong> Local anaesthesia is applied — you're awake but completely comfortable.</li>
+        <li><strong>Extraction:</strong> Follicular units are harvested from the donor area (FUE or FUT method).</li>
+        <li><strong>Recipient Site Creation:</strong> Tiny incisions are made in the recipient area at precise angles.</li>
+        <li><strong>Implantation:</strong> Grafts are carefully placed one by one into the recipient sites.</li>
+      </ol>
+      <h2>What to Expect After the Procedure</h2>
+      <table>
+        <tr><th>Timeline</th><th>What Happens</th></tr>
+        <tr><td>Days 1–3</td><td>Mild swelling and redness — completely normal</td></tr>
+        <tr><td>Week 2</td><td>Scabbing falls off; transplanted hairs start to shed (shock loss)</td></tr>
+        <tr><td>Months 2–3</td><td>Dormant phase — minimal visible growth</td></tr>
+        <tr><td>Months 4–6</td><td>New hair starts to emerge</td></tr>
+        <tr><td>Month 12</td><td>Full results visible — natural, permanent hair growth</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>Shock Loss is Normal:</strong> Don't panic if the transplanted hairs fall out 2–3 weeks after the procedure. This is a normal part of the hair cycle. The follicle is alive and will regrow permanent hair within a few months.</p></div>
+      <h2>Success Rates</h2>
+      <p>Hair transplants performed by experienced surgeons at reputable clinics have a graft survival rate of 90–95%. The remaining grafts continue to grow for a lifetime, making it a highly reliable and permanent solution for hair restoration.</p>
+    `
+  },
+  {
+    id: 10,
+    slug: 'skin-lightening-treatments',
+    tag: 'Skin Care',
+    title: 'Achieve Your Dream Complexion: Best Skin Lightening Treatments of 2024',
+    date: 'January 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/01/woman-beauty-clinic-face-treatment-scaled.jpg',
+    content: `
+      <p>Skin lightening and brightening treatments have advanced dramatically. Whether you're dealing with post-acne marks, sun damage, melasma, or uneven tone, there are now safe, clinically proven options that deliver real results without compromising skin health.</p>
+      <h2>Understanding Skin Pigmentation</h2>
+      <p>Pigmentation occurs when melanocytes (cells that produce melanin) become overactive. Triggers include sun exposure, hormonal changes (melasma), acne inflammation (PIH), and aging. The right treatment depends on the type and depth of the pigmentation.</p>
+      <h2>Top Clinically Proven Treatments</h2>
+      <h3>1. Chemical Peels</h3>
+      <p>Glycolic acid, kojic acid, and TCA peels exfoliate pigmented skin cells and inhibit melanin production. Multiple sessions progressively brighten the skin. Ideal for superficial pigmentation and uneven tone.</p>
+      <h3>2. Q-Switch Laser</h3>
+      <p>A highly targeted laser that breaks down melanin deposits without damaging surrounding tissue. Effective for melasma, sunspots, freckles, and post-acne marks. Usually 4–6 sessions needed for significant improvement.</p>
+      <h3>3. Glutathione IV / Oral Supplements</h3>
+      <p>Glutathione is a powerful antioxidant that inhibits melanin synthesis at the cellular level. When used in conjunction with topical treatments, it can provide a systemic brightening effect.</p>
+      <h3>4. Topical Brightening Agents</h3>
+      <p>Dermatologist-prescribed creams containing ingredients like niacinamide, kojic acid, arbutin, retinol, and azelaic acid work gradually to fade pigmentation and prevent new spots from forming.</p>
+      <div class="post-highlight"><p><strong>Important:</strong> Avoid over-the-counter skin whitening creams containing mercury or high-strength hydroquinone without medical supervision. These can cause permanent skin damage.</p></div>
+      <h2>The Role of Sun Protection</h2>
+      <p>No skin lightening treatment will work long-term without consistent sun protection. UV radiation is the primary trigger for melanin production. Use a broad-spectrum SPF 50 sunscreen daily — even on cloudy days and indoors near windows.</p>
+    `
+  },
+  {
+    id: 11,
+    slug: 'laser-removal-2024',
+    tag: 'Laser',
+    title: 'Laser Hair Removal 2024: The Ultimate Guide to Advanced Techniques',
+    date: 'October 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/10/Artboard-1-80.jpg',
+    content: `
+      <p>Laser hair removal technology has advanced significantly in recent years, making the procedure safer, more effective, and accessible to a wider range of skin tones. Here's what's new in 2024.</p>
+      <h2>New Technologies in 2024</h2>
+      <h3>1. Diode Laser (810nm)</h3>
+      <p>The gold standard for most skin types. The 810nm wavelength penetrates deep into the dermis to effectively destroy hair follicles while the cooling systems protect the skin surface. Safe for Fitzpatrick skin types I–V.</p>
+      <h3>2. Nd:YAG Laser (1064nm)</h3>
+      <p>The safest option for darker skin tones (Fitzpatrick IV–VI). The longer wavelength bypasses the melanin in the skin surface, reducing the risk of burns while effectively targeting the hair follicle.</p>
+      <h3>3. Alexandrite Laser (755nm)</h3>
+      <p>Best for light-to-medium skin tones with dark hair. Very effective and fast, making it ideal for larger body areas. Not recommended for darker skin tones.</p>
+      <h3>4. IPL (Intense Pulsed Light)</h3>
+      <p>Technically not a laser, IPL uses a broad spectrum of light. It's less precise than true lasers but can be effective for lighter skin tones with dark hair. Generally less effective per session than true lasers.</p>
+      <h2>How to Choose the Right Technology for You</h2>
+      <table>
+        <tr><th>Skin Type</th><th>Recommended Laser</th></tr>
+        <tr><td>Very fair (Fitzpatrick I–II)</td><td>Alexandrite (755nm)</td></tr>
+        <tr><td>Medium (Fitzpatrick III–IV)</td><td>Diode (810nm)</td></tr>
+        <tr><td>Dark (Fitzpatrick V–VI)</td><td>Nd:YAG (1064nm)</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>2024 Innovation:</strong> Many modern laser systems combine multiple wavelengths in a single device, allowing clinicians to customise treatments more precisely for each patient's unique skin and hair characteristics.</p></div>
+    `
+  },
+  {
+    id: 12,
+    slug: 'laser-benefits-2024',
+    tag: 'Laser',
+    title: 'Top 10 Benefits of Laser Hair Removal in 2024',
+    date: 'January 2025',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2025/01/medium-shot-smiley-woman-portrait-scaled.jpg',
+    content: `
+      <p>If you've been on the fence about laser hair removal, 2024 is the year to make the switch. Here are the top 10 reasons why thousands of people in Bangalore are choosing laser over traditional methods.</p>
+      <ol>
+        <li><strong>Permanent Reduction:</strong> Achieve 80–90% permanent hair reduction after a full course of sessions.</li>
+        <li><strong>Saves Time:</strong> Eliminate 15–20 minutes of shaving or waxing every few days for the rest of your life.</li>
+        <li><strong>Saves Money Long-Term:</strong> The cumulative cost of waxing over 10 years far exceeds a single laser package.</li>
+        <li><strong>No More Ingrown Hairs:</strong> Ingrown hairs are eliminated when the follicle itself is destroyed.</li>
+        <li><strong>Smoother Skin:</strong> Beyond hair removal, laser stimulates collagen and improves skin texture.</li>
+        <li><strong>Precise Targeting:</strong> Lasers target hair without damaging the surrounding skin.</li>
+        <li><strong>Minimal Discomfort:</strong> Modern lasers with cooling tips are significantly less painful than waxing.</li>
+        <li><strong>Works on Most Body Areas:</strong> Face, underarms, legs, back, bikini — all treatable.</li>
+        <li><strong>Safe for Most Skin Tones:</strong> Modern technology accommodates a wide range of Indian skin tones.</li>
+        <li><strong>Boosts Confidence:</strong> Knowing you have smooth, hair-free skin gives you freedom to wear what you want, when you want.</li>
+      </ol>
+      <div class="post-highlight"><p><strong>Bottom line:</strong> Laser hair removal is no longer a luxury — it's a smart, long-term investment in your comfort and confidence. Book a consultation to find out if you're a good candidate.</p></div>
+    `
+  },
+  {
+    id: 13,
+    slug: 'hair-growth-vitamins',
+    tag: 'Hair Care',
+    title: 'Top Vitamins and Supplements for Hair Growth',
+    date: 'December 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/12/woman-doing-herself-scalp-massage-scaled.jpg',
+    content: `
+      <p>Nutrition plays a critical role in hair health. While no supplement can replace medical treatment for significant hair loss, the right vitamins and minerals can support the hair growth cycle and prevent deficiency-related shedding.</p>
+      <h2>Essential Vitamins for Hair Growth</h2>
+      <h3>1. Biotin (Vitamin B7)</h3>
+      <p>Perhaps the most well-known hair supplement. Biotin is essential for keratin production — the protein that makes up your hair. Deficiency is rare but can cause hair thinning and brittle nails. Recommended dose: 2,500–5,000 mcg/day.</p>
+      <h3>2. Vitamin D</h3>
+      <p>Vitamin D receptors are found in hair follicles, and deficiency is strongly linked to alopecia areata and telogen effluvium. Get a blood test to check your levels — most Indians are deficient. Recommended dose: 1,000–4,000 IU/day.</p>
+      <h3>3. Iron</h3>
+      <p>Iron deficiency (anaemia) is one of the most common causes of hair loss in women. Ferritin levels (stored iron) below 70 ng/mL are associated with significant hair shedding. Best sources: lean red meat, spinach, lentils, and fortified cereals.</p>
+      <h3>4. Vitamin B12</h3>
+      <p>B12 is crucial for red blood cell production, which delivers oxygen to the scalp and hair follicles. Vegetarians and vegans are at high risk of deficiency. Supplement with 1,000 mcg/day if levels are low.</p>
+      <h3>5. Zinc</h3>
+      <p>Zinc plays a role in hair tissue growth and repair. It also keeps the oil glands around follicles working properly. Both deficiency and excess can cause hair loss — always test before supplementing.</p>
+      <div class="post-highlight"><p><strong>Important:</strong> Before starting any supplement, get a blood test to identify actual deficiencies. Supplementing vitamins you don't need is wasteful and can sometimes be harmful. Always consult a dermatologist or physician.</p></div>
+      <h2>Food Sources for Hair-Healthy Nutrients</h2>
+      <ul>
+        <li><strong>Eggs:</strong> Rich in biotin and protein</li>
+        <li><strong>Spinach:</strong> Iron, Vitamin C, folate</li>
+        <li><strong>Fatty fish (salmon, mackerel):</strong> Omega-3s, Vitamin D, protein</li>
+        <li><strong>Nuts (almonds, walnuts):</strong> Zinc, biotin, Vitamin E</li>
+        <li><strong>Lentils and legumes:</strong> Protein, iron, zinc, biotin</li>
+      </ul>
+    `
+  },
+  {
+    id: 14,
+    slug: 'natural-remedies-hair-loss',
+    tag: 'Hair Care',
+    title: 'Natural Remedies for Hair Loss: What Works?',
+    date: 'October 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/10/Artboard-1-80.jpg',
+    content: `
+      <p>Natural remedies for hair loss are widely discussed — from coconut oil to onion juice. But which ones actually have scientific backing, and which are just myths? Let's separate fact from fiction.</p>
+      <h2>Natural Remedies with Actual Evidence</h2>
+      <h3>1. Rosemary Oil</h3>
+      <p>A 2015 study in the Journal of Dermatology found rosemary oil was as effective as 2% minoxidil in treating androgenetic alopecia after 6 months of use. Mix a few drops with a carrier oil (coconut or jojoba) and massage into the scalp 2–3 times a week.</p>
+      <h3>2. Scalp Massage</h3>
+      <p>A small Japanese study found that daily 4-minute scalp massages increased hair thickness over 24 weeks. The mechanism is thought to be improved blood circulation to the follicles and mechanical stretching of dermal papilla cells.</p>
+      <h3>3. Aloe Vera</h3>
+      <p>Aloe vera has mild anti-inflammatory and moisturising properties that can improve scalp health and reduce dandruff (a secondary cause of hair loss). Apply pure aloe gel to the scalp, leave for 30 minutes, and rinse.</p>
+      <h3>4. Pumpkin Seed Oil</h3>
+      <p>A randomised controlled trial showed pumpkin seed oil significantly increased hair count in men with androgenetic alopecia. It may work by blocking DHT — similar in mechanism to finasteride.</p>
+      <h2>Popular Remedies Without Strong Evidence</h2>
+      <ul>
+        <li><strong>Onion juice:</strong> One small study showed some benefit but has many limitations. The smell is a significant barrier.</li>
+        <li><strong>Castor oil:</strong> No robust clinical evidence, but widely used. Can help with scalp moisture and hair texture.</li>
+        <li><strong>Egg mask:</strong> Rich in protein but no clinical trials proving hair regrowth.</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Reality check:</strong> Natural remedies can support scalp health and may complement medical treatments, but they cannot reverse significant androgenetic alopecia. For meaningful results, combine them with evidence-based treatments under a dermatologist's guidance.</p></div>
+    `
+  },
+  {
+    id: 15,
+    slug: 'best-age-hair-transplant',
+    tag: 'Hair Care',
+    title: 'What is the Best Age for Hair Transplant?',
+    date: 'October 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/10/Artboard-1-80.jpg',
+    content: `
+      <p>One of the most frequently asked questions at Vtiara Clinic is: "Am I too young — or too old — for a hair transplant?" Age matters, but it's not the only factor. Here's what surgeons actually look for.</p>
+      <h2>Why Age Matters</h2>
+      <p>Hair loss is a progressive condition. Performing a transplant too early, before the pattern is fully established, risks creating an unnatural result as surrounding native hair continues to fall out around the transplanted hair.</p>
+      <h2>The Ideal Age Range</h2>
+      <h3>Under 25 — Generally Not Recommended</h3>
+      <p>Hair loss is often still progressing rapidly. It's difficult to predict the final pattern, making hairline design challenging. Doctors typically advise medical management (minoxidil, finasteride) at this stage and monitoring for 2–3 years.</p>
+      <h3>25–35 — Can Be Appropriate With Careful Planning</h3>
+      <p>If hair loss has stabilised and the pattern is clear, a transplant may be considered. A conservative approach with hairline design is important — plan for future loss when designing the hairline.</p>
+      <h3>35–65 — Ideal Window for Most Patients</h3>
+      <p>Hair loss pattern is well-established. Donor area is stable. Realistic expectations are easier to set. Results are typically excellent and long-lasting.</p>
+      <h3>Above 65 — Case-by-Case Basis</h3>
+      <p>Good general health is more important than age at this stage. Many patients in their 60s and 70s achieve excellent results. The key consideration is the quality and density of the donor area.</p>
+      <div class="post-highlight"><p><strong>Key Principle:</strong> The best age for a hair transplant is when your hair loss has stabilised, you have adequate donor density, you have realistic expectations, and you're in good general health — regardless of the number on your birth certificate.</p></div>
+    `
+  },
+  {
+    id: 16,
+    slug: 'hair-transplant-in-bangalore',
+    tag: 'Hair Care',
+    title: 'Hair Transplant in Bangalore',
+    date: 'October 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/10/Artboard-1-80.jpg',
+    content: `
+      <p>Bangalore has emerged as one of India's top destinations for hair transplant procedures, combining world-class medical expertise with competitive pricing. Here's your complete guide to getting a hair transplant in Bangalore.</p>
+      <h2>Why Bangalore for Hair Transplant?</h2>
+      <ul>
+        <li>Home to some of India's most experienced hair transplant surgeons</li>
+        <li>State-of-the-art clinics with international-standard sterile facilities</li>
+        <li>Competitive pricing compared to other metros like Mumbai and Delhi</li>
+        <li>Excellent post-operative care and follow-up infrastructure</li>
+        <li>Easy medical tourism access from South and Southeast Asia</li>
+      </ul>
+      <h2>Top Clinics to Look For</h2>
+      <p>When researching clinics, look for: board-certified dermatologists or plastic surgeons, verifiable before-and-after results, transparent pricing, and facilities that follow NABH standards.</p>
+      <h2>The Step-by-Step Process at Vtiara</h2>
+      <ol>
+        <li>Free initial consultation and hair loss assessment</li>
+        <li>Trichoscopy to evaluate scalp health and donor density</li>
+        <li>Customised treatment plan with graft count and cost estimate</li>
+        <li>Pre-operative blood tests and health clearance</li>
+        <li>Procedure day (typically 6–8 hours for a full session)</li>
+        <li>Immediate post-operative care and instructions</li>
+        <li>Follow-up at 1 week, 1 month, 3 months, 6 months, and 1 year</li>
+      </ol>
+      <h2>Average Cost in Bangalore</h2>
+      <p>Hair transplant costs in Bangalore range from ₹40,000 for minor cases to ₹2,50,000+ for extensive baldness. The most common procedures (2,000–3,000 grafts via FUE) typically cost between ₹80,000–₹1,50,000 at reputable clinics.</p>
+      <div class="post-highlight"><p><strong>Vtiara Promise:</strong> At Vtiara Hair & Skin Clinic, we offer transparent pricing, personalised treatment plans, and guarantee our work. Book a free consultation to understand exactly what you need and what results you can expect.</p></div>
+    `
+  },
+  {
+    id: 17,
+    slug: 'diet-skin-health',
+    tag: 'Skin Care',
+    title: 'The Role of Diet in Skin Health: Foods for Clear Skin',
+    date: 'October 2024',
+    image: null,
+    content: `
+      <p>Maintaining clear, radiant skin involves more than just using the right skincare products. What you eat has a direct and significant impact on your skin's health, texture, and appearance. The gut-skin axis is real — and it's powerful.</p>
+      <h2>Foods That Promote Clear Skin</h2>
+      <h3>1. Fatty Fish (Salmon, Mackerel, Sardines)</h3>
+      <p>Rich in omega-3 fatty acids, fatty fish help maintain the skin's lipid barrier, keeping it hydrated and supple. Omega-3s also have anti-inflammatory properties that can reduce acne severity and redness.</p>
+      <h3>2. Avocados</h3>
+      <p>Loaded with healthy fats, Vitamins E and C, and biotin. Vitamin E is a powerful antioxidant that protects skin from oxidative damage. Vitamin C is essential for collagen synthesis.</p>
+      <h3>3. Sweet Potatoes</h3>
+      <p>An excellent source of beta-carotene, which the body converts to Vitamin A. Beta-carotene acts as a natural sunscreen and gives skin a warm, healthy glow when consumed regularly.</p>
+      <h3>4. Green Tea</h3>
+      <p>Rich in catechins (powerful antioxidants) that protect skin from sun damage, improve skin moisture, and reduce redness. Studies show green tea can reduce sebum production in acne-prone skin.</p>
+      <h3>5. Dark Chocolate (70%+ cocoa)</h3>
+      <p>High in flavonoids that improve skin hydration, texture, and blood flow. A square or two a day can benefit skin without the sugar spike that worsens acne.</p>
+      <h2>Foods to Limit for Clearer Skin</h2>
+      <ul>
+        <li><strong>High-glycaemic foods:</strong> White bread, sugar, processed cereals — spike insulin and worsen acne</li>
+        <li><strong>Dairy:</strong> Some studies link dairy (especially skim milk) to increased acne in susceptible individuals</li>
+        <li><strong>Fast food:</strong> High in trans fats and processed ingredients that promote inflammation</li>
+        <li><strong>Alcohol:</strong> Dehydrates skin, disrupts sleep, and causes inflammation</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Dermatologist advice:</strong> Diet alone won't cure significant acne or pigmentation, but it can dramatically improve the effectiveness of your skincare and medical treatments. A balanced, anti-inflammatory diet is the foundation of healthy skin.</p></div>
+    `
+  },
+  {
+    id: 18,
+    slug: 'adult-acne',
+    tag: 'Skin Care',
+    title: 'Understanding Adult Acne: Causes and Effective Solutions',
+    date: 'October 2024',
+    image: null,
+    content: `
+      <p>Adult acne is a persistent and often frustrating condition that affects many individuals well beyond their teenage years. In fact, studies show that up to 50% of women and 25% of men in their 30s and 40s experience acne. Understanding the unique triggers of adult acne is key to treating it effectively.</p>
+      <h2>Why Adult Acne is Different from Teen Acne</h2>
+      <p>Teen acne is primarily driven by puberty-related hormonal surges that increase sebum production across the face. Adult acne tends to be more localised (typically the lower face, jawline, and chin), hormonally-driven, and often linked to stress, lifestyle, and internal health factors.</p>
+      <h2>Common Causes of Adult Acne</h2>
+      <ul>
+        <li><strong>Hormonal fluctuations:</strong> Monthly cycles, PCOS, pregnancy, perimenopause, and hormonal contraceptives all affect sebum production and skin cell turnover.</li>
+        <li><strong>Stress:</strong> Cortisol (the stress hormone) increases oil production and inflammation, worsening existing acne.</li>
+        <li><strong>Incorrect skincare products:</strong> Using comedogenic (pore-clogging) products or over-exfoliating can trigger or worsen breakouts.</li>
+        <li><strong>Diet:</strong> High-glycaemic foods, dairy, and processed foods are linked to acne in susceptible individuals.</li>
+        <li><strong>Gut health:</strong> An imbalanced gut microbiome is increasingly linked to inflammatory skin conditions including acne.</li>
+      </ul>
+      <h2>Effective Treatment Options</h2>
+      <h3>Topical Treatments</h3>
+      <ul>
+        <li>Retinoids (adapalene, tretinoin) — gold standard for acne and anti-aging</li>
+        <li>Benzoyl peroxide — kills acne-causing bacteria</li>
+        <li>Niacinamide — reduces inflammation and sebum production</li>
+        <li>Salicylic acid — unclogs pores and reduces blackheads</li>
+      </ul>
+      <h3>Oral Treatments (Prescribed by Dermatologist)</h3>
+      <ul>
+        <li>Antibiotics (short-term) for inflammatory acne</li>
+        <li>Hormonal therapy (spironolactone, oral contraceptives) for hormone-driven acne in women</li>
+        <li>Isotretinoin for severe, treatment-resistant acne</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Key insight:</strong> Adult acne rarely responds to teen acne products alone. A dermatologist consultation is essential to identify your specific triggers and create a targeted treatment plan.</p></div>
+    `
+  },
+  {
+    id: 19,
+    slug: 'chemical-peels',
+    tag: 'Skin Care',
+    title: 'The Benefits of Chemical Peels for Glowing, Rejuvenated Skin',
+    date: 'September 2024',
+    image: null,
+    content: `
+      <p>Chemical peels are one of dermatology's most versatile and time-tested treatments. By applying a chemical solution to the skin, dead and damaged skin cells are exfoliated away, revealing fresher, brighter skin beneath. Here's everything you need to know.</p>
+      <h2>Types of Chemical Peels</h2>
+      <h3>Superficial Peels</h3>
+      <p>Use mild acids (glycolic acid 20–30%, salicylic acid, lactic acid) to gently exfoliate the outermost skin layer. No downtime, mild redness for 1–2 days. Ideal for: dull skin, mild pigmentation, light acne, surface-level congestion. Sessions every 2–4 weeks.</p>
+      <h3>Medium-Depth Peels</h3>
+      <p>Use TCA (trichloroacetic acid) at 20–35% concentration to reach the dermis. 5–7 days of downtime with noticeable peeling. Ideal for: moderate pigmentation, fine lines, sun damage, acne scarring. Sessions every 3–6 months.</p>
+      <h3>Deep Peels</h3>
+      <p>Use phenol for the deepest treatment. Significant downtime (2–3 weeks). Best for severe sun damage, deep wrinkles, and significant scars. Usually done once. Requires medical supervision.</p>
+      <h2>Key Benefits of Chemical Peels</h2>
+      <ul>
+        <li>Immediate brightness and glow after superficial peels</li>
+        <li>Progressive improvement in skin texture with multiple sessions</li>
+        <li>Reduction of fine lines and wrinkles</li>
+        <li>Fading of post-acne marks and pigmentation</li>
+        <li>Stimulation of collagen production for firmer skin</li>
+        <li>Minimised pore appearance</li>
+        <li>Better absorption of skincare products post-peel</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Indian skin tip:</strong> Medium and deep peels require extra caution for Indian skin tones (Fitzpatrick IV–VI) as they carry a higher risk of post-inflammatory hyperpigmentation. Always get peels done by a qualified dermatologist who has experience with darker skin types.</p></div>
+    `
+  },
+  {
+    id: 20,
+    slug: 'anti-aging-treatments',
+    tag: 'Skin Care',
+    title: "Top Anti-Aging Treatments: What Works and What Doesn't",
+    date: 'September 2024',
+    image: null,
+    content: `
+      <p>Aging is a natural process, but with today's advanced skincare and medical treatments, you can significantly slow its visible effects. The challenge is knowing which treatments deliver real results and which ones are overhyped.</p>
+      <h2>Treatments That Actually Work</h2>
+      <h3>1. Retinoids — The Gold Standard</h3>
+      <p>Retinoids (Vitamin A derivatives) are the most evidence-backed anti-aging ingredient in skincare. They stimulate collagen production, accelerate cell turnover, fade pigmentation, and reduce fine lines. Available OTC (retinol) or by prescription (tretinoin, adapalene). Start slowly — 2–3 times a week — to avoid irritation.</p>
+      <h3>2. Botulinum Toxin (Botox)</h3>
+      <p>Temporarily relaxes facial muscles responsible for dynamic wrinkles (forehead lines, crow's feet, frown lines). Results last 3–4 months. The most widely used cosmetic procedure globally with an excellent safety profile when administered by trained physicians.</p>
+      <h3>3. Hyaluronic Acid Fillers</h3>
+      <p>Injectable gel that restores volume lost with aging (hollow cheeks, under-eye hollows, thinning lips) and fills static wrinkles. Results last 9–18 months depending on the area and product used.</p>
+      <h3>4. Fractional Laser Resurfacing</h3>
+      <p>Creates controlled micro-injuries that trigger collagen remodelling. Effective for fine lines, skin texture, sun damage, and laxity. Results improve over 3–6 months as new collagen forms.</p>
+      <h3>5. PRP Facial (Vampire Facial)</h3>
+      <p>Growth factors from your own blood are applied to the skin (with microneedling for deeper penetration). Improves skin quality, texture, and luminosity. Natural and safe with minimal downtime.</p>
+      <h2>Treatments That Are Overhyped</h2>
+      <ul>
+        <li><strong>Face yoga:</strong> No strong clinical evidence for long-term anti-aging benefit</li>
+        <li><strong>Jade rollers and gua sha:</strong> May temporarily reduce morning puffiness but no lasting anti-aging effect</li>
+        <li><strong>Most anti-aging creams:</strong> The majority of over-the-counter "anti-aging" creams lack the concentration or molecular size to penetrate the dermis where aging occurs. Exceptions: proper retinol concentrations and prescription retinoids.</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Bottom line:</strong> The most effective anti-aging regimen combines daily SPF 50+ sunscreen (the single most impactful habit), a nightly retinoid, hydration, and periodic in-clinic treatments. Start early — prevention is far easier than reversal.</p></div>
+    `
+  },
+  {
+    id: 21,
+    slug: 'sun-damage-protection',
+    tag: 'Skin Care',
+    title: 'How to Protect Your Skin from Sun Damage: Expert Tips',
+    date: 'August 2024',
+    image: null,
+    content: `
+      <p>Sun damage is the single biggest cause of premature skin aging, pigmentation, and skin cancer. Up to 80% of visible aging is caused by UV exposure — making sun protection the most impactful skincare habit you can develop. Here's how to protect your skin effectively.</p>
+      <h2>Understanding UV Radiation</h2>
+      <ul>
+        <li><strong>UVB rays:</strong> Cause sunburns and play a key role in skin cancer development. Vary by season, time of day, and latitude.</li>
+        <li><strong>UVA rays:</strong> Penetrate deeper into the dermis, causing aging, pigmentation, and DNA damage. Present year-round at consistent intensity — even through glass and on cloudy days.</li>
+      </ul>
+      <h2>Choosing the Right Sunscreen</h2>
+      <p>Look for these features in your sunscreen:</p>
+      <ul>
+        <li><strong>Broad-spectrum:</strong> Protects against both UVA and UVB rays</li>
+        <li><strong>SPF 30–50+:</strong> SPF 30 blocks 97% of UVB; SPF 50 blocks 98%. Higher than SPF 50 provides negligible extra protection.</li>
+        <li><strong>PA+++ or PPD rating:</strong> Indicates UVA protection — crucial for preventing pigmentation on Indian skin</li>
+        <li><strong>Water-resistant:</strong> Important for outdoor activities and humid climates like Bangalore</li>
+      </ul>
+      <h2>How to Apply Sunscreen Correctly</h2>
+      <ol>
+        <li>Apply sunscreen as the last step in your morning skincare routine, before makeup</li>
+        <li>Use a generous amount — most people apply too little (about 2–3 finger lengths for the face)</li>
+        <li>Apply 15–20 minutes before sun exposure</li>
+        <li>Reapply every 2 hours when outdoors, or immediately after swimming or sweating</li>
+        <li>Don't forget often-missed areas: ears, neck, back of hands, scalp parting</li>
+      </ol>
+      <div class="post-highlight"><p><strong>Bangalore-specific note:</strong> Bangalore's altitude means higher UV intensity than coastal cities. Many residents mistakenly believe cloudy weather means no UV exposure — UVA rays penetrate clouds and are present all day, every day.</p></div>
+      <h2>Beyond Sunscreen: Additional Protection</h2>
+      <ul>
+        <li>Wear UPF-rated clothing for extended outdoor activities</li>
+        <li>Use a wide-brimmed hat and UV-blocking sunglasses</li>
+        <li>Avoid peak UV hours (10am–4pm) when possible</li>
+        <li>Seek shade — especially when outdoors during midday</li>
+      </ul>
+    `
+  },
+  {
+    id: 22,
+    slug: 'clear-healthy-skin',
+    tag: 'Skin Care',
+    title: 'The Ultimate Guide to Achieving Clear and Healthy Skin',
+    date: 'August 2024',
+    image: null,
+    content: `
+      <p>Achieving clear and healthy skin is a goal that requires combining the right skincare routine, lifestyle habits, diet, and when necessary, professional treatments. This comprehensive guide gives you everything you need.</p>
+      <h2>Build the Right Skincare Routine</h2>
+      <h3>Morning Routine</h3>
+      <ol>
+        <li><strong>Gentle cleanser:</strong> Removes overnight oil without stripping the skin barrier</li>
+        <li><strong>Vitamin C serum:</strong> Antioxidant protection and brightening (optional but highly beneficial)</li>
+        <li><strong>Moisturiser:</strong> Hydrate and strengthen the skin barrier</li>
+        <li><strong>SPF 50+ sunscreen:</strong> Non-negotiable — the most important step</li>
+      </ol>
+      <h3>Evening Routine</h3>
+      <ol>
+        <li><strong>Oil cleanser / micellar water:</strong> Remove sunscreen and makeup</li>
+        <li><strong>Gentle cleanser:</strong> Double cleanse for thorough removal</li>
+        <li><strong>Active treatment:</strong> Retinoid, AHA/BHA, or niacinamide (rotate based on your concerns)</li>
+        <li><strong>Moisturiser:</strong> Seal in hydration and active ingredients</li>
+      </ol>
+      <h2>Key Principles for Clear Skin</h2>
+      <ul>
+        <li><strong>Consistency beats perfection:</strong> A simple routine followed every day beats an elaborate one skipped half the time</li>
+        <li><strong>Introduce one new product at a time:</strong> Wait 2–4 weeks to assess how your skin responds</li>
+        <li><strong>Less is more:</strong> Layering too many actives causes irritation and can worsen breakouts</li>
+        <li><strong>Patch test everything new</strong></li>
+        <li><strong>Change your pillowcase weekly:</strong> Bacteria and dead skin cells accumulate rapidly</li>
+      </ul>
+      <h2>Lifestyle Factors That Make or Break Your Skin</h2>
+      <table>
+        <tr><th>Factor</th><th>Impact on Skin</th></tr>
+        <tr><td>Sleep (7–9 hrs)</td><td>Skin repairs and regenerates during deep sleep</td></tr>
+        <tr><td>Hydration</td><td>Dehydration = dry, dull, more visible lines</td></tr>
+        <tr><td>Stress management</td><td>Chronic stress increases cortisol → more oil, more breakouts</td></tr>
+        <tr><td>Exercise</td><td>Improves circulation, delivers nutrients to skin</td></tr>
+        <tr><td>No smoking</td><td>Smoking destroys collagen and causes premature aging</td></tr>
+      </table>
+      <div class="post-highlight"><p><strong>When to see a dermatologist:</strong> If you've been consistent with a good routine for 3 months and still have significant acne, pigmentation, or other concerns, it's time to see a professional. Many skin conditions require targeted medical treatment that OTC products simply can't provide.</p></div>
+    `
+  },
+  {
+    id: 23,
+    slug: 'common-skin-conditions',
+    tag: 'Skin Care',
+    title: 'Common Skin Conditions and How to Treat Them',
+    date: 'August 2024',
+    image: null,
+    content: `
+      <p>Your skin is your body's largest organ and its protective barrier. Skin conditions are incredibly common — affecting over 85% of people at some point in their lives. Here are 10 of the most common skin conditions and how they're treated.</p>
+      <h2>1. Acne</h2>
+      <p>The most common skin condition worldwide, affecting teenagers and adults alike. Caused by excess oil, clogged pores, bacteria, and inflammation. Treatments range from topical retinoids and benzoyl peroxide to oral antibiotics and isotretinoin for severe cases.</p>
+      <h2>2. Eczema (Atopic Dermatitis)</h2>
+      <p>A chronic inflammatory condition causing dry, itchy, and inflamed skin. Often starts in childhood and may persist into adulthood. Managed with moisturisers, topical steroids, and newer biologics (dupilumab) for severe cases.</p>
+      <h2>3. Psoriasis</h2>
+      <p>An autoimmune condition causing rapid skin cell turnover, leading to thick, scaly plaques. Managed with topical treatments, phototherapy, and systemic immunosuppressants or biologics for moderate-to-severe cases.</p>
+      <h2>4. Melasma</h2>
+      <p>Hyperpigmentation triggered by sun exposure and hormonal changes. Common in Indian women. Treated with sun protection, topical brightening agents (kojic acid, niacinamide), and chemical peels or Q-switch laser in combination.</p>
+      <h2>5. Rosacea</h2>
+      <p>A chronic condition causing facial redness, visible blood vessels, and acne-like bumps. Triggers include sun, heat, alcohol, and spicy food. Managed with topical metronidazole, azelaic acid, and laser therapy for redness.</p>
+      <h2>6. Fungal Infections</h2>
+      <p>Ringworm, athlete's foot, and fungal nail infections are all caused by dermatophytes. Treated with topical or oral antifungal medications.</p>
+      <h2>7. Contact Dermatitis</h2>
+      <p>Skin reaction to allergens or irritants (fragrances, metals, detergents). Treated by identifying and avoiding the trigger, plus topical steroids for acute flares.</p>
+      <h2>8. Urticaria (Hives)</h2>
+      <p>Itchy, raised welts triggered by allergens, medications, or unknown causes. Treated with antihistamines. Chronic urticaria may require specialist evaluation.</p>
+      <h2>9. Vitiligo</h2>
+      <p>Loss of skin pigment causing white patches. An autoimmune condition affecting melanocytes. Treatments include topical tacrolimus, phototherapy (NB-UVB), and newer JAK inhibitor creams.</p>
+      <h2>10. Seborrheic Dermatitis</h2>
+      <p>Scaly, flaky patches on oily areas of the scalp, face, and chest. The scalp form is known as dandruff. Treated with medicated shampoos containing ketoconazole or zinc pyrithione.</p>
+      <div class="post-highlight"><p><strong>When to see a doctor:</strong> Any new skin lesion that changes in size, colour, or shape; persistent rashes that don't respond to OTC treatment; or any skin symptom that significantly affects your quality of life warrants a dermatologist visit.</p></div>
+    `
+  },
+  {
+    id: 24,
+    slug: 'healthy-skin-routine',
+    tag: 'Skin Care',
+    title: "What's the Best Routine for Healthy Skin? Dermatologist Shares Secrets",
+    date: 'August 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/08/beautiful-girl-face-perfect-skin-scaled.jpg',
+    content: `
+      <p>Healthy, glowing skin is something everyone desires. After years of helping patients achieve their best skin, our dermatologists at Vtiara Clinic have distilled the most important habits into one comprehensive guide.</p>
+      <blockquote>"The secret to great skin isn't finding the perfect product — it's building simple, consistent habits that work synergistically." — Dr. Madan Kumar BJ, Chief Dermatologist, Vtiara Clinic</blockquote>
+      <h2>The Dermatologist's Non-Negotiables</h2>
+      <h3>1. SPF Every Single Morning</h3>
+      <p>If you do nothing else, apply SPF 50+ broad-spectrum sunscreen every morning. UV radiation is responsible for 80% of visible skin aging. This single habit, started early enough, can dramatically change how your skin ages.</p>
+      <h3>2. Retinoid at Night</h3>
+      <p>Retinoids (vitamin A derivatives) are the most clinically proven skincare ingredient for acne, pigmentation, fine lines, and skin texture. Start with a low concentration 2–3 times a week and gradually increase.</p>
+      <h3>3. Gentle Cleansing</h3>
+      <p>Over-cleansing and harsh cleansers strip the skin's natural protective barrier, leading to dryness, irritation, and — paradoxically — more oil production. Cleanse twice daily with a pH-balanced, gentle cleanser.</p>
+      <h3>4. Consistent Moisturiser</h3>
+      <p>Even oily skin needs hydration. A good moisturiser maintains the skin barrier, reduces water loss, and keeps skin balanced. Look for ingredients like ceramides, hyaluronic acid, and glycerin.</p>
+      <h2>The Weekly Add-Ons</h2>
+      <ul>
+        <li><strong>Chemical exfoliant (1–2x/week):</strong> AHA (glycolic/lactic acid) for texture and radiance, or BHA (salicylic acid) for oily/acne-prone skin</li>
+        <li><strong>Sheet mask or hydrating mask (1x/week):</strong> An extra boost of hydration</li>
+      </ul>
+      <h2>The Lifestyle Habits That Matter More Than Products</h2>
+      <ul>
+        <li>7–9 hours of quality sleep — your skin regenerates during deep sleep</li>
+        <li>8+ glasses of water daily</li>
+        <li>A diet rich in antioxidants and omega-3 fatty acids</li>
+        <li>Stress management — chronic stress worsens acne, eczema, and psoriasis</li>
+        <li>Changing pillowcases weekly</li>
+        <li>Never sleeping with makeup on</li>
+      </ul>
+      <div class="post-highlight"><p><strong>The real secret:</strong> Great skin is 70% lifestyle and 30% products. No cream can undo the damage of chronic sleep deprivation, poor diet, and stress.</p></div>
+    `
+  },
+  {
+    id: 25,
+    slug: 'dark-spots-treatment',
+    tag: 'Skin Care',
+    title: "How Can You Get Rid of Dark Spots? Dermatologist's Recommendations",
+    date: 'August 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/08/signs-aging-evident-young-woman39s-face-concept-skincare-aging-prevention-youthful-appearance-antiaging-treatments-scaled.jpg',
+    content: `
+      <p>Dark spots — also known as hyperpigmentation — are one of the most common skin concerns, particularly for people with Indian skin tones. The good news is that they're highly treatable with the right approach. Here's what dermatologists actually recommend.</p>
+      <h2>What Causes Dark Spots?</h2>
+      <ul>
+        <li><strong>Post-inflammatory hyperpigmentation (PIH):</strong> Dark marks left after acne, eczema, or any skin injury</li>
+        <li><strong>Melasma:</strong> Hormone-driven patches (triggered by sun, pregnancy, or oral contraceptives)</li>
+        <li><strong>Sunspots (solar lentigines):</strong> Flat brown spots caused by accumulated UV damage</li>
+        <li><strong>Freckles (ephilides):</strong> Genetic, UV-activated small spots</li>
+      </ul>
+      <h2>Topical Treatments That Work</h2>
+      <h3>1. Retinoids</h3>
+      <p>Speed up skin cell turnover, helping pigmented cells shed faster while inhibiting new melanin transfer. One of the most effective long-term solutions for most types of hyperpigmentation.</p>
+      <h3>2. Niacinamide</h3>
+      <p>Inhibits the transfer of melanin from melanocytes to skin cells. Gentle, well-tolerated, and safe for daily use. Works best at concentrations of 5–10%.</p>
+      <h3>3. Alpha Arbutin</h3>
+      <p>A stable, safe melanin inhibitor derived from bearberry. Works synergistically with Vitamin C and niacinamide.</p>
+      <h3>4. Vitamin C</h3>
+      <p>A powerful antioxidant that inhibits melanin synthesis and brightens existing pigmentation. Use in the morning under sunscreen for best results.</p>
+      <h2>In-Clinic Treatments for Faster Results</h2>
+      <ul>
+        <li><strong>Q-Switch Nd:YAG Laser:</strong> Most effective for sunspots and freckles; good for PIH with caution</li>
+        <li><strong>Chemical Peels:</strong> Glycolic, kojic, or TCA peels progressively fade pigmentation</li>
+        <li><strong>Microneedling:</strong> Helps with deeper pigmentation and acne scarring</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Critical reminder:</strong> Sun protection is the foundation of any pigmentation treatment. Without daily SPF 50+, any improvement from treatments will reverse quickly. Pigmentation is a marathon, not a sprint — expect 3–6 months of consistent treatment for significant improvement.</p></div>
+    `
+  },
+  {
+    id: 26,
+    slug: 'skin-cancer-awareness',
+    tag: 'Skin Care',
+    title: 'What Should You Know About Skin Cancer? Insights from a Dermatologist',
+    date: 'August 2024',
+    image: 'https://vtiaraclinic.com/wp-content/uploads/2024/08/7096950-scaled.jpg',
+    content: `
+      <p>Skin cancer is the most common cancer worldwide. While it's often thought of as a condition primarily affecting fair-skinned populations, people of all skin tones can develop skin cancer — and awareness is your most powerful tool for early detection.</p>
+      <h2>The Three Main Types of Skin Cancer</h2>
+      <h3>1. Basal Cell Carcinoma (BCC)</h3>
+      <p>The most common type. Appears as a pearly or translucent bump, often on sun-exposed areas. Grows slowly and rarely spreads, but can cause significant local tissue damage if left untreated. Highly curable when detected early.</p>
+      <h3>2. Squamous Cell Carcinoma (SCC)</h3>
+      <p>Appears as a firm, red nodule or a flat lesion with a scaly, crusted surface. More aggressive than BCC and can spread to lymph nodes. Also highly curable with early detection and treatment.</p>
+      <h3>3. Melanoma</h3>
+      <p>The most dangerous form of skin cancer. Can develop in existing moles or appear as new, abnormal pigmented lesions. Highly aggressive — can spread quickly if not detected early. Survival rates drop dramatically with later-stage diagnosis.</p>
+      <h2>The ABCDE Rule for Self-Examination</h2>
+      <p>Check your moles monthly and see a dermatologist immediately if you notice:</p>
+      <ul>
+        <li><strong>A — Asymmetry:</strong> One half doesn't match the other</li>
+        <li><strong>B — Border:</strong> Irregular, ragged, or blurred edges</li>
+        <li><strong>C — Colour:</strong> Uneven colour, multiple shades of brown/black, or red, white, blue areas</li>
+        <li><strong>D — Diameter:</strong> Larger than 6mm (the size of a pencil eraser)</li>
+        <li><strong>E — Evolving:</strong> Any change in size, shape, colour, or new symptoms like bleeding or itching</li>
+      </ul>
+      <h2>Prevention</h2>
+      <ul>
+        <li>Daily broad-spectrum SPF 50+ sunscreen</li>
+        <li>Avoid tanning beds entirely</li>
+        <li>Wear protective clothing, hats, and UV-blocking sunglasses</li>
+        <li>Seek shade between 10am and 4pm</li>
+        <li>Annual skin checks with a dermatologist if you have risk factors</li>
+      </ul>
+      <div class="post-highlight"><p><strong>Important:</strong> While skin cancer is less common in darker skin tones, it's often diagnosed at a later, more dangerous stage in people of colour because of a false perception of being "immune." Regular skin checks are important for everyone regardless of skin tone.</p></div>
+    `
+  }
+];
+
+/* Related posts per post (by ID) */
+const RELATED = {
+  1: [2,5,6,9], 2: [1,4,8,12], 3: [7,17,24,22], 4: [2,8,11,12],
+  5: [1,9,14,15], 6: [5,13,14,15], 7: [3,10,17,24], 8: [2,4,11,12],
+  9: [1,5,6,15], 10: [7,17,18,25], 11: [2,4,8,12], 12: [2,4,8,11],
+  13: [6,14,15,16], 14: [6,13,15,16], 15: [1,5,9,16], 16: [1,5,9,15],
+  17: [7,18,22,24], 18: [7,17,19,22], 19: [7,10,18,22], 20: [7,24,22,25],
+  21: [17,22,24,25], 22: [17,21,24,18], 23: [17,18,19,20], 24: [7,17,22,25],
+  25: [10,17,18,20], 26: [17,21,22,24]
+};
+
+/* ── Render ── */
+function getPostBySlug(slug) {
+  return POSTS.find(p => p.slug === slug) || null;
+}
+
+function renderPost(post) {
+  document.title = post.title + ' – VTIARA Hair & Skin Clinic';
+  document.getElementById('breadcrumb-title').textContent = post.title.length > 50 ? post.title.substring(0,50)+'...' : post.title;
+  document.getElementById('post-tag').textContent = post.tag;
+  document.getElementById('post-title').textContent = post.title;
+  document.getElementById('post-date').innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${post.date}`;
+
+  // Cover image
+  const coverWrap = document.getElementById('post-cover-wrap');
+  if (post.image) {
+    coverWrap.innerHTML = `<img class="post-cover" src="${post.image}" alt="${post.title}" />`;
+  } else {
+    coverWrap.innerHTML = `<div class="post-cover-placeholder"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>`;
+  }
+
+  document.getElementById('post-body').innerHTML = post.content;
+
+  // Related posts
+  const relatedIds = RELATED[post.id] || [];
+  const relatedEl = document.getElementById('related-posts');
+  relatedEl.innerHTML = relatedIds.map(id => {
+    const p = POSTS.find(x => x.id === id);
+    if (!p) return '';
+    return `<a href="blog-post.html?post=${p.slug}" class="related-post">
+      <div class="related-thumb">${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy" />` : ''}</div>
+      <div class="related-info">
+        <h5>${p.title}</h5>
+        <span>${p.date}</span>
+      </div>
+    </a>`;
+  }).join('');
+
+  // Recent posts (last 5 posts)
+  const recentEl = document.getElementById('recent-posts');
+  const recent = [...POSTS].reverse().slice(0,5).filter(p => p.id !== post.id);
+  recentEl.innerHTML = recent.map(p => `<a href="blog-post.html?post=${p.slug}" class="related-post">
+    <div class="related-thumb">${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy" />` : ''}</div>
+    <div class="related-info">
+      <h5>${p.title}</h5>
+      <span>${p.date}</span>
+    </div>
+  </a>`).join('');
+}
+
+/* ── Init ── */
+const params = new URLSearchParams(window.location.search);
+const slug = params.get('post');
+const post = getPostBySlug(slug);
+if (post) {
+  renderPost(post);
+} else {
+  document.getElementById('post-title').textContent = 'Post not found';
+  document.getElementById('post-body').innerHTML = '<p>The blog post you are looking for could not be found. <a href="blog.html" style="color:var(--teal)">Back to Blog</a></p>';
+}
+</script>
+</body>
+</html>
