@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VTIARA – All Treatments | Hair & Skin Clinic Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* ── Page Hero ── */
+.treat-hero {
+  background: var(--navy);
+  margin-top: 0;
+  padding: 48px var(--px);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.treat-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(42,168,168,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 50%, rgba(245,195,0,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.treat-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.treat-hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(42,168,168,0.15);
+  border: 1px solid rgba(42,168,168,0.3);
+  color: var(--teal-light);
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+}
+.treat-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;
+}
+.treat-hero h1 span { color: var(--yellow); }
+.treat-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 32px; }
+.treat-hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.treat-hero-btns .btn-primary {
+  background: var(--teal-light); color: #fff; border: none;
+  padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 700;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.treat-hero-btns .btn-outline {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.treat-hero-btns .btn-outline:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+/* ── Category Tabs ── */
+.category-tabs-bar {
+  position: sticky; top: 69px; z-index: 900;
+  background: #fff; border-bottom: 2px solid var(--border);
+  padding: 0 var(--px);
+}
+.category-tabs {
+  display: flex; gap: 0; overflow-x: auto;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.category-tabs::-webkit-scrollbar { display: none; }
+.cat-tab {
+  display: flex; align-items: center; gap: 8px;
+  padding: 16px 24px; font-size: 14px; font-weight: 600; color: var(--text-light);
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+  transition: color .2s, border-color .2s;
+}
+.cat-tab:hover { color: var(--navy); }
+.cat-tab.active { color: var(--navy); border-bottom-color: var(--teal-light); }
+.cat-tab svg { flex-shrink: 0; }
+
+/* ── Section blocks ── */
+.treat-section {
+  padding: 72px var(--px) 48px;
+}
+.treat-section:nth-child(even) { background: var(--bg-light); }
+.treat-section-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 48px;
+}
+.treat-section-icon {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.treat-section-icon.hair { background: linear-gradient(135deg, #1A6B8A, #0D2137); }
+.treat-section-icon.skin { background: linear-gradient(135deg, #2AA8A8, #1A6B8A); }
+.treat-section-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 32px); font-weight: 800; color: var(--navy);
+  margin-bottom: 4px;
+}
+.treat-section-text p { font-size: 14px; color: var(--text-light); max-width: 560px; }
+
+/* ── Sub-category ── */
+.treat-subcategory { margin-bottom: 52px; }
+.treat-subcategory:last-child { margin-bottom: 0; }
+.treat-subcat-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px; padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+.treat-subcat-badge {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(42,168,168,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal);
+}
+.treat-subcat-head h3 { font-size: 18px; font-weight: 800; color: var(--navy); }
+.treat-subcat-head span {
+  margin-left: auto; font-size: 12px; font-weight: 600;
+  color: var(--teal); background: rgba(42,168,168,0.1);
+  padding: 4px 10px; border-radius: 100px;
+}
+
+/* ── Treatment Cards Grid ── */
+.treat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.treat-card {
+  background: #fff; border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform .22s, box-shadow .22s;
+  display: flex; flex-direction: column;
+}
+.treat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+.treat-card-img {
+  height: 190px; overflow: hidden; background: linear-gradient(135deg, #EEF6FA, #D1E8F0);
+  position: relative; flex-shrink: 0;
+}
+.treat-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.treat-card:hover .treat-card-img img { transform: scale(1.06); }
+.treat-card-img-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 50%; background: linear-gradient(to top, rgba(13,33,55,0.5), transparent);
+}
+.treat-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.treat-card-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+.treat-card-body p { font-size: 13px; color: var(--text-light); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+.treat-card-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--teal);
+  text-decoration: none; padding: 9px 16px;
+  border: 1.5px solid var(--teal); border-radius: 8px;
+  transition: background .2s, color .2s; align-self: flex-start;
+}
+.treat-card-btn:hover { background: var(--teal); color: #fff; }
+
+/* ── CTA Strip ── */
+.treat-cta {
+  background: var(--navy); padding: 72px var(--px); text-align: center;
+}
+.treat-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.5vw, 38px); color: #fff; margin-bottom: 12px;
+}
+.treat-cta p { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.treat-cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.treat-cta .btn-book {
+  background: var(--teal-light); color: #fff; border: none;
+  padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.treat-cta .btn-call {
+  background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.treat-cta .btn-call:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+/* ── Mobile Dropdown Fix ── */
+@media (max-width: 768px) {
+  .dropdown-menu { position: static !important; display: none !important; box-shadow: none !important; border: none !important; border-top: 3px solid #2aa8a8 !important; border-radius: 0 !important; padding: 0 !important; background: #f5fafa !important; }
+  .nav-item.sub-open > .dropdown-menu { display: block !important; }
+  .dropdown-item { display: block !important; padding: 16px 28px !important; font-size: 14px !important; font-weight: 500 !important; color: #4a5568 !important; border-bottom: 1px solid #edf2f7 !important; background: #fff !important; margin: 0 !important; }
+  .dropdown-item:last-child { border-bottom: none !important; }
+  .loc-city-label { display: flex !important; align-items: center !important; gap: 5px !important; padding: 14px 28px 10px !important; font-size: 10px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; color: #2aa8a8 !important; border-bottom: 1px solid #edf2f7 !important; background: #fff !important; margin: 0 !important; }
+  .loc-branch { padding-left: 40px !important; }
+  /* Responsive layouts */
+  .treat-hero { padding: calc(69px + 36px) 20px 40px; }
+  .category-tabs-bar { padding: 0 20px; }
+  .treat-section { padding: 44px 20px 32px; }
+  .treat-cards-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .treat-card-img { height: 150px; }
+  .treat-cta { padding: 44px 20px; }
+  .treat-section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+@media (max-width: 480px) {
+  .treat-cards-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .treat-section { padding: 56px 40px; }
+  .category-tabs-bar { padding: 0 40px; }
+  .treat-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="announcement-bar-track">
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Bangalore, India
+    </div>
+    <div class="top-bar-right">
+      <span class="top-bar-care">Customer Care · 9 AM to 8 PM</span>
+      <a href="tel:+916361347722" class="top-bar-phone">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        63613 47722
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="VTIARA Logo"></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li class="nav-item has-mega">
+        <a class="nav-link nav-parent">
+          Treatments
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <span>Laser Hair Reduction</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#laser-hair">Laser Hair Removal</a></li>
+                <li><a href="#laser-hair">Upper Lip Hair Reduction</a></li>
+                <li><a href="#laser-hair">Facial Hair Reduction</a></li>
+                <li><a href="#laser-hair">Underarm Hair Reduction</a></li>
+                <li><a href="#laser-hair">Bikini Hair Reduction</a></li>
+                <li><a href="#laser-hair">Full Body Laser</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg></div>
+                <span>Hair Re-Growth</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#hair-regrowth">Hair Loss Treatment</a></li>
+                <li><a href="#hair-regrowth">PRP Hair Treatment</a></li>
+                <li><a href="#hair-regrowth">Hair Transplant</a></li>
+                <li><a href="#hair-regrowth">Dandruff Treatment</a></li>
+                <li><a href="#hair-regrowth">Hair Thread Treatment</a></li>
+                <li><a href="#hair-regrowth">QR678 Treatment</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                <span>Acne / Scar</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#acne-scar">Pimple Treatment</a></li>
+                <li><a href="#acne-scar">Acne Scar Treatment</a></li>
+                <li><a href="#acne-scar">Laser Skin Resurfacing</a></li>
+                <li><a href="#acne-scar">MNRF Treatment</a></li>
+                <li><a href="#acne-scar">Subcision</a></li>
+                <li><a href="#acne-scar">Black Peel Treatment</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg></div>
+                <span>Skin Rejuvenation</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#skin-rejuvenation">Skin Lightening Treatment</a></li>
+                <li><a href="#skin-rejuvenation">Laser Toning</a></li>
+                <li><a href="#skin-rejuvenation">Chemical Peels</a></li>
+                <li><a href="#skin-rejuvenation">PRP/GFC For Face</a></li>
+                <li><a href="#skin-rejuvenation">DermaFrac Treatment</a></li>
+                <li><a href="#skin-rejuvenation">PDRN Skin Booster</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                <span>Insta Glow Solutions</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#insta-glow">Medifacials</a></li>
+                <li><a href="#insta-glow">InstaGlow Rejuvenation</a></li>
+                <li><a href="#insta-glow">Carbon Rejuvenation</a></li>
+                <li><a href="#insta-glow">Hollywood Rejuvenation</a></li>
+                <li><a href="#insta-glow">Fire &amp; Ice Facial</a></li>
+                <li><a href="#insta-glow">HydraFacial</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span>Pigmentation</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#pigmentation">Hyperpigmentation</a></li>
+                <li><a href="#pigmentation">Melasma Treatment</a></li>
+                <li><a href="#pigmentation">Dark Circle Treatment</a></li>
+                <li><a href="#pigmentation">Cosmelan Peel</a></li>
+                <li><a href="#pigmentation">Dull Skin Treatment</a></li>
+                <li><a href="#pigmentation">Face &amp; Body Tan Removal</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <span>Anti-Aging</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="#anti-aging">Anti-Aging Treatment</a></li>
+                <li><a href="#anti-aging">Botox</a></li>
+                <li><a href="#anti-aging">HIFU</a></li>
+                <li><a href="#anti-aging">Profhilo</a></li>
+                <li><a href="#anti-aging">Dermal Fillers</a></li>
+                <li><a href="#anti-aging">Skin Tightening</a></li>
+              </ul>
+            </div>
+            <div class="mega-col" style="border-right:none;"></div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="index.html#results" onclick="closeMenu()">Results</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html#expert" onclick="closeMenu()">Our Expert</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html#testimonials" onclick="closeMenu()">Reviews</a></li>
+      <li class="nav-item has-dropdown">
+        <a class="nav-link nav-parent" href="index.html#about">
+          About Us
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="index.html#about" class="dropdown-item" onclick="closeMenu()">About Vtiara</a>
+          <a href="index.html#expert" class="dropdown-item" onclick="closeMenu()">Our Expert</a>
+          <a href="index.html#faq" class="dropdown-item" onclick="closeMenu()">FAQ's</a>
+          <a href="index.html#book" class="dropdown-item" onclick="closeMenu()">Book Appointment</a>
+        </div>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a class="nav-link nav-parent" href="#">
+          Locations
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu dropdown-locations">
+          <div class="loc-city-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bangalore
+          </div>
+          <a href="new-bel-road.html" class="dropdown-item loc-branch" onclick="closeMenu()">New BEL Road</a>
+          <a href="indiranagar.html" class="dropdown-item loc-branch" onclick="closeMenu()">Indiranagar</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="blog.html" onclick="closeMenu()">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-book-nav" onclick="window.location.href='index.html#book'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<!-- PAGE HERO -->
+<section class="treat-hero">
+  <div class="treat-hero-inner">
+    <h1>Our <span>Treatments</span></h1>
+  </div>
+</section>
+
+<!-- CATEGORY TABS -->
+<div class="category-tabs-bar">
+  <div class="category-tabs">
+    <a href="#hair" class="cat-tab active" id="tab-hair">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg>
+      Hair Treatments
+    </a>
+    <a href="#skin" class="cat-tab" id="tab-skin">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      Skin Treatments
+    </a>
+    <a href="#laser-hair" class="cat-tab">Laser Hair Reduction</a>
+    <a href="#hair-regrowth" class="cat-tab">Hair Re-Growth</a>
+    <a href="#acne-scar" class="cat-tab">Acne &amp; Scar</a>
+    <a href="#skin-rejuvenation" class="cat-tab">Skin Rejuvenation</a>
+    <a href="#pigmentation" class="cat-tab">Pigmentation</a>
+    <a href="#anti-aging" class="cat-tab">Anti-Aging</a>
+    <a href="#insta-glow" class="cat-tab">Insta Glow</a>
+    <a href="#more-treatments" class="cat-tab">More</a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     HAIR TREATMENTS
+════════════════════════════════ -->
+<section class="treat-section" id="hair">
+  <div class="treat-section-header">
+    <div class="treat-section-icon hair">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg>
+    </div>
+    <div class="treat-section-text">
+      <h2>Hair Treatments</h2>
+      <p>From laser hair reduction to advanced hair restoration - science-backed solutions for every hair concern.</p>
+    </div>
+  </div>
+
+  <!-- Laser Hair Reduction -->
+  <div class="treat-subcategory" id="laser-hair">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Laser Hair Reduction</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laser Hair Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Laser Hair Removal</h4>
+          <p>Permanent reduction of unwanted body hair using advanced diode lasers. Safe for all skin tones with long-lasting results.</p>
+          <a href="treatment.html?t=laser-hair-removal" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/36/3f/ed/363fed903fffb85f253a330f6215917d.jpg" alt="Upper Lip Hair Reduction" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Upper Lip Hair Reduction</h4>
+          <p>Precise laser targeting for a smooth, hair-free upper lip. Fast 10-minute sessions with minimal discomfort.</p>
+          <a href="treatment.html?t=upper-lip-hair-reduction" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=380&fit=crop" alt="Facial Hair Reduction" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Facial Hair Reduction</h4>
+          <p>Gentle laser treatment for fine and coarse facial hair, including cheeks, chin, and jawline.</p>
+          <a href="treatment.html?t=facial-hair-reduction" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg" alt="Underarm Hair Reduction" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Underarm Hair Reduction</h4>
+          <p>Smooth, odor-reducing laser treatment for underarms. Clinically proven, permanent results in 6–8 sessions.</p>
+          <a href="treatment.html?t=underarm-hair-reduction" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg" alt="Bikini Hair Reduction" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Bikini Hair Reduction</h4>
+          <p>Comfortable and precise hair removal for sensitive bikini areas using gentle, skin-safe laser technology.</p>
+          <a href="treatment.html?t=bikini-hair-reduction" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e1/2a/d9/e12ad9ce0de9d831f9f2dbb174baadbb.jpg" alt="Full Body Laser" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Full Body Laser</h4>
+          <p>Comprehensive head-to-toe laser hair reduction package. Cost-effective, time-saving, and clinically supervised.</p>
+          <a href="treatment.html?t=full-body-laser" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hair Re-Growth -->
+  <div class="treat-subcategory" id="hair-regrowth">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg>
+      </div>
+      <h3>Hair Re-Growth</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg" alt="Hair Loss Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Hair Loss Treatment</h4>
+          <p>Advanced clinical protocols to stop hair fall and stimulate regrowth. Customized plans based on hair loss pattern and cause.</p>
+          <a href="treatment.html?t=hair-loss-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/90/5e/fb/905efb400b185eb60873399f17fa4e3a.jpg" alt="PRP Hair Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>PRP Hair Treatment</h4>
+          <p>Platelet-rich plasma injections harness your body's own growth factors to revive dormant hair follicles naturally.</p>
+          <a href="treatment.html?t=prp-hair-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="images/Hair-Transplant.jpeg" alt="Hair Transplant" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Hair Transplant</h4>
+          <p>Natural-looking, permanent hair restoration using the advanced FUE technique. Minimal scarring, maximum density.</p>
+          <a href="treatment.html?t=hair-transplant" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/22/a2/6a/22a26a19fadd5f19e825d1f233914d5e.jpg" alt="Dandruff Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Dandruff Treatment</h4>
+          <p>Targeted scalp therapies for a healthy, flake-free scalp. Addresses the root cause including seborrheic dermatitis and fungal infections.</p>
+          <a href="treatment.html?t=dandruff-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/f5/25/26/f52526f2187b6d5a135aa0b8ceab45a2.jpg" alt="Hair Thread Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Hair Thread Treatment</h4>
+          <p>Innovative threading technique that volumizes and strengthens existing hair. Effective for thinning and sparse areas.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg&crop=top" alt="QR678 Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>QR678 Treatment</h4>
+          <p>Clinically proven growth factor cocktail injected into the scalp. Backed by peer-reviewed research with visible results in 3 sessions.</p>
+          <a href="treatment.html?t=qr678-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     SKIN TREATMENTS
+════════════════════════════════ -->
+<section class="treat-section" id="skin">
+  <div class="treat-section-header">
+    <div class="treat-section-icon skin">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    </div>
+    <div class="treat-section-text">
+      <h2>Skin Treatments</h2>
+      <p>From acne and pigmentation to anti-aging and rejuvenation - comprehensive skin care under expert dermatological supervision.</p>
+    </div>
+  </div>
+
+  <!-- Acne / Scar -->
+  <div class="treat-subcategory" id="acne-scar">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <h3>Acne &amp; Scar</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/02/32/8f/02328f4412da200138f618abefed16e2.jpg" alt="Pimple Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Pimple Treatment</h4>
+          <p>Medical-grade acne treatments targeting active breakouts, cysts, and whiteheads. Clears skin fast and prevents future outbreaks.</p>
+          <a href="treatment.html?t=pimple-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/f8/02/ff/f802ffc56298676572d327f65964e374.jpg" alt="Acne Scar Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Acne Scar Treatment</h4>
+          <p>Resurfacing and remodeling procedures including fractional laser and microneedling for smoother, even-toned skin.</p>
+          <a href="treatment.html?t=acne-scar-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&crop=center" alt="Laser Skin Resurfacing" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Laser Skin Resurfacing</h4>
+          <p>Fractional laser therapy to renew skin texture, tone, and tighten enlarged pores. Visible results after a single session.</p>
+          <a href="treatment.html?t=laser-skin-resurfacing" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/b2/80/6d/b2806d6a51008d2268bcae8579ac2dca.jpg" alt="MNRF Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>MNRF Treatment</h4>
+          <p>Micro-needling radiofrequency for deep collagen stimulation and remodeling of acne scars. Works on all skin types.</p>
+          <a href="treatment.html?t=mnrf-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/a0/e4/f6/a0e4f68e2cbc57104dfa2aed5e5d828e.jpg" alt="Subcision" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Subcision</h4>
+          <p>Minimally invasive procedure that releases fibrous bands beneath tethered rolling and boxcar acne scars.</p>
+          <a href="treatment.html?t=subcision" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/42/2f/f2/422ff2f254f38334af08f42a7207c2d5.jpg" alt="Black Peel Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Black Peel Treatment</h4>
+          <p>Deep chemical peel combining salicylic and resorcinol for effective acne and hyperpigmentation correction.</p>
+          <a href="treatment.html?t=black-peel-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skin Rejuvenation -->
+  <div class="treat-subcategory" id="skin-rejuvenation">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>Skin Rejuvenation</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/d5/55/37/d555371a768d46d1f691ccada598faa7.jpg" alt="Skin Lightening Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Skin Lightening Treatment</h4>
+          <p>Clinically supervised brightening protocols to even out skin tone, reduce dark spots, and reveal a radiant complexion.</p>
+          <a href="treatment.html?t=skin-lightening-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/3c/43/be/3c43be96093891f7aa6fad66eb1eaf87.jpg" alt="Laser Toning" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Laser Toning</h4>
+          <p>Gentle Q-switch laser sessions that break down melanin clusters for a luminous, even-toned complexion with no downtime.</p>
+          <a href="treatment.html?t=laser-toning" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg&crop=top" alt="Chemical Peels" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Chemical Peels</h4>
+          <p>Customized exfoliating peels - superficial, medium, or deep - for brighter, smoother, and more youthful skin.</p>
+          <a href="treatment.html?t=chemical-peels" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/90/5e/fb/905efb400b185eb60873399f17fa4e3a.jpg&crop=center" alt="PRP GFC For Face" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>PRP / GFC For Face</h4>
+          <p>Growth factor concentrate derived from your own blood, injected to stimulate collagen and renew skin at a cellular level.</p>
+          <a href="treatment.html?t=prp-gfc-face" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=380&fit=crop&crop=top" alt="DermaFrac Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>DermaFrac Treatment</h4>
+          <p>Simultaneous micro-channeling and serum infusion for deep hydration, brightening, and radiant skin in one session.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg&crop=top" alt="PDRN Skin Booster" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>PDRN Skin Booster</h4>
+          <p>Salmon DNA-derived regenerative booster that deeply hydrates skin, repairs damage, and restores a plump, youthful appearance.</p>
+          <a href="treatment.html?t=pdrn-skin-booster" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insta Glow Solutions -->
+  <div class="treat-subcategory" id="insta-glow">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+      <h3>Insta Glow Solutions</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=380&fit=crop&crop=bottom" alt="Medifacials" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Medifacials</h4>
+          <p>Customized clinical-grade facials that combine deep cleansing, exfoliation, and active serums for instant visible glow.</p>
+          <a href="treatment.html?t=medifacials" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg&crop=bottom" alt="InstaGlow Rejuvenation" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>InstaGlow Rejuvenation</h4>
+          <p>Quick-results skin brightening session using a combination of light therapy, serums, and hydration for immediate luminosity.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg&crop=bottom" alt="Carbon Rejuvenation" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Carbon Rejuvenation</h4>
+          <p>Carbon laser peel that deeply cleanses pores, reduces oiliness, and delivers an instant red-carpet glow with no downtime.</p>
+          <a href="treatment.html?t=carbon-rejuvenation" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=380&fit=crop&crop=right" alt="Hollywood Rejuvenation" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Hollywood Rejuvenation</h4>
+          <p>Celebrity-loved glow treatment combining light-based therapy and botanical actives. Perfect before events and occasions.</p>
+          <a href="treatment.html?t=hollywood-rejuvenation" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=380&fit=crop&crop=right" alt="Fire and Ice Facial" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Fire &amp; Ice Facial</h4>
+          <p>Stimulating and soothing dual-phase facial that resurfacing the skin while deeply calming inflammation for a lit-from-within glow.</p>
+          <a href="treatment.html?t=fire-ice-facial" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg&crop=left" alt="HydraFacial" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>HydraFacial</h4>
+          <p>Multi-step vortex-cleansing treatment that exfoliates, extracts, and deeply hydrates for smooth, plump, glowing skin instantly.</p>
+          <a href="treatment.html?t=hydrafacial" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pigmentation -->
+  <div class="treat-subcategory" id="pigmentation">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Pigmentation</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg&crop=right" alt="Hyperpigmentation" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Hyperpigmentation</h4>
+          <p>Targeted treatment for dark patches, post-inflammatory hyperpigmentation, and uneven skin tone using laser and topicals.</p>
+          <a href="treatment.html?t=hyperpigmentation" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=380&fit=crop&crop=left" alt="Melasma Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Melasma Treatment</h4>
+          <p>Specialized multi-step protocol addressing hormonal pigmentation. Combines topical agents, chemical peels, and laser therapy.</p>
+          <a href="treatment.html?t=melasma-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=380&fit=crop&crop=left" alt="Dark Circle Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Dark Circle Treatment</h4>
+          <p>Reduce under-eye darkness and puffiness with targeted laser toning, PRP, and under-eye fillers for a well-rested appearance.</p>
+          <a href="treatment.html?t=dark-circle-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg&crop=right" alt="Cosmelan Peel" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Cosmelan Peel</h4>
+          <p>World-renowned medical depigmentation peel that suppresses melanin production and corrects the most stubborn pigmentation spots.</p>
+          <a href="treatment.html?t=cosmelan-peel" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg&crop=left" alt="Dull Skin Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Dull Skin Treatment</h4>
+          <p>Comprehensive brightening and detox protocols that revive lackluster skin, restore glow, and improve overall skin luminosity.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&crop=right" alt="Face and Body Tan Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Face &amp; Body Tan Removal</h4>
+          <p>Effective de-tan sessions using chemical peels, laser toning, and brightening serums to reverse sun damage from face and body.</p>
+          <a href="treatment.html?t=face-body-tan-removal" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anti-Aging -->
+  <div class="treat-subcategory" id="anti-aging">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Anti-Aging</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=380&fit=crop" alt="Anti-Aging Treatment" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Anti-Aging Treatment</h4>
+          <p>Comprehensive, multi-modality approach to visibly reverse fine lines, wrinkles, sagging skin, and loss of facial volume.</p>
+          <a href="treatment.html?t=anti-aging-treatment" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/90/5e/fb/905efb400b185eb60873399f17fa4e3a.jpg&crop=top" alt="Botox" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Botox</h4>
+          <p>Precision muscle-relaxing injections to soften forehead lines, crow's feet, and frown lines. Natural-looking results in 3–5 days.</p>
+          <a href="treatment.html?t=botox" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/e4/01/cf/e401cf5265a31b3b7232d5fc30803dea.jpg&crop=center" alt="HIFU" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>HIFU</h4>
+          <p>Non-surgical skin lifting using high-intensity focused ultrasound energy. Tightens loose skin on face, neck, and jowls without surgery.</p>
+          <a href="treatment.html?t=hifu" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=380&fit=crop&crop=center" alt="Profhilo" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Profhilo</h4>
+          <p>Bio-remodeling injectable with ultra-high concentration hyaluronic acid. Addresses skin laxity and hydration from deep within.</p>
+          <a href="treatment.html?t=profhilo" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg&crop=center" alt="Dermal Fillers" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Dermal Fillers</h4>
+          <p>Volume restoration and precise contouring using hyaluronic acid. Plumps lips, lifts cheeks, and smooths nasolabial folds.</p>
+          <a href="treatment.html?t=dermal-fillers" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=380&fit=crop&crop=center" alt="Skin Tightening" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Skin Tightening</h4>
+          <p>Radiofrequency-based collagen stimulation for firmer, lifted skin. Works on face, arms, abdomen, and thighs with zero downtime.</p>
+          <a href="treatment.html?t=skin-tightening" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- More Treatments -->
+  <div class="treat-subcategory" id="more-treatments">
+    <div class="treat-subcat-head">
+      <div class="treat-subcat-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <h3>More Treatments</h3>
+      <span>6 Treatments</span>
+    </div>
+    <div class="treat-cards-grid">
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&crop=left" alt="Tattoo Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Tattoo Removal</h4>
+          <p>Q-switch ND:YAG laser for safe and effective removal of black, colored, and amateur tattoos with minimal risk of scarring.</p>
+          <a href="treatment.html?t=tattoo-removal" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg&crop=top" alt="Stretch Marks Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Stretch Marks Removal</h4>
+          <p>Fractional laser and radiofrequency combination for visible reduction of stretch marks on abdomen, thighs, and arms.</p>
+          <a href="treatment.html?t=stretch-marks-removal" class="treat-card-btn">Learn More →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/90/5e/fb/905efb400b185eb60873399f17fa4e3a.jpg&crop=bottom" alt="Moles Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Moles Removal</h4>
+          <p>Safe, scar-minimal mole excision and laser removal performed by dermatologists. Each lesion is evaluated before treatment.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=380&fit=crop&crop=top" alt="Warts Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Warts Removal</h4>
+          <p>Quick electrocautery or laser removal of common, plantar, and filiform warts. Completely heals in 1–2 sessions.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg&crop=bottom" alt="Skin Tag Removal" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>Skin Tag Removal</h4>
+          <p>Painless, sterile removal of skin tags in a single 15-minute session using electrocautery or radiofrequency. No stitches required.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+      <div class="treat-card">
+        <div class="treat-card-img">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=380&fit=crop&crop=bottom" alt="GeneIQ" loading="lazy"/>
+          <div class="treat-card-img-overlay"></div>
+        </div>
+        <div class="treat-card-body">
+          <h4>GeneIQ</h4>
+          <p>DNA-based personalized skin and hair care protocols. Understand your genetic predispositions and get a truly customized treatment plan.</p>
+          <a href="index.html#book" class="treat-card-btn">Book Now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="treat-cta">
+  <h2>Ready to Start Your Transformation?</h2>
+  <p>Book a free consultation with our expert dermatologists and get a personalized treatment plan crafted just for you.</p>
+  <div class="treat-cta-btns">
+    <a href="index.html#book" class="btn-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Free Consultation
+    </a>
+    <a href="tel:+916361347722" class="btn-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +91 63613 47722
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-info-row">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="images/footerlogo.png" alt="VTIARA" style="height:80px;width:auto;filter:brightness(0) invert(1);" />
+      </div>
+      <p>Premium dermatology and hair restoration in Bangalore. Where clinical excellence meets personalized care.</p>
+      <div class="footer-contact">
+        <a href="tel:+916361347722" class="footer-phone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          63613 47722
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="treatments.html">All Treatments</a></li>
+        <li><a href="index.html#results">Results</a></li>
+        <li><a href="index.html#expert">Our Expert</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+        <li><a href="index.html#about">About Vtiara</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Locations</h4>
+      <ul>
+        <li class="footer-city-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Bangalore
+        </li>
+        <li><a href="new-bel-road.html">New BEL Road</a></li>
+        <li><a href="indiranagar.html">Indiranagar</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-top">
+    <div class="footer-col"><h4>Laser Hair Reduction</h4><ul><li><a href="#laser-hair">Laser Hair Removal</a></li><li><a href="#laser-hair">Upper Lip Hair Reduction</a></li><li><a href="#laser-hair">Facial Hair Reduction</a></li><li><a href="#laser-hair">Underarm Hair Reduction</a></li><li><a href="#laser-hair">Bikini Hair Reduction</a></li><li><a href="#laser-hair">Full Body Laser</a></li></ul></div>
+    <div class="footer-col"><h4>Hair Re-Growth</h4><ul><li><a href="#hair-regrowth">Hair Loss Treatment</a></li><li><a href="#hair-regrowth">PRP Hair Treatment</a></li><li><a href="#hair-regrowth">Hair Transplant</a></li><li><a href="#hair-regrowth">Dandruff Treatment</a></li><li><a href="#hair-regrowth">Hair Thread Treatment</a></li><li><a href="#hair-regrowth">QR678 Treatment</a></li></ul></div>
+    <div class="footer-col"><h4>Acne / Scar</h4><ul><li><a href="#acne-scar">Pimple Treatment</a></li><li><a href="#acne-scar">Acne Scar Treatment</a></li><li><a href="#acne-scar">Laser Skin Resurfacing</a></li><li><a href="#acne-scar">MNRF Treatment</a></li><li><a href="#acne-scar">Subcision</a></li><li><a href="#acne-scar">Black Peel Treatment</a></li></ul></div>
+    <div class="footer-col"><h4>Skin Rejuvenation</h4><ul><li><a href="#skin-rejuvenation">Skin Lightening Treatment</a></li><li><a href="#skin-rejuvenation">Laser Toning</a></li><li><a href="#skin-rejuvenation">Chemical Peels</a></li><li><a href="#skin-rejuvenation">PRP/GFC For Face</a></li><li><a href="#skin-rejuvenation">DermaFrac Treatment</a></li><li><a href="#skin-rejuvenation">PDRN Skin Booster</a></li></ul></div>
+    <div class="footer-col"><h4>Insta Glow Solutions</h4><ul><li><a href="#insta-glow">Medifacials</a></li><li><a href="#insta-glow">InstaGlow Rejuvenation</a></li><li><a href="#insta-glow">Carbon Rejuvenation</a></li><li><a href="#insta-glow">Hollywood Rejuvenation</a></li><li><a href="#insta-glow">Fire &amp; Ice Facial</a></li><li><a href="#insta-glow">HydraFacial</a></li></ul></div>
+    <div class="footer-col"><h4>Pigmentation</h4><ul><li><a href="#pigmentation">Hyperpigmentation</a></li><li><a href="#pigmentation">Melasma Treatment</a></li><li><a href="#pigmentation">Dark Circle Treatment</a></li><li><a href="#pigmentation">Cosmelan Peel</a></li><li><a href="#pigmentation">Dull Skin Treatment</a></li><li><a href="#pigmentation">Face &amp; Body Tan Removal</a></li></ul></div>
+    <div class="footer-col"><h4>Anti-Aging</h4><ul><li><a href="#anti-aging">Anti-Aging Treatment</a></li><li><a href="#anti-aging">Botox</a></li><li><a href="#anti-aging">HIFU</a></li><li><a href="#anti-aging">Profhilo</a></li><li><a href="#anti-aging">Dermal Fillers</a></li><li><a href="#anti-aging">Skin Tightening</a></li></ul></div>
+    <div class="footer-col"><h4>More Treatments</h4><ul><li><a href="#more-treatments">Tattoo Removal</a></li><li><a href="#more-treatments">Stretch Marks Removal</a></li><li><a href="#more-treatments">Moles Removal</a></li><li><a href="#more-treatments">Warts Removal</a></li><li><a href="#more-treatments">Skin Tag Removal</a></li><li><a href="#more-treatments">GeneIQ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 VTIARA Hair &amp; Skin Clinic. All rights reserved.</div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="social-link" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" class="social-link" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+916361347722" class="phone-float" aria-label="Call us">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+<a href="https://wa.me/916361347722" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    var navEl = document.getElementById('main-nav');
+    var navLinks = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    var navBottom = navEl.getBoundingClientRect().bottom;
+    navLinks.style.top = navBottom + 'px';
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  }
+  function closeMenu() {
+    var nav = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    nav.classList.remove('open');
+    nav.style.top = '';
+    hamburger.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    document.querySelectorAll('.nav-item.sub-open').forEach(function(el){ el.classList.remove('sub-open'); });
+  }
+  document.querySelectorAll('.nav-parent').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        var li = this.closest('.nav-item');
+        var wasOpen = li.classList.contains('sub-open');
+        document.querySelectorAll('.nav-item.sub-open').forEach(function(item){ item.classList.remove('sub-open'); });
+        if (!wasOpen) li.classList.add('sub-open');
+      }
+    });
+  });
+  document.querySelectorAll('.mega-col').forEach(function(col) {
+    var head = col.querySelector('.mega-cat-head');
+    if (!head) return;
+    var icon = head.querySelector('.mega-cat-icon');
+    var span = head.querySelector('span');
+    var left = document.createElement('div');
+    left.className = 'mega-cat-left';
+    if (icon) left.appendChild(icon);
+    if (span) left.appendChild(span);
+    head.insertBefore(left, head.firstChild);
+    var chev = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    chev.setAttribute('class', 'mega-col-chevron');
+    chev.setAttribute('width', '18'); chev.setAttribute('height', '18');
+    chev.setAttribute('viewBox', '0 0 24 24'); chev.setAttribute('fill', 'none');
+    chev.setAttribute('stroke', 'currentColor'); chev.setAttribute('stroke-width', '2.5');
+    var pl = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+    pl.setAttribute('points', '9 6 15 12 9 18');
+    chev.appendChild(pl);
+    head.appendChild(chev);
+    head.addEventListener('click', function() {
+      if (window.innerWidth > 768) return;
+      var isOpen = col.classList.contains('col-open');
+      document.querySelectorAll('.mega-col.col-open').forEach(function(c) { c.classList.remove('col-open'); });
+      if (!isOpen) col.classList.add('col-open');
+    });
+  });
+  /* Active tab highlight on scroll */
+  var sections = ['hair', 'laser-hair', 'hair-regrowth', 'skin', 'acne-scar', 'skin-rejuvenation', 'insta-glow', 'pigmentation', 'anti-aging', 'more-treatments'];
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY + 160;
+    var current = sections[0];
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('.cat-tab').forEach(function(tab) {
+      tab.classList.remove('active');
+      var href = tab.getAttribute('href');
+      if (href === '#' + current || (current === 'hair' && href === '#hair') || (current === 'skin' && href === '#skin')) {
+        tab.classList.add('active');
+      }
+    });
+  });
+
+  /* Desktop hover with 350ms delay for mega menu and dropdowns */
+  function initHoverMenu(selector, menuSelector) {
+    document.querySelectorAll(selector).forEach(function(item) {
+      var hideTimer = null;
+      var menu = item.querySelector(menuSelector);
+      if (!menu) return;
+      function showMenu() {
+        if (window.innerWidth <= 768) return;
+        clearTimeout(hideTimer);
+        if (menuSelector === '.dropdown-menu') {
+          var nav = document.getElementById('main-nav');
+          var navRect = nav.getBoundingClientRect();
+          var itemRect = item.getBoundingClientRect();
+          menu.style.top = navRect.bottom + 'px';
+          var left = itemRect.left;
+          var maxLeft = navRect.right - 218;
+          menu.style.left = Math.min(left, maxLeft) + 'px';
+        }
+        menu.style.display = 'block';
+      }
+      function scheduleHide() {
+        if (window.innerWidth <= 768) return;
+        menu.style.display = '';
+      }
+      item.addEventListener('mouseenter', showMenu);
+      item.addEventListener('mouseleave', scheduleHide);
+      menu.addEventListener('mouseenter', showMenu);
+      menu.addEventListener('mouseleave', scheduleHide);
+    });
+  }
+  initHoverMenu('.has-mega', '.mega-menu');
+  initHoverMenu('.has-dropdown', '.dropdown-menu');
+</script>
+</body>
+</html>

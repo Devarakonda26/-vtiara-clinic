@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VTIARA – New BEL Road, Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* Branch hero */
+.branch-hero {
+  background: var(--navy);
+  margin-top: -69px;
+  padding: calc(69px + 56px) var(--px) 52px;
+  position: relative;
+  overflow: hidden;
+}
+.branch-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 420px; height: 100%;
+  background: radial-gradient(ellipse at right, rgba(42,168,168,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.branch-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+.branch-hero-text { max-width: 560px; }
+.branch-hero-img {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 340px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.branch-hero-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.branch-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(42,168,168,0.15);
+  border: 1px solid rgba(42,168,168,0.3);
+  color: var(--teal);
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 20px;
+}
+.branch-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.branch-hero h1 span { color: var(--yellow); }
+.branch-hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.branch-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.branch-hero-cta .btn-primary {
+  background: #fff; color: var(--navy);
+  border: none; border-radius: 8px;
+  padding: 10px 18px; font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 7px;
+  cursor: pointer; text-decoration: none;
+  transition: background .2s, color .2s; white-space: nowrap;
+}
+.branch-hero-cta .btn-primary:hover { background: var(--teal); color: #fff; }
+.branch-hero-cta .btn-outline {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 13px 26px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+.branch-hero-cta .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Treatment Service Circles */
+.treatment-circles-section { padding: 56px var(--px) 40px; background: #fff; }
+.treatment-circles-view-more {
+  display: flex; justify-content: center; padding-top: 20px;
+}
+.treatment-circles-view-more a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700; color: var(--teal);
+  border: 2px solid var(--teal); border-radius: 100px;
+  padding: 10px 28px; text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.treatment-circles-view-more a:hover { background: var(--teal); color: #fff; }
+.treatment-circles-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--navy); margin-bottom: 28px; text-align: center;
+}
+.treatment-circles-section h3 span { color: var(--teal); }
+.treatment-circles-track {
+  display: flex; gap: 20px; overflow-x: auto;
+  padding: 8px 4px 24px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  justify-content: center;
+}
+.treatment-circles-track::-webkit-scrollbar { display: none; }
+.treatment-circle-card {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  flex-shrink: 0; cursor: pointer; text-decoration: none; width: 138px;
+}
+.treatment-circle-img {
+  width: 130px; height: 130px; border-radius: 50%;
+  overflow: hidden; border: 3px solid var(--teal);
+  box-shadow: 0 4px 16px rgba(42,168,168,0.15);
+  transition: transform 0.25s, box-shadow 0.25s; background: #f0f8f8;
+}
+.treatment-circle-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.treatment-circle-card:hover .treatment-circle-img {
+  transform: scale(1.06); box-shadow: 0 8px 28px rgba(42,168,168,0.28);
+}
+.treatment-circle-label {
+  font-size: 13px; font-weight: 700; color: var(--navy);
+  text-align: center; line-height: 1.35; max-width: 130px;
+}
+
+/* Info + map section */
+.branch-info-section {
+  padding: 64px var(--px);
+  background: var(--bg-light);
+}
+/* Map row */
+.branch-media-row {
+  margin-bottom: 24px;
+  height: 320px;
+}
+.branch-map-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+  height: 320px;
+}
+.branch-map-wrap iframe {
+  width: 100%; height: 100%; border: none; display: block;
+}
+/* Bottom row: 4 info cards */
+.branch-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.info-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+}
+.info-card-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
+}
+.info-card-icon {
+  width: 36px; height: 36px;
+  background: rgba(42,168,168,0.1);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); flex-shrink: 0;
+}
+.info-card-title {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.7px;
+  color: var(--navy);
+}
+.info-card-body { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+.info-card-body a { color: var(--teal); text-decoration: none; font-weight: 600; }
+.info-card-body a:hover { text-decoration: underline; }
+.hours-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #f0f4f8; font-size: 13px; }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-weight: 600; color: var(--navy); }
+
+/* CTA strip */
+.branch-cta-strip {
+  background: var(--navy);
+  padding: 56px var(--px);
+  text-align: center;
+}
+.branch-cta-strip h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  color: #fff; margin-bottom: 12px;
+}
+.branch-cta-strip p { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 28px; }
+.branch-cta-strip .btn-primary {
+  background: var(--teal); color: #fff;
+  border: none; padding: 14px 30px;
+  border-radius: 8px; font-size: 15px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.branch-cta-strip .btn-call {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 14px 30px; border-radius: 8px;
+  font-size: 15px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; margin-left: 12px;
+}
+.branch-cta-strip .btn-call:hover { border-color: var(--teal); color: var(--teal); }
+.branch-cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .treatment-circles-track { justify-content: flex-start; padding: 8px 0 24px; }
+  .treatment-circle-img { width: 108px; height: 108px; }
+  .treatment-circle-card { width: 118px; }
+}
+@media (max-width: 768px) {
+  .branch-media-row { height: auto; }
+  .branch-map-wrap { height: 220px; }
+  .treatment-circles-section { padding: 40px 20px 0; }
+  .branch-cards-grid { grid-template-columns: 1fr 1fr; }
+  .branch-hero { padding: calc(69px + 36px) 20px 40px; }
+  .branch-hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  .branch-hero-img { height: 220px; }
+  .branch-cta-strip { padding: 40px 20px; }
+  .branch-info-section { padding: 44px 20px; }
+  /* Mobile nav dropdown fix */
+  .dropdown-menu { position: static !important; display: none !important; box-shadow: none !important; border: none !important; border-top: 3px solid #2aa8a8 !important; border-radius: 0 !important; padding: 0 !important; background: #f5fafa !important; }
+  .nav-item.sub-open > .dropdown-menu { display: block !important; }
+  .dropdown-item { display: block !important; padding: 16px 28px !important; font-size: 14px !important; font-weight: 500 !important; color: #4a5568 !important; border-bottom: 1px solid #edf2f7 !important; background: #fff !important; margin: 0 !important; }
+  .dropdown-item:last-child { border-bottom: none !important; }
+  .loc-city-label { display: flex !important; align-items: center !important; gap: 5px !important; padding: 14px 28px 10px !important; font-size: 10px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; color: #2aa8a8 !important; border-bottom: 1px solid #edf2f7 !important; background: #fff !important; margin: 0 !important; }
+  .loc-branch { padding-left: 40px !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="announcement-bar-track">
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments — Book your appointment today! <a href="index.html#book">Book Now →</a></div>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      New BEL Road, Bangalore
+    </div>
+    <div class="top-bar-right">
+      <span class="top-bar-care">Customer Care · 9 AM to 8 PM</span>
+      <a href="tel:+916361347722" class="top-bar-phone">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        63613 47722
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="VTIARA Logo"></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+
+      <!-- Treatments Mega Menu -->
+      <li class="nav-item has-mega">
+        <a class="nav-link nav-parent">
+          Treatments
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <span>Laser Hair Reduction</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Laser Hair Removal</a></li>
+                <li><a href="index.html#treatments">Upper Lip Hair Reduction</a></li>
+                <li><a href="index.html#treatments">Facial Hair Reduction</a></li>
+                <li><a href="index.html#treatments">Underarm Hair Reduction</a></li>
+                <li><a href="index.html#treatments">Bikini Hair Reduction</a></li>
+                <li><a href="index.html#treatments">Full Body Laser</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg></div>
+                <span>Hair Re-Growth</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Hair Loss Treatment</a></li>
+                <li><a href="index.html#treatments">PRP Hair Treatment</a></li>
+                <li><a href="index.html#treatments">Hair Transplant</a></li>
+                <li><a href="index.html#treatments">Dandruff Treatment</a></li>
+                <li><a href="index.html#treatments">Hair Thread Treatment</a></li>
+                <li><a href="index.html#treatments">QR678 Treatment</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                <span>Acne / Scar</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Pimple Treatment</a></li>
+                <li><a href="index.html#treatments">Acne Scar Treatment</a></li>
+                <li><a href="index.html#treatments">Laser Skin Resurfacing</a></li>
+                <li><a href="index.html#treatments">MNRF Treatment</a></li>
+                <li><a href="index.html#treatments">Subcision</a></li>
+                <li><a href="index.html#treatments">Black Peel Treatment</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg></div>
+                <span>Skin Rejuvenation</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Skin Lightening Treatment</a></li>
+                <li><a href="index.html#treatments">Laser Toning</a></li>
+                <li><a href="index.html#treatments">Chemical Peels</a></li>
+                <li><a href="index.html#treatments">PRP/GFC For Face</a></li>
+                <li><a href="index.html#treatments">DermaFrac Treatment</a></li>
+                <li><a href="index.html#treatments">PDRN Skin Booster</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                <span>Insta Glow Solutions</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Medifacials</a></li>
+                <li><a href="index.html#treatments">InstaGlow Rejuvenation</a></li>
+                <li><a href="index.html#treatments">Carbon Rejuvenation</a></li>
+                <li><a href="index.html#treatments">Hollywood Rejuvenation</a></li>
+                <li><a href="index.html#treatments">Fire &amp; Ice Facial</a></li>
+                <li><a href="index.html#treatments">HydraFacial</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span>Pigmentation</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Hyperpigmentation</a></li>
+                <li><a href="index.html#treatments">Melasma Treatment</a></li>
+                <li><a href="index.html#treatments">Dark Circle Treatment</a></li>
+                <li><a href="index.html#treatments">Cosmelan Peel</a></li>
+                <li><a href="index.html#treatments">Dull Skin Treatment</a></li>
+                <li><a href="index.html#treatments">Face &amp; Body Tan Removal</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <span>Anti-Aging</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Anti-Aging Treatment</a></li>
+                <li><a href="index.html#treatments">Botox</a></li>
+                <li><a href="index.html#treatments">HIFU</a></li>
+                <li><a href="index.html#treatments">Profhilo</a></li>
+                <li><a href="index.html#treatments">Dermal Fillers</a></li>
+                <li><a href="index.html#treatments">Skin Tightening</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <div class="mega-cat-head">
+                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+                <span>More</span>
+              </div>
+              <ul class="mega-links">
+                <li><a href="index.html#treatments">Tattoo Removal</a></li>
+                <li><a href="index.html#treatments">Stretch Marks Removal</a></li>
+                <li><a href="index.html#treatments">Moles Removal</a></li>
+                <li><a href="index.html#treatments">Warts Removal</a></li>
+                <li><a href="index.html#treatments">Skin Tag Removal</a></li>
+                <li><a href="index.html#treatments">GeneIQ</a></li>
+              </ul>
+            </div>
+            <div class="mega-col" style="border-right:none;"></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="index.html#results" onclick="closeMenu()">Results</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html#expert" onclick="closeMenu()">Our Expert</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.html#testimonials" onclick="closeMenu()">Reviews</a></li>
+
+      <li class="nav-item has-dropdown">
+        <a class="nav-link nav-parent" href="index.html#about">
+          About Us
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="index.html#about" class="dropdown-item" onclick="closeMenu()">About Vtiara</a>
+          <a href="index.html#expert" class="dropdown-item" onclick="closeMenu()">Our Expert</a>
+          <a href="index.html#faq" class="dropdown-item" onclick="closeMenu()">FAQ's</a>
+          <a href="index.html#book" class="dropdown-item" onclick="closeMenu()">Book Appointment</a>
+        </div>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a class="nav-link nav-parent" href="#">
+          Locations
+          <svg class="nav-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu dropdown-locations">
+          <div class="loc-city-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bangalore
+          </div>
+          <a href="new-bel-road.html" class="dropdown-item loc-branch" onclick="closeMenu()">New BEL Road</a>
+          <a href="indiranagar.html" class="dropdown-item loc-branch" onclick="closeMenu()">Indiranagar</a>
+        </div>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="blog.html" onclick="closeMenu()">Blog</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn-book-nav" onclick="window.location.href='index.html#book'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </button>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<!-- HERO -->
+<section class="branch-hero">
+  <div class="branch-hero-inner">
+    <!-- Left: text -->
+    <div class="branch-hero-text">
+      <div class="branch-tag">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Bangalore · New BEL Road
+      </div>
+      <h1>VTIARA Clinic<br><span>New BEL Road</span></h1>
+      <p class="branch-hero-sub">Premium dermatology &amp; hair restoration clinic serving New BEL Road and surrounding areas. Expert care, advanced technology.</p>
+      <div class="branch-hero-cta">
+        <a href="index.html#book" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Appointment
+        </a>
+        <a href="tel:+916361347722" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Us
+        </a>
+      </div>
+    </div>
+    <!-- Right: clinic image -->
+    <div class="branch-hero-img">
+      <img src="images/clinic2.jpg" alt="Vtiara Clinic New BEL Road" />
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT SERVICE CIRCLES -->
+<section class="treatment-circles-section">
+  <h3>Our <span>Treatment</span> Services</h3>
+  <div class="treatment-circles-track">
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laser Hair Removal" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Laser Hair Removal</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=300&fit=crop" alt="PRP Hair Treatment" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">PRP Hair Treatment</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg" alt="Hair Loss Treatment" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Hair Loss Treatment</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="images/Hair-Transplant.jpeg" alt="Hair Transplant" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Hair Transplant</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop" alt="Acne Treatment" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Acne &amp; Scar Treatment</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop" alt="Skin Lightening" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Skin Lightening</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&h=300&fit=crop" alt="Anti-Aging" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Anti-Aging Treatment</span>
+    </a>
+    <a href="index.html#treatments" class="treatment-circle-card">
+      <div class="treatment-circle-img">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=300&h=300&fit=crop" alt="Pigmentation Treatment" loading="lazy"/>
+      </div>
+      <span class="treatment-circle-label">Pigmentation Treatment</span>
+    </a>
+  </div>
+  <div class="treatment-circles-view-more">
+    <a href="treatments.html">
+      View All Treatments
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- INFO + MAP -->
+<section class="branch-info-section">
+
+  <!-- Row 1: Map -->
+  <div class="branch-media-row">
+    <div class="branch-map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d77.5675389!3d13.0321656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17c008d1104b%3A0xd3908989aa511aab!2sVtiara+Hair+and+Clinic+-+New+Bel+Road!5e0!3m2!1sen!2sin!4v1721800000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Vtiara Clinic New BEL Road Map">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Row 2: 4 info cards -->
+  <div class="branch-cards-grid">
+
+    <div class="info-card">
+      <div class="info-card-head">
+        <div class="info-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="info-card-title">Address</div>
+      </div>
+      <div class="info-card-body">
+        VTIARA Hair &amp; Skin Clinic<br>
+        New BEL Road, Bangalore<br>
+        Karnataka – 560 054<br><br>
+        <a href="https://maps.app.goo.gl/E9fSJ2oELxkVfB5c9" target="_blank">Get Directions →</a>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-head">
+        <div class="info-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="info-card-title">Contact</div>
+      </div>
+      <div class="info-card-body">
+        Phone: <a href="tel:+916361347722">+91 63613 47722</a><br>
+        Email: <a href="mailto:manager@vtiaraclinic.com">manager@vtiaraclinic.com</a>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-head">
+        <div class="info-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="info-card-title">Clinic Hours</div>
+      </div>
+      <div class="info-card-body">
+        <div class="hours-row"><span class="hours-day">Mon – Sat</span><span>9:00 AM – 8:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span>10:00 AM – 6:00 PM</span></div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-head">
+        <div class="info-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="info-card-title">Google Rating</div>
+      </div>
+      <div class="info-card-body">
+        <strong style="font-size:22px;color:var(--navy);">4.8</strong>
+        <span style="color:#f59e0b;font-size:16px;margin-left:4px;">★★★★★</span><br>
+        <span style="color:var(--text-light);font-size:13px;">Based on 261 reviews</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="branch-cta-strip">
+  <h2>Ready to Visit Us?</h2>
+  <p>Book your consultation at our New BEL Road branch — expert care, zero wait time.</p>
+  <div class="branch-cta-btns">
+    <button class="btn-primary" onclick="window.location.href='index.html#book'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Appointment
+    </button>
+    <a href="tel:+916361347722" class="btn-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +91 63613 47722
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-info-row">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="images/footerlogo.png" alt="VTIARA" style="height:80px;width:auto;filter:brightness(0) invert(1);" />
+      </div>
+      <p>Premium dermatology and hair restoration in Bangalore. Where clinical excellence meets personalized care.</p>
+      <div class="footer-contact">
+        <a href="tel:+916361347722" class="footer-phone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          63613 47722
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#results">Results</a></li>
+        <li><a href="index.html#expert">Our Expert</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+        <li><a href="index.html#about">About Vtiara</a></li>
+        <li><a href="index.html#faq">FAQ's</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Locations</h4>
+      <ul>
+        <li class="footer-city-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Bangalore
+        </li>
+        <li><a href="new-bel-road.html">New BEL Road</a></li>
+        <li><a href="indiranagar.html">Indiranagar</a></li>
+      </ul>
+      <div class="footer-book-btn">
+        <button onclick="window.location.href='index.html#book'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-top">
+    <div class="footer-col"><h4>Laser Hair Reduction</h4><ul><li><a href="index.html#treatments">Laser Hair Removal</a></li><li><a href="index.html#treatments">Upper Lip Hair Reduction</a></li><li><a href="index.html#treatments">Facial Hair Reduction</a></li><li><a href="index.html#treatments">Underarm Hair Reduction</a></li><li><a href="index.html#treatments">Bikini Hair Reduction</a></li><li><a href="index.html#treatments">Full Body Laser</a></li></ul></div>
+    <div class="footer-col"><h4>Hair Re-Growth</h4><ul><li><a href="index.html#treatments">Hair Loss Treatment</a></li><li><a href="index.html#treatments">PRP Hair Treatment</a></li><li><a href="index.html#treatments">Hair Transplant</a></li><li><a href="index.html#treatments">Dandruff Treatment</a></li><li><a href="index.html#treatments">Hair Thread Treatment</a></li><li><a href="index.html#treatments">QR678 Treatment</a></li></ul></div>
+    <div class="footer-col"><h4>Acne / Scar</h4><ul><li><a href="index.html#treatments">Pimple Treatment</a></li><li><a href="index.html#treatments">Acne Scar Treatment</a></li><li><a href="index.html#treatments">Laser Skin Resurfacing</a></li><li><a href="index.html#treatments">MNRF Treatment</a></li><li><a href="index.html#treatments">Subcision</a></li><li><a href="index.html#treatments">Black Peel Treatment</a></li></ul></div>
+    <div class="footer-col"><h4>Skin Rejuvenation</h4><ul><li><a href="index.html#treatments">Skin Lightening Treatment</a></li><li><a href="index.html#treatments">Laser Toning</a></li><li><a href="index.html#treatments">Chemical Peels</a></li><li><a href="index.html#treatments">PRP/GFC For Face</a></li><li><a href="index.html#treatments">DermaFrac Treatment</a></li><li><a href="index.html#treatments">PDRN Skin Booster</a></li></ul></div>
+    <div class="footer-col"><h4>Insta Glow Solutions</h4><ul><li><a href="index.html#treatments">Medifacials</a></li><li><a href="index.html#treatments">InstaGlow Rejuvenation</a></li><li><a href="index.html#treatments">Carbon Rejuvenation</a></li><li><a href="index.html#treatments">Hollywood Rejuvenation</a></li><li><a href="index.html#treatments">Fire &amp; Ice Facial</a></li><li><a href="index.html#treatments">HydraFacial</a></li></ul></div>
+    <div class="footer-col"><h4>Pigmentation</h4><ul><li><a href="index.html#treatments">Hyperpigmentation</a></li><li><a href="index.html#treatments">Melasma Treatment</a></li><li><a href="index.html#treatments">Dark Circle Treatment</a></li><li><a href="index.html#treatments">Cosmelan Peel</a></li><li><a href="index.html#treatments">Dull Skin Treatment</a></li><li><a href="index.html#treatments">Face &amp; Body Tan Removal</a></li></ul></div>
+    <div class="footer-col"><h4>Anti-Aging</h4><ul><li><a href="index.html#treatments">Anti-Aging Treatment</a></li><li><a href="index.html#treatments">Botox</a></li><li><a href="index.html#treatments">HIFU</a></li><li><a href="index.html#treatments">Profhilo</a></li><li><a href="index.html#treatments">Dermal Fillers</a></li><li><a href="index.html#treatments">Skin Tightening</a></li></ul></div>
+    <div class="footer-col"><h4>More Treatments</h4><ul><li><a href="index.html#treatments">Tattoo Removal</a></li><li><a href="index.html#treatments">Stretch Marks Removal</a></li><li><a href="index.html#treatments">Moles Removal</a></li><li><a href="index.html#treatments">Warts Removal</a></li><li><a href="index.html#treatments">Skin Tag Removal</a></li><li><a href="index.html#treatments">GeneIQ</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 VTIARA Hair &amp; Skin Clinic. All rights reserved.</div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" class="social-link" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" class="social-link" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+916361347722" class="phone-float" aria-label="Call us">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+<a href="https://wa.me/916361347722" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    var navEl = document.getElementById('main-nav');
+    var navLinks = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    var navBottom = navEl.getBoundingClientRect().bottom;
+    navLinks.style.top = navBottom + 'px';
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  }
+  function closeMenu() {
+    var nav = document.getElementById('nav-links');
+    var hamburger = document.getElementById('hamburger');
+    var overlay = document.getElementById('nav-overlay');
+    nav.classList.remove('open');
+    nav.style.top = '';
+    hamburger.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    document.querySelectorAll('.nav-item.sub-open').forEach(function(el){ el.classList.remove('sub-open'); });
+  }
+  document.querySelectorAll('.nav-parent').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        var li = this.closest('.nav-item');
+        var wasOpen = li.classList.contains('sub-open');
+        document.querySelectorAll('.nav-item.sub-open').forEach(function(item){ item.classList.remove('sub-open'); });
+        if (!wasOpen) li.classList.add('sub-open');
+      }
+    });
+  });
+  (function() {
+    document.querySelectorAll('.mega-col').forEach(function(col) {
+      var head = col.querySelector('.mega-cat-head');
+      if (!head) return;
+      var icon = head.querySelector('.mega-cat-icon');
+      var span = head.querySelector('span');
+      var left = document.createElement('div');
+      left.className = 'mega-cat-left';
+      if (icon) left.appendChild(icon);
+      if (span) left.appendChild(span);
+      head.insertBefore(left, head.firstChild);
+      var chev = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      chev.setAttribute('class', 'mega-col-chevron');
+      chev.setAttribute('width', '18'); chev.setAttribute('height', '18');
+      chev.setAttribute('viewBox', '0 0 24 24');
+      chev.setAttribute('fill', 'none'); chev.setAttribute('stroke', 'currentColor');
+      chev.setAttribute('stroke-width', '2.5');
+      var pl = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+      pl.setAttribute('points', '9 6 15 12 9 18');
+      chev.appendChild(pl);
+      head.appendChild(chev);
+      head.addEventListener('click', function() {
+        if (window.innerWidth > 768) return;
+        var isOpen = col.classList.contains('col-open');
+        document.querySelectorAll('.mega-col.col-open').forEach(function(c) { c.classList.remove('col-open'); });
+        if (!isOpen) col.classList.add('col-open');
+      });
+    });
+  })();
+  document.querySelectorAll('.has-mega').forEach(function(item) {
+    var hideTimer = null;
+    var menu = item.querySelector('.mega-menu');
+    function showMenu() { if (window.innerWidth > 768) { clearTimeout(hideTimer); menu.style.display = 'block'; } }
+    function scheduleHide() { if (window.innerWidth > 768) { menu.style.display = ''; } }
+    item.addEventListener('mouseenter', showMenu);
+    item.addEventListener('mouseleave', scheduleHide);
+    menu.addEventListener('mouseenter', showMenu);
+    menu.addEventListener('mouseleave', scheduleHide);
+  });
+</script>
+</body>
+</html>
