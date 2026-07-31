@@ -11,7 +11,7 @@
 .treat-hero {
   background: var(--navy);
   margin-top: 0;
-  padding: 48px var(--px);
+  padding: 28px var(--px);
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -35,7 +35,7 @@
 }
 .treat-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 5vw, 54px);
+  font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;
 }
 .treat-hero h1 span { color: var(--yellow); }
@@ -188,8 +188,13 @@
   .loc-city-label { display: flex !important; align-items: center !important; gap: 5px !important; padding: 14px 28px 10px !important; font-size: 10px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; color: #2aa8a8 !important; border-bottom: 1px solid #edf2f7 !important; background: #fff !important; margin: 0 !important; }
   .loc-branch { padding-left: 40px !important; }
   /* Responsive layouts */
-  .treat-hero { padding: calc(69px + 36px) 20px 40px; }
-  .category-tabs-bar { padding: 0 20px; }
+  .treat-hero { padding: 0 20px; height: 110px; margin-top: 98px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .treat-hero-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .treat-hero h1 { font-size: 22px; margin-bottom: 0; text-align: center; }
+  .treat-hero p { display: none; }
+  .treat-hero-btns { display: none; }
+  .treat-hero-tag { display: none; }
+  .category-tabs-bar { padding: 0 20px; top: 98px; }
   .treat-section { padding: 44px 20px 32px; }
   .treat-cards-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .treat-card-img { height: 150px; }

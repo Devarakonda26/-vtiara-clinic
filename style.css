@@ -68,7 +68,7 @@ nav {
   position: relative;
 }
 .logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo img { height: 50px; width: auto; }
+.logo img { height: 38px; width: auto; }
 
 /* Nav Links list */
 .nav-links {
@@ -968,13 +968,20 @@ footer {
 @media (max-width: 768px) {
   :root { --px: 20px; }
 
-  /* ── Top bar mobile ── */
-  .top-bar { padding: 6px 16px; }
-  .top-bar-care { display: none; }
+  /* ── Top bar: hide on mobile ── */
+  .top-bar { display: none; }
 
-  /* ── Nav ── */
+  /* ── Announcement bar: fixed at very top on mobile ── */
+  .announcement-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 2001; font-size: 11px; padding: 6px 0; }
+
+  /* ── Nav: fixed below announcement bar ── */
+  nav#main-nav { position: fixed; top: 30px; left: 0; right: 0; z-index: 2000; }
   .nav-inner { padding: 0 16px; height: 68px; }
-  .logo img { height: 64px; }
+  /* Push all hero sections below fixed announcement bar (30px) + nav (68px) = 98px */
+  .hero, .blog-hero-wrap, .post-hero, .hero-slider-wrap { margin-top: 98px; }
+  .branch-hero { margin-top: 98px !important; padding: 36px 20px 40px !important; }
+  .treat-hero { margin-top: 98px; }
+  .logo img { height: 38px; }
   .nav-links {
     display: none;
     position: fixed; left: 0; right: 0; bottom: 0;
@@ -1185,7 +1192,8 @@ footer {
 
   /* ── Footer ── */
   footer { padding: 40px 20px 24px; }
-  .footer-info-row { grid-template-columns: 1fr; gap: 24px; }
+  .footer-info-row { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+  .footer-brand { grid-column: 1 / -1; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 20px; }
   .footer-bottom { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 
@@ -1225,6 +1233,5 @@ footer {
 
   .book-left h2 { font-size: 22px; }
 
-  /* Hide book button in nav on very small screens */
-  .nav-actions .btn-book-nav { display: none; }
+  .nav-actions .btn-book-nav { display: flex; font-size: 11px; padding: 7px 10px; }
 }

@@ -71,12 +71,23 @@
   margin-bottom: 18px;
 }
 .treat-hero-cat svg { flex-shrink: 0; }
+.treat-hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  text-shadow: none;
+}
 .treat-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  line-height: 1.3;
   margin-bottom: 18px;
+  opacity: 0.85;
 }
 .treat-hero h1 span { color: var(--yellow); }
 .treat-hero-desc {
@@ -95,8 +106,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--yellow);
-  color: var(--navy);
+  background: var(--teal);
+  color: #fff;
   font-size: 14px;
   font-weight: 700;
   padding: 14px 28px;
@@ -106,7 +117,7 @@
   text-decoration: none;
   transition: transform .2s, box-shadow .2s;
 }
-.btn-book-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,195,0,.35); }
+.btn-book-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(42,168,168,.4); background: var(--navy); }
 .btn-wa-hero {
   display: inline-flex;
   align-items: center;
@@ -578,7 +589,7 @@
   .loc-branch { padding-left: 40px !important; }
 
   :root { --px: 20px; }
-  .treat-hero { padding: 36px var(--px) 32px; }
+  .treat-hero { padding: 36px var(--px) 32px; margin-top: 98px; }
   .treat-hero-inner { grid-template-columns: 1fr; gap: 0; }
   .treat-hero-img-desktop { display: none; }
   .treat-hero-img-mobile { display: block; width: 100%; margin: 16px auto 20px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 24px rgba(0,0,0,0.25); height: 210px; }
@@ -2194,12 +2205,12 @@ const TREATMENTS = {
     ],
     whatImg: "https://i.pinimg.com/1200x/36/3f/ed/363fed903fffb85f253a330f6215917d.jpg",
     benefits: [
-      { icon: "⚡", title: "Fast Sessions", desc: "Each session takes only 10–15 minutes — no need to block off your day." },
+      { icon: "⚡", title: "Fast Sessions", desc: "Each session takes only 10–15 minutes, no need to block off your day." },
       { icon: "🎯", title: "Precision Targeting", desc: "Laser targets only the hair follicle, leaving delicate lip skin completely unaffected." },
       { icon: "✅", title: "No More Threading", desc: "Eliminates the pain and skin darkening caused by repeated threading or waxing." },
       { icon: "❄️", title: "Cooling Comfort", desc: "Built-in contact cooling keeps the session comfortable even on sensitive skin." },
       { icon: "🌟", title: "Visible from Session 3", desc: "Most patients notice significant thinning after just 3 sessions." },
-      { icon: "💰", title: "Permanent Savings", desc: "No more monthly salon visits or threading appointments — results last a lifetime." }
+      { icon: "💰", title: "Permanent Savings", desc: "No more monthly salon visits or threading appointments, results last a lifetime." }
     ],
     steps: [
       { title: "Skin Consultation", desc: "Our dermatologist assesses your skin tone, hair thickness, and any hormonal factors to select the ideal laser parameters for your lip." },
@@ -2217,7 +2228,7 @@ const TREATMENTS = {
     ],
     whoImg: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=560&h=480&fit=crop",
     faqs: [
-      { q: "Is upper lip laser treatment painful?", a: "Most patients describe a mild snapping sensation. The upper lip is more sensitive than other areas, but our cooling system makes it well-tolerated. Sessions are very brief — under 15 minutes." },
+      { q: "Is upper lip laser treatment painful?", a: "Most patients describe a mild snapping sensation. The upper lip is more sensitive than other areas, but our cooling system makes it well-tolerated. Sessions are very brief, under 15 minutes." },
       { q: "Will it darken my skin?", a: "No. Unlike waxing and threading, laser does not cause post-inflammatory hyperpigmentation. In fact, it often reduces the skin darkening caused by repeated hair removal friction." },
       { q: "How many sessions are needed?", a: "Typically 6–8 sessions spaced 4–6 weeks apart. Hormonal hair growth (from PCOS etc.) may require a few maintenance sessions annually." },
       { q: "Can I wear makeup after the session?", a: "It's best to avoid makeup on the treated area for 24 hours. Most patients experience no visible reaction and can resume normal activities immediately." },
@@ -2243,13 +2254,13 @@ const TREATMENTS = {
     results: "Permanent Reduction",
     desc: "Clinically proven laser treatment for permanently smooth, odour-reduced underarms. Eliminates shaving rash and darkening caused by repeated hair removal.",
     what: [
-      "Underarm hair removal is one of the most requested laser treatments for both men and women. Repeated shaving and waxing of the underarm area leads to skin darkening, ingrown hairs, and irritation — all of which laser treatment eliminates permanently.",
+      "Underarm hair removal is one of the most requested laser treatments for both men and women. Repeated shaving and waxing of the underarm area leads to skin darkening, ingrown hairs, and irritation, all of which laser treatment eliminates permanently.",
       "At VTIARA, we use an 808nm diode laser that precisely targets hair follicles in the underarm area without affecting the skin surface. The treatment also helps lighten underarm skin that has darkened from years of friction and chemical deodorant use.",
       "Each session takes just 15–20 minutes. Most patients achieve smooth, hair-free underarms after 6–8 sessions, with skin tone noticeably improved from the very first few sessions."
     ],
     whatImg: "https://i.pinimg.com/736x/12/23/3b/12233b2d46e70230088b3dc4af21f250.jpg",
     benefits: [
-      { icon: "⚡", title: "Permanent Smoothness", desc: "Up to 90% permanent hair reduction — no more daily shaving or monthly waxing." },
+      { icon: "⚡", title: "Permanent Smoothness", desc: "Up to 90% permanent hair reduction, no more daily shaving or monthly waxing." },
       { icon: "🌟", title: "Skin Lightening Effect", desc: "Laser treatment visibly lightens dark underarms by removing friction-causing hair." },
       { icon: "✅", title: "No Ingrown Hairs", desc: "Eliminates painful ingrown hairs common with shaving and waxing." },
       { icon: "❄️", title: "Odour Reduction", desc: "Fewer hair follicles mean less bacterial accumulation and reduced body odour." },
@@ -2298,18 +2309,18 @@ const TREATMENTS = {
     results: "Permanent Reduction",
     desc: "Comprehensive head-to-toe laser hair removal package covering all body zones in one appointment. Clinically supervised with maximum efficiency and results.",
     what: [
-      "Full body laser hair removal is the most comprehensive solution for unwanted hair across all body zones — legs, arms, underarms, back, chest, abdomen, bikini line, and face. At VTIARA, we perform full body sessions in a single 90–120 minute appointment using advanced diode laser technology.",
+      "Full body laser hair removal is the most comprehensive solution for unwanted hair across all body zones, legs, arms, underarms, back, chest, abdomen, bikini line, and face. At VTIARA, we perform full body sessions in a single 90–120 minute appointment using advanced diode laser technology.",
       "Our multi-zone approach allows our trained therapists to systematically treat each body area with settings calibrated specifically for that zone's hair density and skin sensitivity. This ensures optimal efficacy and safety across all areas in one session.",
       "The full body package is our most cost-effective laser offering and ideal for individuals who want a complete, long-term grooming solution. After 6–8 sessions, most patients experience 85–95% permanent hair reduction across all treated areas."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
     benefits: [
-      { icon: "⚡", title: "Head-to-Toe Coverage", desc: "Treats all body zones in a single appointment — legs, arms, back, chest, bikini, and face." },
+      { icon: "⚡", title: "Head-to-Toe Coverage", desc: "Treats all body zones in a single appointment, legs, arms, back, chest, bikini, and face." },
       { icon: "🎯", title: "Zone-Calibrated Settings", desc: "Laser parameters adjusted per body area for maximum safety and efficacy." },
       { icon: "✅", title: "Maximum Savings", desc: "Bundled pricing offers the best value vs. treating areas individually." },
       { icon: "❄️", title: "Comfortable & Safe", desc: "Full-body cooling system ensures comfort throughout the 90-minute session." },
       { icon: "🌟", title: "95% Permanent Reduction", desc: "After completing all sessions, most patients achieve near-permanent smoothness." },
-      { icon: "💰", title: "Lifetime Grooming Freedom", desc: "No more waxing appointments, razors, or threading — ever again." }
+      { icon: "💰", title: "Lifetime Grooming Freedom", desc: "No more waxing appointments, razors, or threading, ever again." }
     ],
     steps: [
       { title: "Comprehensive Consultation", desc: "A full body skin analysis is performed. Zones are mapped and laser settings are pre-configured for each area based on hair type and skin tone." },
@@ -2329,7 +2340,7 @@ const TREATMENTS = {
     faqs: [
       { q: "How long does a full body session take?", a: "A complete full body session at VTIARA takes approximately 90–120 minutes depending on hair density and the number of zones included." },
       { q: "Is full body laser safe in one session?", a: "Yes. Our protocol treats zones sequentially and our diode laser is designed for extended use in multi-zone sessions, with no increased risk compared to individual zone treatments." },
-      { q: "Do I need to shave the whole body before?", a: "Yes — shave all areas 24 hours before your appointment. Do not wax or use depilatory creams. Our team can assist with hard-to-reach areas on the day." },
+      { q: "Do I need to shave the whole body before?", a: "Yes, shave all areas 24 hours before your appointment. Do not wax or use depilatory creams. Our team can assist with hard-to-reach areas on the day." },
       { q: "How many full body sessions will I need?", a: "6–8 sessions spaced 4–6 weeks apart. Some finer or lighter body hair (like arms) may need additional sessions compared to coarser areas." },
       { q: "Can I split the full body across two sessions?", a: "If your schedule or comfort requires it, we can split the session across two appointments. However, single-session treatment is more efficient." }
     ],
@@ -2353,7 +2364,7 @@ const TREATMENTS = {
     results: "Significant Scar Improvement",
     desc: "Minimally invasive procedure that breaks the fibrous bands anchoring depressed acne scars, releasing them and allowing new collagen to lift the skin surface.",
     what: [
-      "Subcision is a minimally invasive surgical procedure specifically designed to treat rolling and boxcar acne scars. These scars are tethered to deeper skin layers by fibrous bands of scar tissue — subcision physically severs these bands using a fine needle inserted just beneath the skin surface.",
+      "Subcision is a minimally invasive surgical procedure specifically designed to treat rolling and boxcar acne scars. These scars are tethered to deeper skin layers by fibrous bands of scar tissue, subcision physically severs these bands using a fine needle inserted just beneath the skin surface.",
       "Once the bands are released, the depressed scar is freed to rise to the level of surrounding skin. Additionally, the controlled microtrauma from the needle stimulates collagen production in the treated area, further plumping and smoothing the skin over subsequent weeks.",
       "At VTIARA, subcision is often combined with PRP or dermal fillers to maximise collagen induction and volume restoration. Most patients see noticeable improvement in scar depth after just 2–3 sessions, with final results visible at the 3-month mark."
     ],
@@ -2361,7 +2372,7 @@ const TREATMENTS = {
     benefits: [
       { icon: "⚡", title: "Releases Tethered Scars", desc: "Physically breaks fibrous bands anchoring depressed scars, lifting them to skin level." },
       { icon: "🎯", title: "Stimulates Collagen", desc: "Microtrauma from the needle triggers natural collagen production to fill scar volume." },
-      { icon: "✅", title: "Minimally Invasive", desc: "No cuts, no stitches — just a fine needle and local anaesthetic cream for comfort." },
+      { icon: "✅", title: "Minimally Invasive", desc: "No cuts, no stitches, just a fine needle and local anaesthetic cream for comfort." },
       { icon: "❄️", title: "Combinable with PRP", desc: "Combining with PRP or fillers amplifies collagen induction and volumising effects." },
       { icon: "🌟", title: "Visible After 2 Sessions", desc: "Noticeable scar improvement begins after the second session as collagen rebuilds." },
       { icon: "💰", title: "Long-Lasting Results", desc: "Scar improvement continues for 3–6 months post-treatment as new collagen matures." }
@@ -2386,7 +2397,7 @@ const TREATMENTS = {
       { q: "What types of scars does subcision treat?", a: "Subcision works best on rolling scars and shallow boxcar scars that are tethered to deeper tissue. Ice pick scars or very deep boxcar scars are better treated with other modalities like MNRF or punch excision." },
       { q: "How much bruising should I expect?", a: "Some bruising and mild swelling for 2–3 days is normal and expected. Most patients can return to work with makeup coverage after 48 hours." },
       { q: "How many sessions will I need?", a: "Most patients require 3–5 sessions spaced 4–6 weeks apart. The number depends on scar severity and how well you respond to treatment." },
-      { q: "Can subcision be combined with other treatments?", a: "Yes — and it's often more effective when combined. We frequently pair subcision with PRP for enhanced collagen induction, or with MNRF and chemical peels for comprehensive scar correction." }
+      { q: "Can subcision be combined with other treatments?", a: "Yes, and it's often more effective when combined. We frequently pair subcision with PRP for enhanced collagen induction, or with MNRF and chemical peels for comprehensive scar correction." }
     ],
     related: [
       { slug: "acne-scar-treatment", name: "Acne Scar Treatment", cat: "Acne / Scar", img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=300&fit=crop" },
@@ -2409,20 +2420,20 @@ const TREATMENTS = {
     desc: "Harness your body's own growth factors to rejuvenate facial skin. PRP and GFC therapy stimulate collagen, reduce fine lines, and restore a natural youthful glow.",
     what: [
       "PRP (Platelet-Rich Plasma) and GFC (Growth Factor Concentrate) facial treatments use the regenerative power of your own blood to rejuvenate the skin. A small blood sample is drawn and processed to isolate a concentrated cocktail of growth factors, which is then re-injected or micro-needled into the face.",
-      "GFC is a newer, more refined evolution of PRP — it isolates a higher concentration of specific growth factors without the inflammatory components found in standard PRP. This results in less downtime and more targeted tissue regeneration.",
+      "GFC is a newer, more refined evolution of PRP, it isolates a higher concentration of specific growth factors without the inflammatory components found in standard PRP. This results in less downtime and more targeted tissue regeneration.",
       "At VTIARA, we use GFC for facial rejuvenation, collagen induction, fine line reduction, and skin brightening. The treatment works gradually over 4–6 weeks as new collagen and elastin form, with results continuing to improve for up to 3 months after the final session."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
     benefits: [
-      { icon: "⚡", title: "100% Natural", desc: "Uses your own blood's growth factors — no synthetic chemicals, no foreign substances." },
+      { icon: "⚡", title: "100% Natural", desc: "Uses your own blood's growth factors, no synthetic chemicals, no foreign substances." },
       { icon: "🎯", title: "Collagen Induction", desc: "Stimulates fibroblasts to produce new collagen and elastin, firming skin naturally." },
       { icon: "✅", title: "Reduces Fine Lines", desc: "Plumps fine lines and wrinkles from within using your body's own repair mechanism." },
       { icon: "❄️", title: "Skin Brightening", desc: "Improves skin tone, texture, and luminosity with each successive session." },
-      { icon: "🌟", title: "Minimal Downtime", desc: "GFC has less redness and swelling than standard PRP — most return to work next day." },
+      { icon: "🌟", title: "Minimal Downtime", desc: "GFC has less redness and swelling than standard PRP, most return to work next day." },
       { icon: "💰", title: "Long-Lasting Glow", desc: "Results build over 3 months and can last 12–18 months with maintenance sessions." }
     ],
     steps: [
-      { title: "Blood Draw", desc: "A small vial of your blood (10–20ml) is drawn at the clinic — the same as a routine blood test." },
+      { title: "Blood Draw", desc: "A small vial of your blood (10–20ml) is drawn at the clinic, the same as a routine blood test." },
       { title: "Processing", desc: "Your blood is placed in a centrifuge and processed to isolate the concentrated growth factor serum (GFC). This takes approximately 20 minutes." },
       { title: "Application", desc: "Topical anaesthetic is applied while the GFC is prepared. The growth factor serum is then administered via micro-needling or fine injections across the face." },
       { title: "Recovery & Results", desc: "Mild redness for 24 hours is normal. Glow begins to develop over 4–6 weeks as collagen production accelerates. Sessions are spaced 4–6 weeks apart." }
@@ -2461,19 +2472,19 @@ const TREATMENTS = {
     duration: "45–75 min",
     downtime: "None",
     results: "Immediate Glow",
-    desc: "Medical-grade facial treatments customised for your specific skin concern — from deep hydration and brightening to anti-aging and acne control. Results from the very first session.",
+    desc: "Medical-grade facial treatments customised for your specific skin concern, from deep hydration and brightening to anti-aging and acne control. Results from the very first session.",
     what: [
       "Medifacials are clinical-grade facial treatments performed by trained dermatologists and therapists, combining active pharmaceutical-grade ingredients with professional skin devices. Unlike spa facials, medifacials are designed to treat specific skin concerns at a cellular level.",
       "At VTIARA, we offer a range of medifacials including the Brightening Medifacial, Acne Control Medifacial, Anti-Aging Medifacial, and the Hydration Repair Medifacial. Each protocol uses a combination of enzyme exfoliation, targeted actives, and LED therapy or radiofrequency for enhanced penetration and results.",
-      "The treatment begins with a thorough skin analysis to select the appropriate medifacial protocol. Most patients experience visible results immediately — brighter, smoother, and more hydrated skin — with progressive improvement over a series of sessions."
+      "The treatment begins with a thorough skin analysis to select the appropriate medifacial protocol. Most patients experience visible results immediately, brighter, smoother, and more hydrated skin, with progressive improvement over a series of sessions."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
     benefits: [
       { icon: "⚡", title: "Immediate Results", desc: "Skin looks visibly brighter, smoother, and refreshed right after the session." },
       { icon: "🎯", title: "Customised Protocols", desc: "Each medifacial is selected and adapted to your specific skin type and concern." },
-      { icon: "✅", title: "No Downtime", desc: "Walk in and walk out — medifacials require zero recovery time and are completely non-invasive." },
+      { icon: "✅", title: "No Downtime", desc: "Walk in and walk out, medifacials require zero recovery time and are completely non-invasive." },
       { icon: "❄️", title: "Deep Active Penetration", desc: "Pharmaceutical-grade ingredients penetrate deeper than regular skincare products." },
-      { icon: "🌟", title: "Treats Multiple Concerns", desc: "From acne and pigmentation to dullness and dehydration — one treatment, many benefits." },
+      { icon: "🌟", title: "Treats Multiple Concerns", desc: "From acne and pigmentation to dullness and dehydration, one treatment, many benefits." },
       { icon: "💰", title: "Maintenance Friendly", desc: "Monthly medifacials maintain skin health and delay the need for more intensive procedures." }
     ],
     steps: [
@@ -2492,11 +2503,11 @@ const TREATMENTS = {
     ],
     whoImg: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=560&h=480&fit=crop",
     faqs: [
-      { q: "How is a medifacial different from a regular facial?", a: "Medifacials use pharmaceutical-grade active ingredients and clinical devices. They are designed to treat specific skin conditions (acne, pigmentation, aging) at a cellular level — not just cleanse and moisturise." },
-      { q: "Which medifacial is right for me?", a: "Our dermatologist will assess your skin and recommend the appropriate protocol — brightening, acne control, hydration repair, or anti-aging — based on your skin type and current concerns." },
+      { q: "How is a medifacial different from a regular facial?", a: "Medifacials use pharmaceutical-grade active ingredients and clinical devices. They are designed to treat specific skin conditions (acne, pigmentation, aging) at a cellular level, not just cleanse and moisturise." },
+      { q: "Which medifacial is right for me?", a: "Our dermatologist will assess your skin and recommend the appropriate protocol, brightening, acne control, hydration repair, or anti-aging, based on your skin type and current concerns." },
       { q: "Is there any downtime?", a: "No. Medifacials have zero downtime. You can apply makeup and return to daily activities immediately after the session." },
       { q: "How often should I get a medifacial?", a: "For maintenance, once a month is ideal. If targeting a specific concern like acne or pigmentation, a course of 6 sessions over 2–3 months may be recommended." },
-      { q: "Can I get a medifacial if I have active acne?", a: "Yes — we have specific acne-control medifacial protocols that are safe during active breakouts. We will adjust ingredients to avoid irritating inflamed skin." }
+      { q: "Can I get a medifacial if I have active acne?", a: "Yes, we have specific acne-control medifacial protocols that are safe during active breakouts. We will adjust ingredients to avoid irritating inflamed skin." }
     ],
     related: [
       { slug: "hydrafacial", name: "HydraFacial", cat: "Insta Glow", img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" },
@@ -2519,7 +2530,7 @@ const TREATMENTS = {
     desc: "Targeted multi-modal treatment for stubborn dark patches, post-inflammatory marks, and uneven skin tone caused by sun damage, hormones, or trauma.",
     what: [
       "Hyperpigmentation refers to patches of skin that appear darker than the surrounding area due to excess melanin production. This can result from sun exposure, inflammation (post-acne marks), hormonal changes, or skin trauma. It is one of the most common skin concerns in India, affecting a wide range of skin types.",
-      "At VTIARA, we treat hyperpigmentation using a combination approach: Q-switched laser toning, medical-grade chemical peels, and prescription depigmentation creams. The specific combination is tailored to the type and depth of pigmentation — superficial, epidermal, or deeper dermal.",
+      "At VTIARA, we treat hyperpigmentation using a combination approach: Q-switched laser toning, medical-grade chemical peels, and prescription depigmentation creams. The specific combination is tailored to the type and depth of pigmentation, superficial, epidermal, or deeper dermal.",
       "Treatment sessions are typically spaced 3–4 weeks apart to allow the skin to respond and renew. Most patients see a significant reduction in dark patches within 4–6 sessions, with results continuing to improve with consistent sun protection and a maintenance skincare routine."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
@@ -2575,7 +2586,7 @@ const TREATMENTS = {
     what: [
       "The Cosmelan Peel is a globally recognised professional depigmentation system used by dermatologists worldwide for stubborn pigmentation including melasma, sun spots, post-inflammatory hyperpigmentation, and uneven skin tone. It is particularly effective for dark and mixed skin tones.",
       "The Cosmelan system works in two phases. The in-clinic phase involves the application of the professional Cosmelan 1 mask, which is left on the skin for 6–10 hours. This is followed by the home care phase using the Cosmelan 2 maintenance cream to sustain results and prevent reactivation of melanin pathways.",
-      "Unlike standard peels, Cosmelan does not work by simply exfoliating skin layers — it directly inhibits tyrosinase, the enzyme responsible for melanin production, while simultaneously regulating melanocytes to prevent future pigmentation. Results are visible within 2–4 weeks and continue improving over 3 months."
+      "Unlike standard peels, Cosmelan does not work by simply exfoliating skin layers, it directly inhibits tyrosinase, the enzyme responsible for melanin production, while simultaneously regulating melanocytes to prevent future pigmentation. Results are visible within 2–4 weeks and continue improving over 3 months."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
     benefits: [
@@ -2583,7 +2594,7 @@ const TREATMENTS = {
       { icon: "🎯", title: "Treats All Pigmentation Types", desc: "Effective for melasma, sun spots, PIH, freckles, and uneven skin tone." },
       { icon: "✅", title: "Safe for All Skin Tones", desc: "Clinically validated for dark and medium skin tones, including Indian skin." },
       { icon: "❄️", title: "Long-Lasting Results", desc: "With the home maintenance cream, results are maintained for 12–24 months." },
-      { icon: "🌟", title: "Single In-Clinic Session", desc: "One professional application followed by a home care program — convenient and effective." },
+      { icon: "🌟", title: "Single In-Clinic Session", desc: "One professional application followed by a home care program, convenient and effective." },
       { icon: "💰", title: "Globally Proven", desc: "Used in over 80 countries with clinical studies demonstrating 95% patient satisfaction." }
     ],
     steps: [
@@ -2628,16 +2639,16 @@ const TREATMENTS = {
     results: "Deep Hydration & Firmness",
     desc: "The world's first stabilised injectable hyaluronic acid product for skin remodelling. Profhilo restores lost hydration, firmness, and elasticity with just two sessions.",
     what: [
-      "Profhilo is a unique injectable bioremodelling treatment that contains one of the highest concentrations of hyaluronic acid (HA) available in any injectable product. Unlike traditional dermal fillers, Profhilo does not add volume or change facial shape — it spreads throughout the skin to deeply hydrate, stimulate collagen and elastin production, and restore firmness.",
+      "Profhilo is a unique injectable bioremodelling treatment that contains one of the highest concentrations of hyaluronic acid (HA) available in any injectable product. Unlike traditional dermal fillers, Profhilo does not add volume or change facial shape, it spreads throughout the skin to deeply hydrate, stimulate collagen and elastin production, and restore firmness.",
       "Profhilo is administered at just five injection points per side using the BAP (Bio Aesthetic Points) technique, making it a quick and minimally invasive procedure. The ultra-pure HA diffuses through the tissue, providing profound hydration at a depth that no topical skincare can reach.",
-      "Just two sessions, four weeks apart, deliver results that last 6–9 months. The skin becomes noticeably firmer, smoother, and more radiant. It is particularly effective for the face, neck, décolletage, and hands — areas commonly showing early signs of skin aging."
+      "Just two sessions, four weeks apart, deliver results that last 6–9 months. The skin becomes noticeably firmer, smoother, and more radiant. It is particularly effective for the face, neck, décolletage, and hands, areas commonly showing early signs of skin aging."
     ],
     whatImg: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=480&fit=crop",
     benefits: [
       { icon: "⚡", title: "Deep Skin Hydration", desc: "Highest-concentration HA diffuses through tissue to hydrate at a cellular level." },
       { icon: "🎯", title: "Stimulates Collagen & Elastin", desc: "Triggers fibroblasts to produce new collagen and elastin for lasting firmness." },
       { icon: "✅", title: "Only 2 Sessions", desc: "Full results achieved in just two sessions spaced four weeks apart." },
-      { icon: "❄️", title: "No Volume, No Filler Look", desc: "Natural remodelling — skin looks refreshed, not 'done'. No change in facial shape." },
+      { icon: "❄️", title: "No Volume, No Filler Look", desc: "Natural remodelling, skin looks refreshed, not 'done'. No change in facial shape." },
       { icon: "🌟", title: "Treats Face, Neck & Hands", desc: "Effective for multiple areas showing skin laxity, crepiness, or dehydration." },
       { icon: "💰", title: "6–9 Month Results", desc: "Long-lasting hydration and firmness with just annual or biannual top-up sessions." }
     ],
@@ -2645,7 +2656,7 @@ const TREATMENTS = {
       { title: "Consultation", desc: "Our dermatologist evaluates your skin quality, laxity, and hydration levels to confirm Profhilo is the right bioremodelling treatment for your goals." },
       { title: "Topical Anaesthetic", desc: "A numbing cream is applied for 20–30 minutes before treatment for maximum comfort during the injections." },
       { title: "BAP Injection Technique", desc: "Profhilo is administered at 5 precise anatomical injection points per side using ultra-fine needles. The product spreads naturally through the tissue. The procedure takes under 30 minutes." },
-      { title: "Second Session & Results", desc: "The second session is 4 weeks later. Full results — firmer, deeply hydrated, glowing skin — are visible 4–6 weeks after the second session and last 6–9 months." }
+      { title: "Second Session & Results", desc: "The second session is 4 weeks later. Full results, firmer, deeply hydrated, glowing skin, are visible 4–6 weeks after the second session and last 6–9 months." }
     ],
     who: [
       "Anyone with skin that feels dry, crepey, or lacking firmness",
@@ -2697,7 +2708,7 @@ const TREATMENTS = {
       { icon: "💰", title: "Long-Lasting Improvement", desc: "Once treated, stretch marks do not return to their previous appearance." }
     ],
     steps: [
-      { title: "Assessment", desc: "Our dermatologist evaluates the age, colour, and extent of your stretch marks to create a tailored protocol — fractional laser, MNRF, or a combination." },
+      { title: "Assessment", desc: "Our dermatologist evaluates the age, colour, and extent of your stretch marks to create a tailored protocol, fractional laser, MNRF, or a combination." },
       { title: "Topical Anaesthetic", desc: "Numbing cream is applied to the treatment area 30–45 minutes before the session for a comfortable procedure." },
       { title: "Combined Treatment", desc: "Fractional laser or MNRF is applied to the stretch mark areas, creating controlled micro-injuries that stimulate collagen synthesis within the damaged dermis." },
       { title: "Post-Treatment Recovery", desc: "Mild redness and swelling for 1–2 days is normal. A prescribed repair serum is applied. SPF is essential for body areas exposed to sunlight. Sessions are spaced 4–6 weeks apart." }
@@ -2712,8 +2723,8 @@ const TREATMENTS = {
     ],
     whoImg: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=560&h=480&fit=crop",
     faqs: [
-      { q: "Can stretch marks be completely removed?", a: "Complete removal is not possible — stretch marks are a type of scar. However, with our combination therapy, most patients achieve 50–80% improvement in colour, texture, and depth, making them significantly less visible." },
-      { q: "Which is better for stretch marks — laser or MNRF?", a: "Both work well. MNRF is more effective for texture improvement and deeper marks. Fractional laser is better for colour (red/white) correction. We often combine both for comprehensive results." },
+      { q: "Can stretch marks be completely removed?", a: "Complete removal is not possible, stretch marks are a type of scar. However, with our combination therapy, most patients achieve 50–80% improvement in colour, texture, and depth, making them significantly less visible." },
+      { q: "Which is better for stretch marks, laser or MNRF?", a: "Both work well. MNRF is more effective for texture improvement and deeper marks. Fractional laser is better for colour (red/white) correction. We often combine both for comprehensive results." },
       { q: "How many sessions are needed?", a: "6–8 sessions spaced 4–6 weeks apart for best results. Fresh (red/pink) stretch marks require fewer sessions than older, white/silver marks." },
       { q: "Is the treatment painful?", a: "Topical anaesthetic cream is applied before each session. MNRF and fractional laser cause mild warmth and a tingling sensation. Most patients tolerate it well." },
       { q: "Can stretch marks be treated during or after pregnancy?", a: "Treatment should not be performed during pregnancy. Post-delivery (after breastfeeding completion), treatment can begin. Earlier intervention on fresh marks gives better results." }
@@ -2736,7 +2747,7 @@ const TREATMENTS = {
     duration: "15–30 min",
     downtime: "None",
     results: "Visible from Session 2",
-    desc: "Facial hair reduction using advanced laser technology permanently targets and destroys hair follicles on the upper lip, chin, cheeks, and jawline — leaving your skin silky smooth without the pain of waxing or threading.",
+    desc: "Facial hair reduction using advanced laser technology permanently targets and destroys hair follicles on the upper lip, chin, cheeks, and jawline, leaving your skin silky smooth without the pain of waxing or threading.",
     what: ["Facial hair reduction is a laser-based treatment designed to permanently reduce unwanted hair on the face. The laser energy selectively targets the melanin in each hair follicle, heating and destroying it without affecting surrounding skin.", "VTIARA uses advanced diode and Nd:YAG laser systems calibrated for Indian skin tones, ensuring safe and effective results even for darker complexions."],
     whatImg: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
     benefits: [
@@ -2766,7 +2777,7 @@ const TREATMENTS = {
       { q: "How many sessions are needed for facial hair reduction?", a: "Most people require 6–8 sessions spaced 4–6 weeks apart for optimal results, as each session targets hair in its active growth phase." },
       { q: "Is facial laser hair reduction safe for all skin tones?", a: "Yes. At VTIARA we use Nd:YAG and diode lasers that are safe across all Fitzpatrick skin types, including darker Indian skin tones." },
       { q: "Does the treatment hurt?", a: "Most clients describe a mild snapping sensation. A cooling device is used throughout to ensure comfort." },
-      { q: "Can I get laser on my upper lip and chin together?", a: "Absolutely. We commonly treat the full face — upper lip, chin, sideburns, and jawline — in a single session." },
+      { q: "Can I get laser on my upper lip and chin together?", a: "Absolutely. We commonly treat the full face, upper lip, chin, sideburns, and jawline, in a single session." },
       { q: "Will the hair grow back?", a: "Laser targets hair follicles permanently. After completing your course, most hair is gone permanently; occasional maintenance sessions handle any regrowth." }
     ]
   },
@@ -2781,7 +2792,7 @@ const TREATMENTS = {
     duration: "20–30 min",
     downtime: "None to Minimal",
     results: "Visible from Session 2",
-    desc: "Laser bikini hair reduction offers a permanent solution to unwanted hair in the bikini area — eliminating irritation, ingrown hairs, and the inconvenience of regular shaving or waxing.",
+    desc: "Laser bikini hair reduction offers a permanent solution to unwanted hair in the bikini area, eliminating irritation, ingrown hairs, and the inconvenience of regular shaving or waxing.",
     what: ["Bikini laser hair reduction permanently targets hair follicles in the bikini line using precise laser energy. The treatment eliminates the need for waxing, shaving, or threading.", "At VTIARA, we use advanced laser systems with built-in cooling to ensure maximum comfort throughout the session."],
     whatImg: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=400&fit=crop",
     benefits: [
@@ -2810,7 +2821,7 @@ const TREATMENTS = {
     faqs: [
       { q: "Is bikini laser hair removal safe?", a: "Yes. We use medically approved diode and Nd:YAG lasers with built-in cooling, making the treatment safe and comfortable for sensitive bikini areas." },
       { q: "How many sessions will I need?", a: "Typically 6–8 sessions spaced 4–6 weeks apart to address all hair growth cycles in the area." },
-      { q: "Can I choose between a bikini line or full Brazilian?", a: "Yes. We offer standard bikini line, extended bikini, and full Brazilian options — customised to your preference." },
+      { q: "Can I choose between a bikini line or full Brazilian?", a: "Yes. We offer standard bikini line, extended bikini, and full Brazilian options, customised to your preference." },
       { q: "What should I do before the session?", a: "Shave the area 24 hours before your appointment. Avoid waxing or threading for at least 4 weeks prior, as the root must be intact for the laser to work." },
       { q: "Is there any downtime?", a: "No downtime. Mild redness may occur for a few hours. Avoid hot baths and sun exposure for 48 hours post-treatment." }
     ]
@@ -2826,14 +2837,14 @@ const TREATMENTS = {
     duration: "30–45 min",
     downtime: "None",
     results: "Visible from Session 4",
-    desc: "QR678 is a patented, clinically validated hair growth formula injected directly into the scalp to reactivate dormant follicles, stop hair fall, and stimulate dense, healthy new hair growth — without surgery.",
+    desc: "QR678 is a patented, clinically validated hair growth formula injected directly into the scalp to reactivate dormant follicles, stop hair fall, and stimulate dense, healthy new hair growth, without surgery.",
     what: ["QR678 is a proprietary blend of growth factors developed by Indian dermatologists for alopecia and hair thinning. It combines VEGF, bFGF, and IGF-1 growth factors in a single patented formulation.", "When injected into the scalp, QR678 directly nourishes hair follicles, extends the anagen phase, and reactivates follicles that have miniaturised or gone dormant."],
     whatImg: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
     benefits: [
       { icon: "✦", title: "Clinically Proven", desc: "Patented and validated through multiple clinical studies with documented density increases." },
       { icon: "✦", title: "Stops Hair Fall", desc: "Addresses the root cause of follicle miniaturisation to stop progressive shedding." },
       { icon: "✦", title: "Stimulates New Growth", desc: "Reactivates dormant follicles to produce dense, healthy new hair." },
-      { icon: "✦", title: "100% Natural Growth", desc: "Your own hair grows thicker and stronger — no wigs or fibres needed." },
+      { icon: "✦", title: "100% Natural Growth", desc: "Your own hair grows thicker and stronger, no wigs or fibres needed." },
       { icon: "✦", title: "Safe & Non-Surgical", desc: "No anaesthesia, no recovery time, and no surgical risks." },
       { icon: "✦", title: "For Men & Women", desc: "Effective across all types of alopecia and thinning patterns." }
     ],
@@ -2899,7 +2910,7 @@ const TREATMENTS = {
     ],
     faqs: [
       { q: "What skin concerns does the Black Peel treat?", a: "Black Peel effectively addresses active acne, post-acne marks, open pores, oily skin, superficial pigmentation, and dull, rough skin texture." },
-      { q: "Is there peeling after the treatment?", a: "Yes — mild to moderate peeling occurs over 3–5 days as old, damaged skin sheds to reveal fresh skin underneath. This is a normal part of the process." },
+      { q: "Is there peeling after the treatment?", a: "Yes, mild to moderate peeling occurs over 3–5 days as old, damaged skin sheds to reveal fresh skin underneath. This is a normal part of the process." },
       { q: "How many sessions are recommended?", a: "For acne-prone skin, we recommend 4–6 sessions spaced 3–4 weeks apart. A single session also gives a visible refresh." },
       { q: "Can I wear makeup after the treatment?", a: "Avoid makeup for at least 24 hours post-peel. After that, a gentle mineral sunscreen and light makeup are fine." },
       { q: "Does it suit sensitive skin?", a: "Black Peel is generally well-tolerated. A patch test is done prior to the first session; those with very sensitive or rosacea-prone skin may need a modified protocol." }
@@ -2916,7 +2927,7 @@ const TREATMENTS = {
     duration: "30–40 min",
     downtime: "Minimal (24–48 hrs)",
     results: "Visible from Session 2",
-    desc: "PDRN is a revolutionary DNA-based skin booster that stimulates cellular regeneration from within — restoring deep hydration, repairing damaged skin, and delivering a luminous, healthy glow.",
+    desc: "PDRN is a revolutionary DNA-based skin booster that stimulates cellular regeneration from within, restoring deep hydration, repairing damaged skin, and delivering a luminous, healthy glow.",
     what: ["PDRN is derived from salmon DNA and activates A2A receptors in skin cells, stimulating tissue regeneration, collagen synthesis, and deep hydration at a cellular level.", "At VTIARA, PDRN is injected via mesotherapy into the dermis, delivering lasting hydration, reducing fine lines, improving skin elasticity, and addressing dullness."],
     whatImg: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=400&fit=crop",
     benefits: [
@@ -2947,7 +2958,7 @@ const TREATMENTS = {
       { q: "How many PDRN sessions are needed?", a: "A course of 4 sessions (one per week) is standard, followed by monthly top-ups for maintenance." },
       { q: "Is PDRN suitable for all ages?", a: "Yes. It benefits younger skin for hydration and glow, and mature skin for anti-aging repair and volume restoration." },
       { q: "What is the downtime?", a: "Minimal. Tiny injection points may be visible for a few hours. You can return to normal activities the same day." },
-      { q: "How is PDRN different from hyaluronic acid boosters?", a: "While hyaluronic acid primarily adds hydration volume, PDRN actively repairs cells and stimulates collagen production — making results longer-lasting and more regenerative." }
+      { q: "How is PDRN different from hyaluronic acid boosters?", a: "While hyaluronic acid primarily adds hydration volume, PDRN actively repairs cells and stimulates collagen production, making results longer-lasting and more regenerative." }
     ]
   },
 
@@ -2962,14 +2973,14 @@ const TREATMENTS = {
     downtime: "None",
     results: "Visible from Session 1",
     desc: "Carbon Rejuvenation uses activated carbon and a Q-switched Nd:YAG laser to deeply cleanse pores, shrink oil glands, and deliver an instant radiant glow in just one session.",
-    what: ["Carbon Rejuvenation is a two-step laser treatment using liquid carbon applied to the skin. Carbon particles penetrate deep into pores and absorb contaminants, oil, and dead skin cells.", "A Q-switched Nd:YAG laser is used in two passes — first to heat the carbon, then to vaporise it and exfoliate the outer skin layer. The result: smaller pores, controlled oil, and visibly glowing skin."],
+    what: ["Carbon Rejuvenation is a two-step laser treatment using liquid carbon applied to the skin. Carbon particles penetrate deep into pores and absorb contaminants, oil, and dead skin cells.", "A Q-switched Nd:YAG laser is used in two passes, first to heat the carbon, then to vaporise it and exfoliate the outer skin layer. The result: smaller pores, controlled oil, and visibly glowing skin."],
     whatImg: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=400&fit=crop",
     benefits: [
       { icon: "✦", title: "Instant Skin Glow", desc: "Visible brightening and radiance immediately after the first session." },
       { icon: "✦", title: "Shrinks Pores", desc: "Laser energy tightens enlarged pores for smoother, refined skin texture." },
       { icon: "✦", title: "Controls Oil", desc: "Reduces sebum production to keep skin matte and balanced." },
       { icon: "✦", title: "Treats Active Acne", desc: "Destroys acne-causing bacteria while clearing clogged pores." },
-      { icon: "✦", title: "Zero Downtime", desc: "Walk out glowing — no redness, no peeling, no recovery needed." },
+      { icon: "✦", title: "Zero Downtime", desc: "Walk out glowing, no redness, no peeling, no recovery needed." },
       { icon: "✦", title: "Collagen Boost", desc: "Laser heat stimulates collagen for progressively firmer skin." }
     ],
     steps: [
@@ -2988,7 +2999,7 @@ const TREATMENTS = {
       { slug: "hydrafacial", name: "HydraFacial", cat: "Skin", img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop" }
     ],
     faqs: [
-      { q: "What is carbon laser rejuvenation?", a: "A liquid carbon mask is applied to the skin; a Q-switched laser then vaporises the carbon, exfoliating dead cells, shrinking pores, and stimulating collagen — all in one painless session." },
+      { q: "What is carbon laser rejuvenation?", a: "A liquid carbon mask is applied to the skin; a Q-switched laser then vaporises the carbon, exfoliating dead cells, shrinking pores, and stimulating collagen, all in one painless session." },
       { q: "Is there any downtime?", a: "None. Mild warmth and a slight glow are common immediately after. You can apply sunscreen and go about your day right away." },
       { q: "How many sessions are recommended?", a: "Most clients do a course of 4–6 monthly sessions for progressive improvement, with single sessions for special occasion glow." },
       { q: "Can carbon rejuvenation treat active acne?", a: "Yes. The laser's thermal energy reduces the bacteria responsible for acne and regulates sebum production, making it effective for oily and acne-prone skin." },
@@ -3006,7 +3017,7 @@ const TREATMENTS = {
     duration: "45–60 min",
     downtime: "None",
     results: "Visible from Session 1",
-    desc: "Hollywood Rejuvenation combines multiple advanced skin treatments in one power-packed session — delivering immediate brightening, tightening, and glow that makes your skin look camera-ready in under an hour.",
+    desc: "Hollywood Rejuvenation combines multiple advanced skin treatments in one power-packed session, delivering immediate brightening, tightening, and glow that makes your skin look camera-ready in under an hour.",
     what: ["Hollywood Rejuvenation is a multi-step facial combining carbon laser, low-level laser therapy, collagen-stimulating serums, and ultrasonic delivery to address multiple skin concerns in a single sitting.", "The treatment targets dullness, uneven skin tone, fine lines, enlarged pores, and mild pigmentation simultaneously."],
     whatImg: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=400&fit=crop",
     benefits: [
@@ -3036,7 +3047,7 @@ const TREATMENTS = {
       { q: "What is the Hollywood Rejuvenation treatment?", a: "It is a multi-step skin treatment combining carbon laser, collagen serums, and ultrasonic delivery to deliver instant brightening, tightening, and a camera-ready glow in a single session." },
       { q: "How long does the treatment take?", a: "A full session takes 45–60 minutes, including prep and the multi-step protocol." },
       { q: "Is there any downtime?", a: "Zero downtime. You can apply makeup and return to your day immediately after the session." },
-      { q: "How soon will I see results?", a: "Results are visible immediately — skin appears noticeably brighter, smoother, and tighter right after the first session." },
+      { q: "How soon will I see results?", a: "Results are visible immediately, skin appears noticeably brighter, smoother, and tighter right after the first session." },
       { q: "How often should I do Hollywood Rejuvenation?", a: "Monthly sessions are ideal for maintained results. Many clients book it before a special event for an instant glow-up." }
     ]
   },
@@ -3051,8 +3062,8 @@ const TREATMENTS = {
     duration: "45–60 min",
     downtime: "Minimal",
     results: "Visible from Session 1",
-    desc: "The Fire & Ice Facial alternates between warming and cooling phases to deeply exfoliate, stimulate collagen, and calm skin — revealing dramatically smoother, brighter, and more youthful skin.",
-    what: ["The Fire & Ice Facial combines a warming 'fire' phase using a gentle resurfacing mask that activates skin renewal and stimulates collagen — followed by a cooling 'ice' phase that calms inflammation and locks in hydration.", "This alternating thermal stimulation accelerates skin resurfacing while maintaining the skin's protective barrier."],
+    desc: "The Fire & Ice Facial alternates between warming and cooling phases to deeply exfoliate, stimulate collagen, and calm skin, revealing dramatically smoother, brighter, and more youthful skin.",
+    what: ["The Fire & Ice Facial combines a warming 'fire' phase using a gentle resurfacing mask that activates skin renewal and stimulates collagen, followed by a cooling 'ice' phase that calms inflammation and locks in hydration.", "This alternating thermal stimulation accelerates skin resurfacing while maintaining the skin's protective barrier."],
     whatImg: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop",
     benefits: [
       { icon: "✦", title: "Rapid Cell Renewal", desc: "Accelerates skin cell turnover to reveal fresh, healthy skin faster." },
@@ -3080,9 +3091,9 @@ const TREATMENTS = {
     faqs: [
       { q: "What does the Fire & Ice Facial do?", a: "The treatment alternates warming and cooling phases to deeply exfoliate dead skin, reduce pores, calm redness, and leave skin balanced, radiant, and hydrated." },
       { q: "Is it suitable for sensitive skin?", a: "Yes. The cooling phase counteracts the warmth, making this a well-tolerated treatment even for reactive or sensitive skin types." },
-      { q: "What can I expect immediately after?", a: "Immediate brightening, a smoothed texture, and a healthy flush. There is no peeling or downtime — skin is glowing from the first session." },
+      { q: "What can I expect immediately after?", a: "Immediate brightening, a smoothed texture, and a healthy flush. There is no peeling or downtime, skin is glowing from the first session." },
       { q: "How many sessions are needed?", a: "A single session gives visible results. For sustained improvements in texture and congestion, a course of 4–6 sessions spaced 3–4 weeks apart is recommended." },
-      { q: "Can I combine Fire & Ice Facial with other treatments?", a: "Yes. It pairs well with PDRN boosters, carbon laser, or dermal fillers — your VTIARA dermatologist will design the right combination protocol for you." }
+      { q: "Can I combine Fire & Ice Facial with other treatments?", a: "Yes. It pairs well with PDRN boosters, carbon laser, or dermal fillers, your VTIARA dermatologist will design the right combination protocol for you." }
     ]
   },
 
@@ -3096,7 +3107,7 @@ const TREATMENTS = {
     duration: "30–60 min",
     downtime: "None to Minimal",
     results: "Visible from Session 2",
-    desc: "Our Face & Body Tan Removal treatment uses advanced laser and chemical technologies to break down melanin from sun exposure — restoring your natural skin tone evenly across face and body.",
+    desc: "Our Face & Body Tan Removal treatment uses advanced laser and chemical technologies to break down melanin from sun exposure, restoring your natural skin tone evenly across face and body.",
     what: ["Sun tan develops when UV radiation triggers excess melanin production. Unlike temporary tan removal creams, clinical tan removal targets melanin at a deeper level for lasting restoration of your natural skin tone.", "At VTIARA, we combine Q-switched Nd:YAG laser toning, vitamin C infusions, and brightening chemical peels to break down melanin and restore an even, luminous skin tone."],
     whatImg: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&h=400&fit=crop",
     benefits: [
@@ -3141,7 +3152,7 @@ const TREATMENTS = {
     duration: "15–45 min",
     downtime: "2–5 days",
     results: "Gradual fading per session",
-    desc: "VTIARA's Q-switched Nd:YAG laser tattoo removal breaks down tattoo ink particles at a molecular level — gradually fading even stubborn, multi-coloured tattoos safely without damaging surrounding skin.",
+    desc: "VTIARA's Q-switched Nd:YAG laser tattoo removal breaks down tattoo ink particles at a molecular level, gradually fading even stubborn, multi-coloured tattoos safely without damaging surrounding skin.",
     what: ["Laser tattoo removal works by directing high-intensity laser pulses onto the tattooed skin. The laser energy is absorbed by ink particles, causing them to shatter into tiny fragments that the body's immune system clears away.", "At VTIARA, we use the Q-switched Nd:YAG laser at two wavelengths (1064nm and 532nm) to target both dark inks and lighter inks effectively."],
     whatImg: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&h=400&fit=crop",
     benefits: [
@@ -3183,29 +3194,29 @@ const TREATMENTS = {
 ═══════════════════════════════════════════════ */
 const TREATMENT_EXTRAS = {
   'laser-hair-removal': {
-    causes: ["Genetic predisposition to darker, coarser, or denser body and facial hair growth","Hormonal imbalances including PCOS, thyroid disorders, or elevated androgen levels","Hirsutism — excessive hair growth in women due to androgens","Post-pregnancy or menopause hormonal shifts triggering new unwanted hair growth","Ethnic and racial factors influencing hair density, coarseness, and growth rate"],
+    causes: ["Genetic predisposition to darker, coarser, or denser body and facial hair growth","Hormonal imbalances including PCOS, thyroid disorders, or elevated androgen levels","Hirsutism, excessive hair growth in women due to androgens","Post-pregnancy or menopause hormonal shifts triggering new unwanted hair growth","Ethnic and racial factors influencing hair density, coarseness, and growth rate"],
     complications: [
       { title: "Temporary Redness & Swelling", desc: "Mild redness or warmth in treated areas for 1–4 hours is normal and resolves without treatment." },
       { title: "Pigmentation Risk on Darker Skin", desc: "Incorrect laser settings on darker Indian skin can cause hyperpigmentation. Our calibrated Nd:YAG protocols eliminate this risk." },
-      { title: "Partial Clearance on Light Hair", desc: "Laser targets melanin in the follicle. Very light, grey, or red hair responds less predictably — realistic expectations are set at consultation." }
+      { title: "Partial Clearance on Light Hair", desc: "Laser targets melanin in the follicle. Very light, grey, or red hair responds less predictably, realistic expectations are set at consultation." }
     ],
     availableTreatments: [
-      { name: "Diode 810nm Laser", desc: "The gold standard for permanent hair reduction — targets follicles at depth with real-time cooling for all skin tones." },
-      { name: "Nd:YAG 1064nm Laser", desc: "Safe for darker Indian skin tones — bypasses surface melanin to heat only the follicle, eliminating pigmentation risk." },
+      { name: "Diode 810nm Laser", desc: "The gold standard for permanent hair reduction, targets follicles at depth with real-time cooling for all skin tones." },
+      { name: "Nd:YAG 1064nm Laser", desc: "Safe for darker Indian skin tones, bypasses surface melanin to heat only the follicle, eliminating pigmentation risk." },
       { name: "SHR (Super Hair Removal)", desc: "Gentle, painless pulsed laser technology ideal for sensitive skin zones and first-time patients." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop"]
   },
   'prp-hair-treatment': {
-    causes: ["Androgenetic alopecia — genetic pattern baldness progressively affecting hair density","DHT sensitivity causing follicle miniaturisation and thinning over time","Chronic nutritional deficiencies in iron, protein, vitamin D, and zinc","Telogen effluvium triggered by stress, illness, weight loss, or hormonal changes","Scalp inflammation and poor blood circulation reducing follicle nourishment"],
+    causes: ["Androgenetic alopecia, genetic pattern baldness progressively affecting hair density","DHT sensitivity causing follicle miniaturisation and thinning over time","Chronic nutritional deficiencies in iron, protein, vitamin D, and zinc","Telogen effluvium triggered by stress, illness, weight loss, or hormonal changes","Scalp inflammation and poor blood circulation reducing follicle nourishment"],
     complications: [
       { title: "Injection Site Soreness", desc: "Mild scalp soreness or sensitivity at injection sites for 12–24 hours is expected and resolves naturally." },
       { title: "Temporary Scalp Swelling", desc: "Minor swelling in treated areas may occur and resolves within 24 hours without intervention." },
-      { title: "Gradual Results", desc: "PRP works progressively — visible improvement typically begins from session 3–4. The full treatment course must be completed for optimal outcomes." }
+      { title: "Gradual Results", desc: "PRP works progressively, visible improvement typically begins from session 3–4. The full treatment course must be completed for optimal outcomes." }
     ],
     availableTreatments: [
       { name: "PRP Monotherapy", desc: "Platelet-rich plasma extracted from your own blood and injected systematically into thinning scalp zones." },
-      { name: "GFC (Growth Factor Concentrate)", desc: "Advanced concentrated growth factor therapy extracted from blood — more potent than standard PRP for hair follicle stimulation." },
+      { name: "GFC (Growth Factor Concentrate)", desc: "Advanced concentrated growth factor therapy extracted from blood, more potent than standard PRP for hair follicle stimulation." },
       { name: "PRP + Low Level Laser Therapy", desc: "PRP injections combined with LLLT cap sessions to enhance scalp blood flow and maximise follicle response." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1?w=600&h=450&fit=crop"]
@@ -3213,9 +3224,9 @@ const TREATMENT_EXTRAS = {
   'pimple-treatment': {
     causes: ["Excess sebum production from overactive oil glands clogging pores","Propionibacterium acnes bacterial overgrowth within blocked pores triggering inflammation","Hormonal fluctuations during puberty, menstrual cycles, or PCOS elevating androgen levels","Dietary triggers including high glycaemic foods and dairy products","Comedogenic skincare or makeup products trapping oil and debris in pores"],
     complications: [
-      { title: "Post-Inflammatory Hyperpigmentation", desc: "Dark marks left after acne heals are common on Indian skin — our protocols include targeted brightening to address these simultaneously." },
+      { title: "Post-Inflammatory Hyperpigmentation", desc: "Dark marks left after acne heals are common on Indian skin, our protocols include targeted brightening to address these simultaneously." },
       { title: "Scarring Risk from Picking", desc: "Self-extraction or picking of acne lesions significantly increases the risk of permanent atrophic or hypertrophic scarring." },
-      { title: "Treatment Purging", desc: "Some active treatments temporarily increase breakouts in weeks 1–3 as clogged pores clear — this is expected and indicates the treatment is working." }
+      { title: "Treatment Purging", desc: "Some active treatments temporarily increase breakouts in weeks 1–3 as clogged pores clear, this is expected and indicates the treatment is working." }
     ],
     availableTreatments: [
       { name: "Medicated Topicals + Oral Antibiotics", desc: "Dermatologist-prescribed combination of retinoids, benzoyl peroxide, and antibiotics to control active acne at its source." },
@@ -3239,11 +3250,11 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
   'anti-aging-treatment': {
-    causes: ["Intrinsic ageing causing natural decline in collagen, elastin, and hyaluronic acid production","UV-induced photoageing — the primary external cause of premature wrinkling and skin laxity","Repeated facial muscle contractions creating dynamic wrinkles around eyes, forehead, and mouth","Environmental pollution generating free radicals that damage skin's cellular repair mechanisms","Lifestyle factors including smoking, poor diet, and sleep deprivation accelerating visible ageing"],
+    causes: ["Intrinsic ageing causing natural decline in collagen, elastin, and hyaluronic acid production","UV-induced photoageing, the primary external cause of premature wrinkling and skin laxity","Repeated facial muscle contractions creating dynamic wrinkles around eyes, forehead, and mouth","Environmental pollution generating free radicals that damage skin's cellular repair mechanisms","Lifestyle factors including smoking, poor diet, and sleep deprivation accelerating visible ageing"],
     complications: [
-      { title: "Treatment-Specific Recovery", desc: "Different anti-ageing modalities have varying downtimes — from none (Profhilo, HIFU) to a few days (laser resurfacing). Your dermatologist will guide expectations." },
+      { title: "Treatment-Specific Recovery", desc: "Different anti-ageing modalities have varying downtimes, from none (Profhilo, HIFU) to a few days (laser resurfacing). Your dermatologist will guide expectations." },
       { title: "Gradual Natural-Looking Results", desc: "Anti-ageing treatments work progressively. Immediate visible improvement is typical, with peak results appearing 4–8 weeks post-treatment as collagen remodelling completes." },
-      { title: "Maintenance Required", desc: "Anti-ageing results are not permanent — maintenance sessions every 6–12 months preserve and extend results over time." }
+      { title: "Maintenance Required", desc: "Anti-ageing results are not permanent, maintenance sessions every 6–12 months preserve and extend results over time." }
     ],
     availableTreatments: [
       { name: "HIFU (High Intensity Focused Ultrasound)", desc: "Non-surgical skin tightening and lifting using focused ultrasound energy to stimulate deep collagen production." },
@@ -3253,24 +3264,24 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
   'hair-transplant': {
-    causes: ["Androgenetic alopecia — the most common cause, driven by genetic DHT sensitivity","Male pattern baldness progressing from the hairline and crown inward","Female pattern hair loss presenting as diffuse thinning across the crown","Post-traumatic or post-surgical scarring alopecia destroying follicles permanently","Advanced hair loss where medical treatments no longer stimulate sufficient regrowth"],
+    causes: ["Androgenetic alopecia, the most common cause, driven by genetic DHT sensitivity","Male pattern baldness progressing from the hairline and crown inward","Female pattern hair loss presenting as diffuse thinning across the crown","Post-traumatic or post-surgical scarring alopecia destroying follicles permanently","Advanced hair loss where medical treatments no longer stimulate sufficient regrowth"],
     complications: [
       { title: "Post-Procedure Swelling", desc: "Mild forehead and scalp swelling for 2–3 days post-surgery is normal and resolves without intervention." },
       { title: "Shock Loss (Effluvium)", desc: "Transplanted hairs often fall out 2–6 weeks after surgery before regrowing permanently from month 3–6. This is an expected phase of the process." },
       { title: "Folliculitis (Scalp Pimples)", desc: "Small pustules around transplanted follicles can occur during healing. Proper aftercare and prescribed topicals resolve this effectively." }
     ],
     availableTreatments: [
-      { name: "FUE (Follicular Unit Extraction)", desc: "Individual follicles are extracted from the donor area and implanted in thinning zones — leaving no linear scar. The gold standard for natural-looking results." },
-      { name: "Direct Hair Implantation (DHI)", desc: "Follicles are extracted and implanted in a single step using a Choi pen — maximising graft survival and allowing higher density implantation." },
+      { name: "FUE (Follicular Unit Extraction)", desc: "Individual follicles are extracted from the donor area and implanted in thinning zones, leaving no linear scar. The gold standard for natural-looking results." },
+      { name: "Direct Hair Implantation (DHI)", desc: "Follicles are extracted and implanted in a single step using a Choi pen, maximising graft survival and allowing higher density implantation." },
       { name: "Beard/Body Hair Transplant", desc: "For patients with limited scalp donor hair, beard or body hair follicles can supplement the donor pool for maximum coverage." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=450&fit=crop"]
   },
   'hair-loss-treatment': {
-    causes: ["Androgenetic alopecia — hereditary sensitivity to DHT causing follicle miniaturisation","Telogen effluvium — sudden hair shedding triggered by stress, illness, or hormonal change","Nutritional deficiencies in iron, ferritin, zinc, vitamin D, and protein","Scalp infections including tinea capitis, folliculitis, or severe seborrheic dermatitis","Autoimmune conditions such as alopecia areata causing patchy hair loss"],
+    causes: ["Androgenetic alopecia, hereditary sensitivity to DHT causing follicle miniaturisation","Telogen effluvium, sudden hair shedding triggered by stress, illness, or hormonal change","Nutritional deficiencies in iron, ferritin, zinc, vitamin D, and protein","Scalp infections including tinea capitis, folliculitis, or severe seborrheic dermatitis","Autoimmune conditions such as alopecia areata causing patchy hair loss"],
     complications: [
       { title: "Variable Treatment Response", desc: "Hair loss treatment response varies by cause, severity, and individual biology. A thorough blood workup and trichoscopy help set realistic expectations." },
-      { title: "Ongoing Maintenance", desc: "Most hair loss treatments require ongoing use to sustain results — stopping treatment often leads to gradual return of hair loss." },
+      { title: "Ongoing Maintenance", desc: "Most hair loss treatments require ongoing use to sustain results, stopping treatment often leads to gradual return of hair loss." },
       { title: "Treatment Timeline", desc: "Hair grows approximately 1cm per month. Visible improvement typically takes 3–6 months of consistent treatment before density improvements are noticeable." }
     ],
     availableTreatments: [
@@ -3302,8 +3313,8 @@ const TREATMENT_EXTRAS = {
       { title: "Duration of Effect", desc: "Botox results last 3–4 months. Consistent treatment every 3–4 months leads to longer-lasting results as muscles gradually weaken over time." }
     ],
     availableTreatments: [
-      { name: "Botulinum Toxin A (Botox)", desc: "The gold standard neuromodulator for dynamic wrinkles — forehead lines, frown lines, crow's feet — with proven safety record." },
-      { name: "Dysport / Xeomin", desc: "Alternative neuromodulator formulations with slightly different onset and spread characteristics — suitable for specific treatment zones." },
+      { name: "Botulinum Toxin A (Botox)", desc: "The gold standard neuromodulator for dynamic wrinkles, forehead lines, frown lines, crow's feet, with proven safety record." },
+      { name: "Dysport / Xeomin", desc: "Alternative neuromodulator formulations with slightly different onset and spread characteristics, suitable for specific treatment zones." },
       { name: "Botox + Filler Combination", desc: "Combining neuromodulators with dermal fillers addresses both dynamic lines and volume loss for comprehensive facial rejuvenation." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
@@ -3326,12 +3337,12 @@ const TREATMENT_EXTRAS = {
     causes: ["Melasma triggered by UV exposure combined with oestrogen sensitivity","Post-inflammatory hyperpigmentation from acne, injuries, or skin trauma","Sun-induced lentigines (age spots) from chronic unprotected UV exposure","Freckles and diffuse pigmentation driven by genetic and UV factors","Uneven skin tone accumulated from years of sun exposure on Indian skin"],
     complications: [
       { title: "Photosensitivity", desc: "Laser toning increases UV sensitivity post-treatment. Strict SPF use is mandatory between all sessions to prevent pigmentation rebound." },
-      { title: "Multiple Sessions Required", desc: "Pigmentation clears progressively — typically 6–10 sessions are needed for significant, lasting improvement." },
+      { title: "Multiple Sessions Required", desc: "Pigmentation clears progressively, typically 6–10 sessions are needed for significant, lasting improvement." },
       { title: "Rebound Without Maintenance", desc: "Without ongoing sunscreen use and periodic maintenance sessions, pigmentation can recur especially with sun exposure." }
     ],
     availableTreatments: [
-      { name: "Q-switched Nd:YAG 1064nm", desc: "The gold standard laser toning wavelength — safe for all Indian skin tones, targeting melanin precisely with no downtime." },
-      { name: "Picosecond Laser Toning", desc: "Ultra-fast picosecond pulses shatter pigment into smaller particles for faster clearance — ideal for stubborn or treatment-resistant pigmentation." },
+      { name: "Q-switched Nd:YAG 1064nm", desc: "The gold standard laser toning wavelength, safe for all Indian skin tones, targeting melanin precisely with no downtime." },
+      { name: "Picosecond Laser Toning", desc: "Ultra-fast picosecond pulses shatter pigment into smaller particles for faster clearance, ideal for stubborn or treatment-resistant pigmentation." },
       { name: "Laser Toning + Chemical Peel Combo", desc: "Laser toning combined with brightening chemical peel for synergistic pigmentation clearance in the same session." }
     ],
     resultImages: ["https://i.pinimg.com/1200x/3c/43/be/3c43be96093891f7aa6fad66eb1eaf87.jpg","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop"]
@@ -3339,7 +3350,7 @@ const TREATMENT_EXTRAS = {
   'chemical-peels': {
     causes: ["Accumulated dead skin cells and surface debris dulling the complexion","Post-acne marks and hyperpigmentation requiring cellular turnover to fade","Uneven skin texture from clogged pores, mild scarring, and irregular cell renewal","Sun-induced pigmentation and surface photoageing from chronic UV exposure","Mild to moderate fine lines and wrinkles from collagen decline and UV damage"],
     complications: [
-      { title: "Expected Peeling & Flaking", desc: "Chemical peels cause controlled exfoliation — peeling and flaking for 3–7 days is part of the process, not a complication." },
+      { title: "Expected Peeling & Flaking", desc: "Chemical peels cause controlled exfoliation, peeling and flaking for 3–7 days is part of the process, not a complication." },
       { title: "Photosensitivity", desc: "Freshly peeled skin is highly photosensitive. Strict sunscreen use and avoiding direct sun exposure for one week post-peel is essential." },
       { title: "Hyperpigmentation Risk (Medium-Deep Peels)", desc: "Medium and deep peels carry a small risk of post-inflammatory hyperpigmentation on Indian skin. Pre-treatment priming reduces this risk significantly." }
     ],
@@ -3351,7 +3362,7 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=450&fit=crop"]
   },
   'dandruff-treatment': {
-    causes: ["Malassezia furfur yeast overgrowth on the scalp triggering inflammatory flaking","Seborrheic dermatitis — a chronic inflammatory skin condition affecting the scalp","Excess scalp sebum production creating an ideal environment for fungal growth","Dry scalp conditions causing fine, powdery flaking distinct from seborrhoeic dandruff","Contact dermatitis from hair products irritating the scalp and causing flaking"],
+    causes: ["Malassezia furfur yeast overgrowth on the scalp triggering inflammatory flaking","Seborrheic dermatitis, a chronic inflammatory skin condition affecting the scalp","Excess scalp sebum production creating an ideal environment for fungal growth","Dry scalp conditions causing fine, powdery flaking distinct from seborrhoeic dandruff","Contact dermatitis from hair products irritating the scalp and causing flaking"],
     complications: [
       { title: "Chronicity of Seborrheic Dermatitis", desc: "Dandruff from seborrheic dermatitis is a chronic, relapsing condition. Long-term management with medicated products is typically required." },
       { title: "Hair Loss Acceleration", desc: "Untreated severe dandruff and scalp inflammation can accelerate hair thinning. Early treatment prevents this progression." },
@@ -3365,51 +3376,51 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1574673774352-8a5949d9dbbb?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=450&fit=crop"]
   },
   'laser-skin-resurfacing': {
-    causes: ["Acne scarring — atrophic ice pick, boxcar, and rolling scars from inflammatory acne","Photoageing — fine lines, wrinkles, and uneven texture from chronic UV exposure","Enlarged pores and irregular skin texture from excess oil and collagen decline","Surgical or traumatic scars causing textural irregularities in the skin surface","Stretch marks appearing as linear atrophic scars from rapid skin stretching"],
+    causes: ["Acne scarring, atrophic ice pick, boxcar, and rolling scars from inflammatory acne","Photoageing, fine lines, wrinkles, and uneven texture from chronic UV exposure","Enlarged pores and irregular skin texture from excess oil and collagen decline","Surgical or traumatic scars causing textural irregularities in the skin surface","Stretch marks appearing as linear atrophic scars from rapid skin stretching"],
     complications: [
       { title: "Downtime (3–7 Days)", desc: "Ablative fractional laser resurfacing involves 3–7 days of redness, crusting, and peeling as the skin heals and remodels." },
       { title: "Post-Inflammatory Hyperpigmentation", desc: "Darker skin types carry a higher risk. Pre-treatment priming with retinoids and hydroquinone significantly reduces this risk in our protocols." },
       { title: "Sun Avoidance Essential", desc: "Freshly resurfaced skin must be protected from all sun exposure for at least 2 weeks. Broad-spectrum SPF 50+ and hats are mandatory." }
     ],
     availableTreatments: [
-      { name: "Fractional CO2 Laser", desc: "The gold standard for resurfacing — creates micro-ablation columns triggering intense collagen remodelling and skin renewal." },
-      { name: "Erbium YAG Laser", desc: "A gentler ablative laser with less collateral thermal damage — preferred for lighter resurfacing with shorter downtime." },
-      { name: "Non-Ablative Fractional Laser", desc: "Heats the dermis without ablating the surface — suitable for first-time patients or those who cannot afford downtime." }
+      { name: "Fractional CO2 Laser", desc: "The gold standard for resurfacing, creates micro-ablation columns triggering intense collagen remodelling and skin renewal." },
+      { name: "Erbium YAG Laser", desc: "A gentler ablative laser with less collateral thermal damage, preferred for lighter resurfacing with shorter downtime." },
+      { name: "Non-Ablative Fractional Laser", desc: "Heats the dermis without ablating the surface, suitable for first-time patients or those who cannot afford downtime." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
   'mnrf-treatment': {
-    causes: ["Atrophic acne scarring — ice pick, boxcar, and rolling scars from deep inflammatory lesions","Enlarged pores and rough skin texture from excess sebum and collagen decline","Facial laxity and fine lines from age-related collagen and elastin reduction","Stretch marks resulting from rapid skin stretching during pregnancy or weight changes","Surgical and traumatic scars causing textural irregularities requiring dermal remodelling"],
+    causes: ["Atrophic acne scarring, ice pick, boxcar, and rolling scars from deep inflammatory lesions","Enlarged pores and rough skin texture from excess sebum and collagen decline","Facial laxity and fine lines from age-related collagen and elastin reduction","Stretch marks resulting from rapid skin stretching during pregnancy or weight changes","Surgical and traumatic scars causing textural irregularities requiring dermal remodelling"],
     complications: [
       { title: "Post-Treatment Redness & Swelling", desc: "Redness, mild swelling, and pin-point marks from the micro-needles resolve within 24–72 hours post-treatment." },
       { title: "Temporary Skin Sensitivity", desc: "Treated skin may feel more sensitive to touch and temperature for 48–72 hours. Gentle skincare and SPF are recommended." },
-      { title: "Multiple Sessions Needed", desc: "MNRF delivers progressive results — 3–6 sessions spaced 4–6 weeks apart are typically needed for optimal scar improvement." }
+      { title: "Multiple Sessions Needed", desc: "MNRF delivers progressive results, 3–6 sessions spaced 4–6 weeks apart are typically needed for optimal scar improvement." }
     ],
     availableTreatments: [
       { name: "MNRF (Micro-needling Radiofrequency)", desc: "Insulated micro-needles deliver RF energy precisely into the dermis, stimulating collagen remodelling within scar tissue." },
-      { name: "MNRF + PRP", desc: "PRP applied immediately after MNRF channels are created — growth factors penetrate deeply to accelerate healing and collagen production." },
+      { name: "MNRF + PRP", desc: "PRP applied immediately after MNRF channels are created, growth factors penetrate deeply to accelerate healing and collagen production." },
       { name: "MNRF + Chemical Peel", desc: "MNRF for dermal remodelling combined with a superficial peel for surface texture improvement in the same session." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=450&fit=crop"]
   },
   'melasma-treatment': {
-    causes: ["UV exposure triggering melanocyte overstimulation in genetically predisposed individuals","Hormonal influences — pregnancy (chloasma), oral contraceptives, and hormone replacement therapy","Oestrogen and progesterone stimulating melanocytes causing symmetrical facial pigmentation","Thyroid disorders and adrenal conditions disrupting hormone balance and melanin production","Certain medications including anti-seizure drugs, phototoxic agents, and some antibiotics"],
+    causes: ["UV exposure triggering melanocyte overstimulation in genetically predisposed individuals","Hormonal influences, pregnancy (chloasma), oral contraceptives, and hormone replacement therapy","Oestrogen and progesterone stimulating melanocytes causing symmetrical facial pigmentation","Thyroid disorders and adrenal conditions disrupting hormone balance and melanin production","Certain medications including anti-seizure drugs, phototoxic agents, and some antibiotics"],
     complications: [
       { title: "Highly UV-Sensitive Condition", desc: "Melasma worsens dramatically with sun exposure. Daily SPF 50+ use, UV-protective clothing, and sun avoidance are non-negotiable throughout treatment." },
       { title: "Chronic Relapsing Condition", desc: "Melasma is a chronic condition requiring long-term management. Results are maintained with ongoing topical therapy and strict photoprotection." },
       { title: "Slow Response", desc: "Melasma responds more slowly than other pigmentation types. Consistent treatment over 3–6 months is required before significant lightening occurs." }
     ],
     availableTreatments: [
-      { name: "Cosmelan Peel", desc: "The most effective depigmenting treatment for melasma — professional peel combined with at-home maintenance to comprehensively suppress melanin production." },
+      { name: "Cosmelan Peel", desc: "The most effective depigmenting treatment for melasma, professional peel combined with at-home maintenance to comprehensively suppress melanin production." },
       { name: "Topical Depigmenting Agents", desc: "Dermatologist-prescribed combination of hydroquinone, tretinoin, and kojic acid as a triple combination therapy for melasma control." },
-      { name: "Low-Fluence Q-switched Laser Toning", desc: "Gentle laser toning to address residual pigmentation — used after chemical treatment to maintain and enhance results." }
+      { name: "Low-Fluence Q-switched Laser Toning", desc: "Gentle laser toning to address residual pigmentation, used after chemical treatment to maintain and enhance results." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop"]
   },
   'dark-circle-treatment': {
-    causes: ["Thinning periorbital skin revealing dark underlying blood vessels and muscle","Pigmentation — post-inflammatory melanin deposition in the under-eye area","Tear trough hollowing creating shadowing that appears as dark circles","Genetic predisposition to periorbital hyperpigmentation common in South Asian ethnicity","Chronic fatigue, dehydration, and poor sleep pooling blood and fluid under the eyes"],
+    causes: ["Thinning periorbital skin revealing dark underlying blood vessels and muscle","Pigmentation, post-inflammatory melanin deposition in the under-eye area","Tear trough hollowing creating shadowing that appears as dark circles","Genetic predisposition to periorbital hyperpigmentation common in South Asian ethnicity","Chronic fatigue, dehydration, and poor sleep pooling blood and fluid under the eyes"],
     complications: [
-      { title: "Multiple Causes Require Targeted Approach", desc: "Dark circles can be vascular, pigmentary, or structural. Each requires a different treatment — accurate diagnosis at consultation is essential." },
+      { title: "Multiple Causes Require Targeted Approach", desc: "Dark circles can be vascular, pigmentary, or structural. Each requires a different treatment, accurate diagnosis at consultation is essential." },
       { title: "Filler Bruising Risk", desc: "Tear trough filler carries a risk of bruising in the delicate periorbital area for 5–7 days. An expert injector minimises this risk significantly." },
       { title: "Gradual Improvement", desc: "Dark circles improve progressively over multiple sessions. Complete resolution may require combining two or more treatment approaches." }
     ],
@@ -3423,14 +3434,14 @@ const TREATMENT_EXTRAS = {
   'hifu': {
     causes: ["Natural collagen and elastin decline from age 25 onwards reducing skin structural support","Gravity progressively pulling facial soft tissue downward causing sagging and jowling","UV-induced collagen degradation accelerating skin laxity and loss of facial definition","Volume loss in the mid-face causing hollowing and ptosis of overlying skin","Lifestyle factors including smoking, sun exposure, and poor nutrition accelerating laxity"],
     complications: [
-      { title: "Temporary Discomfort During Treatment", desc: "HIFU creates brief, intense focused heat — most patients experience a temporary tingling or heat sensation during energy delivery." },
+      { title: "Temporary Discomfort During Treatment", desc: "HIFU creates brief, intense focused heat, most patients experience a temporary tingling or heat sensation during energy delivery." },
       { title: "Mild Swelling Post-Treatment", desc: "Some mild swelling or tenderness in treated areas for 1–3 days is normal as the deep tissue responds to the ultrasound energy." },
-      { title: "Gradual Results Timeline", desc: "HIFU stimulates collagen production over 2–3 months. Final results appear gradually — visible lifting and tightening continues improving for up to 6 months." }
+      { title: "Gradual Results Timeline", desc: "HIFU stimulates collagen production over 2–3 months. Final results appear gradually, visible lifting and tightening continues improving for up to 6 months." }
     ],
     availableTreatments: [
-      { name: "HIFU Face Lift", desc: "Focused ultrasound targeting the SMAS layer — the same tissue addressed in surgical facelifts — for non-surgical lifting and tightening." },
+      { name: "HIFU Face Lift", desc: "Focused ultrasound targeting the SMAS layer, the same tissue addressed in surgical facelifts, for non-surgical lifting and tightening." },
       { name: "HIFU Neck & Jawline", desc: "Targeted HIFU for the neck and jawline to address turkey neck, submental laxity, and jowling without surgery." },
-      { name: "HIFU + Profhilo Combo", desc: "HIFU for deep structural tightening combined with Profhilo for superficial bio-remodelling — addressing both skin laxity and quality." }
+      { name: "HIFU + Profhilo Combo", desc: "HIFU for deep structural tightening combined with Profhilo for superficial bio-remodelling, addressing both skin laxity and quality." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
@@ -3442,7 +3453,7 @@ const TREATMENT_EXTRAS = {
       { title: "Rare Vascular Events", desc: "Vascular occlusion is a rare but serious complication. At VTIARA, injectors use aspiration technique, cannulas, and hyaluronidase on hand to manage this risk." }
     ],
     availableTreatments: [
-      { name: "Hyaluronic Acid (HA) Fillers", desc: "The safest and most versatile fillers — fully reversible with hyaluronidase. Available in multiple viscosities for different facial zones." },
+      { name: "Hyaluronic Acid (HA) Fillers", desc: "The safest and most versatile fillers, fully reversible with hyaluronidase. Available in multiple viscosities for different facial zones." },
       { name: "Lip Fillers", desc: "Precise HA filler placement to enhance lip volume, define cupid's bow, and improve lip-to-chin proportions naturally." },
       { name: "Jawline & Chin Contouring", desc: "Strategic filler placement along the jawline and chin to define facial structure and improve lateral and profile contour." }
     ],
@@ -3451,7 +3462,7 @@ const TREATMENT_EXTRAS = {
   'skin-tightening': {
     causes: ["Natural collagen and elastin decline beginning in the mid-20s reducing skin elasticity","UV photoageing degrading dermal collagen and accelerating visible skin laxity","Weight loss or post-pregnancy laxity from skin stretching beyond its elastic recovery","Gravity continuously pulling facial and body soft tissue downward over time","Lifestyle factors including smoking, dehydration, and poor nutrition weakening skin structure"],
     complications: [
-      { title: "Gradual Results Timeline", desc: "Skin tightening treatments stimulate collagen progressively — final results appear over 2–6 months as new collagen matures and restructures." },
+      { title: "Gradual Results Timeline", desc: "Skin tightening treatments stimulate collagen progressively, final results appear over 2–6 months as new collagen matures and restructures." },
       { title: "Multiple Sessions for Best Results", desc: "Most patients require 2–4 sessions spaced 4–8 weeks apart to achieve optimal tightening, especially for moderate to significant laxity." },
       { title: "Not a Surgical Replacement", desc: "Non-surgical skin tightening is most effective for mild to moderate laxity. Significant or advanced skin excess may still require surgical intervention." }
     ],
@@ -3463,16 +3474,16 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
   'upper-lip-hair-reduction': {
-    causes: ["Hormonal imbalances including PCOS and elevated androgen levels stimulating upper lip hair","Genetic predisposition to hirsutism particularly common in South Asian women","Idiopathic hirsutism — excessive facial hair with no identifiable hormonal cause","Adrenal gland disorders producing excess androgens driving facial hair growth","Menopause-related hormonal shifts triggering new or coarser facial hair growth"],
+    causes: ["Hormonal imbalances including PCOS and elevated androgen levels stimulating upper lip hair","Genetic predisposition to hirsutism particularly common in South Asian women","Idiopathic hirsutism, excessive facial hair with no identifiable hormonal cause","Adrenal gland disorders producing excess androgens driving facial hair growth","Menopause-related hormonal shifts triggering new or coarser facial hair growth"],
     complications: [
       { title: "Temporary Redness", desc: "Mild redness at the treated area for 1–2 hours post-session is normal and resolves without treatment." },
       { title: "Pigmentation Risk Without Sunscreen", desc: "Post-treatment sun exposure without SPF can cause temporary darkening. Sun protection is mandatory after every session." },
       { title: "Multiple Sessions Required", desc: "6–8 sessions are needed because laser can only treat hair in the anagen (active) growth phase, requiring sessions spaced 4–6 weeks apart." }
     ],
     availableTreatments: [
-      { name: "Diode 810nm Laser", desc: "The gold standard for upper lip hair reduction — deep follicle targeting with real-time cooling for comfortable, permanent results." },
-      { name: "Nd:YAG 1064nm Laser", desc: "Safe for all Indian skin tones — bypasses surface melanin to heat follicles precisely, eliminating risk of burns or hyperpigmentation." },
-      { name: "SHR (Super Hair Removal)", desc: "Gentle pulsed laser ideal for the sensitive upper lip area — painless and effective for first-time patients." }
+      { name: "Diode 810nm Laser", desc: "The gold standard for upper lip hair reduction, deep follicle targeting with real-time cooling for comfortable, permanent results." },
+      { name: "Nd:YAG 1064nm Laser", desc: "Safe for all Indian skin tones, bypasses surface melanin to heat follicles precisely, eliminating risk of burns or hyperpigmentation." },
+      { name: "SHR (Super Hair Removal)", desc: "Gentle pulsed laser ideal for the sensitive upper lip area, painless and effective for first-time patients." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=450&fit=crop"]
   },
@@ -3480,27 +3491,27 @@ const TREATMENT_EXTRAS = {
     causes: ["Natural underarm hair growth stimulated by androgen hormones during puberty","Hormonal conditions including PCOS driving denser and faster underarm hair regrowth","Genetic factors determining underarm hair density, coarseness, and regrowth rate","Chronic shaving causing skin irritation, post-shave darkening, and rapid stubble regrowth","Waxing causing folliculitis, ingrown hairs, and skin darkening in the underarm area"],
     complications: [
       { title: "Temporary Skin Sensitivity", desc: "Mild warmth or sensitivity for a few hours post-session is normal and resolves without any treatment." },
-      { title: "Post-Inflammatory Darkening (Rare)", desc: "Incorrect laser settings or sun exposure without SPF can cause temporary darkening in the underarm area — our protocols prevent this." },
-      { title: "Incomplete Results Without Full Course", desc: "Completing all 6–8 sessions is essential for maximum permanent reduction — skipping sessions allows follicles to recover." }
+      { title: "Post-Inflammatory Darkening (Rare)", desc: "Incorrect laser settings or sun exposure without SPF can cause temporary darkening in the underarm area, our protocols prevent this." },
+      { title: "Incomplete Results Without Full Course", desc: "Completing all 6–8 sessions is essential for maximum permanent reduction, skipping sessions allows follicles to recover." }
     ],
     availableTreatments: [
-      { name: "Diode Laser", desc: "Fast, effective, and comfortable underarm laser — precise follicle targeting with built-in cooling for a painless experience." },
-      { name: "SHR (Super Hair Removal)", desc: "Gentle pulsed laser ideal for sensitive underarm skin — painless and effective with zero downtime." },
-      { name: "Nd:YAG 1064nm Laser", desc: "Safe for darker skin tones — specifically used to prevent post-inflammatory hyperpigmentation in the underarm area." }
+      { name: "Diode Laser", desc: "Fast, effective, and comfortable underarm laser, precise follicle targeting with built-in cooling for a painless experience." },
+      { name: "SHR (Super Hair Removal)", desc: "Gentle pulsed laser ideal for sensitive underarm skin, painless and effective with zero downtime." },
+      { name: "Nd:YAG 1064nm Laser", desc: "Safe for darker skin tones, specifically used to prevent post-inflammatory hyperpigmentation in the underarm area." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
   'full-body-laser': {
-    causes: ["Genetic predisposition to dense, coarse, or widespread body hair growth","Hormonal conditions including PCOS causing diffuse body hair growth","Hirsutism — medically excessive hair growth due to elevated androgen levels","Ethnic background — South Asian and Mediterranean individuals typically have denser body hair","Desire for permanent hair-free skin without the maintenance of shaving or waxing"],
+    causes: ["Genetic predisposition to dense, coarse, or widespread body hair growth","Hormonal conditions including PCOS causing diffuse body hair growth","Hirsutism, medically excessive hair growth due to elevated androgen levels","Ethnic background, South Asian and Mediterranean individuals typically have denser body hair","Desire for permanent hair-free skin without the maintenance of shaving or waxing"],
     complications: [
       { title: "Photosensitivity in Treated Areas", desc: "Avoid direct sun exposure on treated areas for 48 hours post-session. SPF must be applied to any exposed treated skin." },
-      { title: "Multiple Sessions Needed", desc: "Full body laser requires 6–10 sessions to treat all body zones as hair grows in phases — each zone is treated at the appropriate interval." },
+      { title: "Multiple Sessions Needed", desc: "Full body laser requires 6–10 sessions to treat all body zones as hair grows in phases, each zone is treated at the appropriate interval." },
       { title: "Maintenance Sessions", desc: "Annual maintenance sessions are recommended after the primary course to treat any regrowth from hormonal or vellus hair follicles." }
     ],
     availableTreatments: [
-      { name: "Diode 810nm Full Body Laser", desc: "Comprehensive permanent hair reduction across all body zones — arms, legs, back, chest, and intimate areas in customised packages." },
-      { name: "SHR Full Body Treatment", desc: "Painless, high-speed pulsed laser for large body surfaces — comfortable and effective across all skin tones." },
-      { name: "Nd:YAG Full Body Laser", desc: "Used for darker skin tones to ensure safety across the full body — prevents hyperpigmentation while delivering permanent reduction." }
+      { name: "Diode 810nm Full Body Laser", desc: "Comprehensive permanent hair reduction across all body zones, arms, legs, back, chest, and intimate areas in customised packages." },
+      { name: "SHR Full Body Treatment", desc: "Painless, high-speed pulsed laser for large body surfaces, comfortable and effective across all skin tones." },
+      { name: "Nd:YAG Full Body Laser", desc: "Used for darker skin tones to ensure safety across the full body, prevents hyperpigmentation while delivering permanent reduction." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
@@ -3512,7 +3523,7 @@ const TREATMENT_EXTRAS = {
       { title: "Multiple Sessions for Severe Scars", desc: "Deep or numerous rolling scars typically require 3–5 subcision sessions spaced 6–8 weeks apart for optimal levelling." }
     ],
     availableTreatments: [
-      { name: "Subcision Alone", desc: "Nokor needle or cannula subcision to release fibrotic scar bands — most effective for rolling and distensible boxcar scars." },
+      { name: "Subcision Alone", desc: "Nokor needle or cannula subcision to release fibrotic scar bands, most effective for rolling and distensible boxcar scars." },
       { name: "Subcision + Filler", desc: "Subcision to release bands followed immediately by HA filler placement to prevent re-tethering and volumise the depressed scar area." },
       { name: "Subcision + PRP", desc: "Subcision followed by PRP injection to accelerate healing, stimulate collagen, and prevent fibrotic re-attachment in treated scars." }
     ],
@@ -3523,20 +3534,20 @@ const TREATMENT_EXTRAS = {
     complications: [
       { title: "Temporary Redness & Swelling", desc: "Redness and minor swelling at injection sites resolve within 24–48 hours without intervention." },
       { title: "Mild Bruising", desc: "Occasional small bruises at injection sites resolve within 5–7 days and are easily concealed with makeup." },
-      { title: "Gradual Results", desc: "PRP and GFC work by stimulating your body's own collagen production — visible skin quality improvements develop progressively over 4–8 weeks." }
+      { title: "Gradual Results", desc: "PRP and GFC work by stimulating your body's own collagen production, visible skin quality improvements develop progressively over 4–8 weeks." }
     ],
     availableTreatments: [
       { name: "PRP Facial Injections", desc: "Platelet-rich plasma injected across the face to stimulate collagen, improve skin quality, and restore a natural, healthy glow." },
-      { name: "GFC (Growth Factor Concentrate)", desc: "A more potent growth factor formulation than PRP — delivers higher concentrations of EGF, TGF-β, and PDGF for superior facial rejuvenation." },
-      { name: "PRP + Microneedling (Vampire Facial)", desc: "PRP applied to micro-needled skin — growth factors penetrate deep into the dermis for enhanced collagen stimulation and skin renewal." }
+      { name: "GFC (Growth Factor Concentrate)", desc: "A more potent growth factor formulation than PRP, delivers higher concentrations of EGF, TGF-β, and PDGF for superior facial rejuvenation." },
+      { name: "PRP + Microneedling (Vampire Facial)", desc: "PRP applied to micro-needled skin, growth factors penetrate deep into the dermis for enhanced collagen stimulation and skin renewal." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
   'medifacials': {
-    causes: ["Accumulated dead skin cells and surface congestion reducing natural skin radiance","Clogged pores and blackheads from excess oil, pollution, and incomplete cleansing","Dehydrated, stressed skin from environmental exposure and lifestyle factors","Mild uneven skin tone from sun exposure, post-acne marks, or early pigmentation","General skin maintenance needs — maintaining results between intensive clinical treatments"],
+    causes: ["Accumulated dead skin cells and surface congestion reducing natural skin radiance","Clogged pores and blackheads from excess oil, pollution, and incomplete cleansing","Dehydrated, stressed skin from environmental exposure and lifestyle factors","Mild uneven skin tone from sun exposure, post-acne marks, or early pigmentation","General skin maintenance needs, maintaining results between intensive clinical treatments"],
     complications: [
       { title: "Mild Temporary Redness", desc: "Some skin types experience brief redness for 30–60 minutes after active ingredient application. This resolves quickly." },
-      { title: "Customisation Required", desc: "Medifacials use active clinical ingredients — a skin consultation ensures the right formulation is selected for your skin type and concerns." },
+      { title: "Customisation Required", desc: "Medifacials use active clinical ingredients, a skin consultation ensures the right formulation is selected for your skin type and concerns." },
       { title: "Photosensitivity", desc: "Most medifacial treatments include active ingredients that increase UV sensitivity. SPF use immediately after every session is essential." }
     ],
     availableTreatments: [
@@ -3550,41 +3561,41 @@ const TREATMENT_EXTRAS = {
     causes: ["Post-inflammatory hyperpigmentation from acne, injuries, or any skin trauma","Melasma triggered by UV exposure combined with hormonal influences","Sun-induced lentigines and diffuse UV hyperpigmentation from chronic unprotected exposure","Hormonal pigmentation from pregnancy, oral contraceptives, or hormone therapy","Drug-induced pigmentation from certain antibiotics, antifungals, or antimalarials"],
     complications: [
       { title: "Strict Sun Protection Mandatory", desc: "Hyperpigmentation worsens dramatically with UV exposure. Daily SPF 50+, UV clothing, and sun avoidance are essential throughout and after treatment." },
-      { title: "Rebound Risk", desc: "Without ongoing maintenance and consistent sunscreen use, hyperpigmentation can recur — especially melasma which is a chronic condition." },
+      { title: "Rebound Risk", desc: "Without ongoing maintenance and consistent sunscreen use, hyperpigmentation can recur, especially melasma which is a chronic condition." },
       { title: "Multiple Treatment Approach", desc: "Stubborn hyperpigmentation often requires a combination of topical agents, chemical peels, and laser for optimal, lasting results." }
     ],
     availableTreatments: [
       { name: "Q-switched Laser Toning", desc: "Gentle laser toning targeting melanin deposits across the face to progressively lighten pigmentation with no downtime." },
       { name: "Chemical Peels (Kojic / Glycolic)", desc: "Brightening peels inhibiting melanin production and accelerating cell turnover to resurface pigmented skin layers." },
-      { name: "Cosmelan Peel", desc: "The most powerful depigmenting peel system — professional in-clinic application followed by home maintenance for comprehensive pigmentation control." }
+      { name: "Cosmelan Peel", desc: "The most powerful depigmenting peel system, professional in-clinic application followed by home maintenance for comprehensive pigmentation control." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop"]
   },
   'cosmelan-peel': {
-    causes: ["Melasma — the most common indication for Cosmelan, driven by UV and hormonal factors","Stubborn post-inflammatory hyperpigmentation resistant to standard brightening treatments","Diffuse uneven skin tone and pigmentation from chronic UV exposure and ageing","Hormonal pigmentation triggered by oral contraceptives, pregnancy, or HRT","Treatment-resistant pigmentation that has not responded adequately to conventional peels"],
+    causes: ["Melasma, the most common indication for Cosmelan, driven by UV and hormonal factors","Stubborn post-inflammatory hyperpigmentation resistant to standard brightening treatments","Diffuse uneven skin tone and pigmentation from chronic UV exposure and ageing","Hormonal pigmentation triggered by oral contraceptives, pregnancy, or HRT","Treatment-resistant pigmentation that has not responded adequately to conventional peels"],
     complications: [
-      { title: "Expected Peeling & Flaking", desc: "Cosmelan causes significant peeling for 5–10 days as part of the depigmentation process — this is normal and necessary for results." },
+      { title: "Expected Peeling & Flaking", desc: "Cosmelan causes significant peeling for 5–10 days as part of the depigmentation process, this is normal and necessary for results." },
       { title: "Strict Home Care Protocol", desc: "Cosmelan requires a daily home maintenance routine for 6–12 months. Skipping the maintenance phase reduces results and increases rebound risk." },
       { title: "Photosensitivity", desc: "Treated skin is highly photosensitive throughout the treatment phase. SPF 50+ and sun avoidance are non-negotiable for the entire treatment course." }
     ],
     availableTreatments: [
-      { name: "Cosmelan 1 + Cosmelan 2 Protocol", desc: "In-clinic Cosmelan 1 mask application followed by at-home Cosmelan 2 maintenance cream — the complete professional depigmenting system." },
+      { name: "Cosmelan 1 + Cosmelan 2 Protocol", desc: "In-clinic Cosmelan 1 mask application followed by at-home Cosmelan 2 maintenance cream, the complete professional depigmenting system." },
       { name: "Cosmelan + Laser Toning Combo", desc: "Cosmelan peel followed by laser toning sessions to enhance and accelerate the depigmentation effect on stubborn melasma." },
       { name: "Cosmelan + Microneedling", desc: "Cosmelan active ingredients delivered deeper into the skin via micro-needling channels for enhanced penetration and superior depigmentation results." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=450&fit=crop"]
   },
   'profhilo': {
-    causes: ["Intrinsic ageing causing progressive decline in hyaluronic acid and collagen in the dermis","Chronic UV exposure breaking down hyaluronic acid and collagen accelerating skin ageing","Environmental pollution and free radical damage depleting skin's hydration reserves","Loss of skin bio-architecture — the structural matrix that gives skin bounce and firmness","Lifestyle factors including dehydration, smoking, and poor nutrition weakening skin tissue quality"],
+    causes: ["Intrinsic ageing causing progressive decline in hyaluronic acid and collagen in the dermis","Chronic UV exposure breaking down hyaluronic acid and collagen accelerating skin ageing","Environmental pollution and free radical damage depleting skin's hydration reserves","Loss of skin bio-architecture, the structural matrix that gives skin bounce and firmness","Lifestyle factors including dehydration, smoking, and poor nutrition weakening skin tissue quality"],
     complications: [
       { title: "Injection Site Bumps", desc: "Small visible bumps at Profhilo injection points are normal and typically resolve within 24–48 hours as the product disperses." },
       { title: "Mild Bruising", desc: "Occasional bruising at the 5-point injection sites resolves in 5–7 days and is easily concealed with makeup." },
-      { title: "Gradual Results", desc: "Profhilo bio-remodels the skin progressively — final results are typically seen 4–6 weeks after the second session as collagen synthesis completes." }
+      { title: "Gradual Results", desc: "Profhilo bio-remodels the skin progressively, final results are typically seen 4–6 weeks after the second session as collagen synthesis completes." }
     ],
     availableTreatments: [
-      { name: "Profhilo Face", desc: "Two sessions of Profhilo injected at 5 BAP (Bio Aesthetic Points) on each side of the face — the standard protocol for facial bio-remodelling." },
+      { name: "Profhilo Face", desc: "Two sessions of Profhilo injected at 5 BAP (Bio Aesthetic Points) on each side of the face, the standard protocol for facial bio-remodelling." },
       { name: "Profhilo Neck & Décolletage", desc: "Profhilo protocol adapted for the neck and chest area to treat horizontal neck lines and skin laxity beyond the face." },
-      { name: "Profhilo + HIFU Combination", desc: "Profhilo for superficial skin quality improvement combined with HIFU for deep structural lifting — addressing both skin hydration and tissue laxity." }
+      { name: "Profhilo + HIFU Combination", desc: "Profhilo for superficial skin quality improvement combined with HIFU for deep structural lifting, addressing both skin hydration and tissue laxity." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
@@ -3603,14 +3614,14 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop"]
   },
   'facial-hair-reduction': {
-    causes: ["Polycystic ovary syndrome (PCOS) causing elevated androgen levels and increased facial hair growth","Genetic and hereditary predisposition to hirsutism particularly in South Asian and Mediterranean ethnicities","Hormonal shifts during pregnancy, menopause, or puberty triggering new or increased facial hair","Thyroid disorders or adrenal gland conditions affecting hormone regulation and hair growth patterns","Idiopathic hirsutism — excessive facial hair with no identifiable hormonal cause"],
+    causes: ["Polycystic ovary syndrome (PCOS) causing elevated androgen levels and increased facial hair growth","Genetic and hereditary predisposition to hirsutism particularly in South Asian and Mediterranean ethnicities","Hormonal shifts during pregnancy, menopause, or puberty triggering new or increased facial hair","Thyroid disorders or adrenal gland conditions affecting hormone regulation and hair growth patterns","Idiopathic hirsutism, excessive facial hair with no identifiable hormonal cause"],
     complications: [
       { title: "Temporary Redness", desc: "Mild redness or warmth in treated areas for 1–2 hours post-session is normal and resolves on its own." },
       { title: "Pigmentation Risk in Untreated Skin", desc: "Using non-calibrated lasers on Indian skin without proper settings can cause hyperpigmentation. Our dermatologist-supervised protocols eliminate this risk." },
       { title: "Incomplete Clearance for Blonde/Grey Hair", desc: "Laser targets melanin in the follicle. Very light or grey facial hair has minimal melanin and may not respond as well." }
     ],
     availableTreatments: [
-      { name: "Diode 810nm Laser", desc: "The gold standard for permanent facial hair reduction — deep follicle targeting with real-time cooling." },
+      { name: "Diode 810nm Laser", desc: "The gold standard for permanent facial hair reduction, deep follicle targeting with real-time cooling." },
       { name: "Nd:YAG 1064nm Laser", desc: "Specifically safe for darker Indian skin tones. Bypasses surface melanin to heat only the follicle." },
       { name: "SHR (Super Hair Removal)", desc: "Gentle, painless pulsed laser technology ideal for sensitive facial skin and first-time patients." }
     ],
@@ -3631,44 +3642,44 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
   'qr678-treatment': {
-    causes: ["Androgenetic alopecia — genetic pattern baldness affecting both men and women progressively","DHT sensitivity causing follicle miniaturisation and progressive thinning","Chronic nutritional deficiencies in iron, protein, vitamin D, and zinc starving hair follicles","Telogen effluvium caused by major stress, illness, rapid weight loss, or hormonal changes","Scalp inflammation or seborrheic dermatitis reducing blood flow and nutrients to follicles"],
+    causes: ["Androgenetic alopecia, genetic pattern baldness affecting both men and women progressively","DHT sensitivity causing follicle miniaturisation and progressive thinning","Chronic nutritional deficiencies in iron, protein, vitamin D, and zinc starving hair follicles","Telogen effluvium caused by major stress, illness, rapid weight loss, or hormonal changes","Scalp inflammation or seborrheic dermatitis reducing blood flow and nutrients to follicles"],
     complications: [
       { title: "Injection Site Discomfort", desc: "Mild soreness or sensitivity at scalp injection sites for 12–24 hours is expected and manageable." },
       { title: "Minor Scalp Swelling", desc: "Temporary swelling in treated areas may occur and resolves within 24 hours without intervention." },
       { title: "Gradual Onset of Results", desc: "Results begin appearing from session 4–6. Patience and consistency with the full treatment course are essential." }
     ],
     availableTreatments: [
-      { name: "QR678 Monotherapy", desc: "Standalone QR678 injections delivered systematically across thinning scalp zones — clinically validated for documented hair density increases." },
+      { name: "QR678 Monotherapy", desc: "Standalone QR678 injections delivered systematically across thinning scalp zones, clinically validated for documented hair density increases." },
       { name: "QR678 + PRP Combo", desc: "QR678 combined with PRP injections for synergistic growth factor delivery and accelerated follicle reactivation." },
       { name: "QR678 + Low Level Laser Therapy", desc: "QR678 injections combined with LLLT cap sessions to enhance scalp blood flow and maximise follicle response." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1?w=600&h=450&fit=crop"]
   },
   'black-peel-treatment': {
-    causes: ["Excess sebum and keratin plugging pores creating comedones and allowing bacterial overgrowth","Propionibacterium acnes bacterial proliferation within clogged pores triggering inflammatory lesions","Hormonal fluctuations during puberty, menstrual cycles, or PCOS elevating sebum production","Post-acne hyperpigmentation — melanin overproduction triggered by inflammation leaving dark marks","Sun exposure oxidising sebum in pores and worsening congestion and uneven skin tone"],
+    causes: ["Excess sebum and keratin plugging pores creating comedones and allowing bacterial overgrowth","Propionibacterium acnes bacterial proliferation within clogged pores triggering inflammatory lesions","Hormonal fluctuations during puberty, menstrual cycles, or PCOS elevating sebum production","Post-acne hyperpigmentation, melanin overproduction triggered by inflammation leaving dark marks","Sun exposure oxidising sebum in pores and worsening congestion and uneven skin tone"],
     complications: [
       { title: "Mild Flaking", desc: "1–2 days of mild skin flaking as the peel exfoliates dead cells is normal and expected. Moisturiser and SPF manage this effectively." },
       { title: "Temporary Redness", desc: "Mild erythema for a few hours post-peel is expected on sensitive skin and subsides without treatment." },
       { title: "Sun Sensitivity", desc: "Freshly peeled skin is more photosensitive. Strict SPF use for 48–72 hours after treatment is mandatory." }
     ],
     availableTreatments: [
-      { name: "Black Peel (Standard)", desc: "The original blackcurrant-based salicylic peel — cleansing, brightening, and acne-clearing in one session with no significant downtime." },
+      { name: "Black Peel (Standard)", desc: "The original blackcurrant-based salicylic peel, cleansing, brightening, and acne-clearing in one session with no significant downtime." },
       { name: "Black Peel + LED Therapy", desc: "Black Peel followed by blue LED light therapy for enhanced antibacterial action and accelerated healing." },
       { name: "Black Peel + Laser Toning", desc: "Combination of black peel exfoliation with Q-switched laser toning to simultaneously treat acne and pigmentation." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   },
   'pdrn-skin-booster': {
-    causes: ["Intrinsic ageing — natural decline in collagen and hyaluronic acid reducing skin hydration","Chronic dehydration and insufficient water intake depleting the skin's moisture reserves","Prolonged UV exposure breaking down collagen and elastin fibres","Environmental stressors including pollution and oxidative stress damaging cellular repair mechanisms","Nutritional deficiencies impacting skin's ability to regenerate and maintain its protective barrier"],
+    causes: ["Intrinsic ageing, natural decline in collagen and hyaluronic acid reducing skin hydration","Chronic dehydration and insufficient water intake depleting the skin's moisture reserves","Prolonged UV exposure breaking down collagen and elastin fibres","Environmental stressors including pollution and oxidative stress damaging cellular repair mechanisms","Nutritional deficiencies impacting skin's ability to regenerate and maintain its protective barrier"],
     complications: [
       { title: "Injection Site Redness", desc: "Mild redness, swelling, or bruising at injection sites for 24–48 hours is expected and resolves without treatment." },
-      { title: "Temporary Firmness Sensation", desc: "Some patients feel a slight tightness in treated areas immediately after — this is the PDRN integrating and is a positive sign." },
-      { title: "Gradual Results", desc: "PDRN works progressively — maximum results are seen 4–6 weeks after each session as cellular regeneration completes." }
+      { title: "Temporary Firmness Sensation", desc: "Some patients feel a slight tightness in treated areas immediately after, this is the PDRN integrating and is a positive sign." },
+      { title: "Gradual Results", desc: "PDRN works progressively, maximum results are seen 4–6 weeks after each session as cellular regeneration completes." }
     ],
     availableTreatments: [
       { name: "PDRN Mesotherapy", desc: "PDRN solution injected via micro-needles across the face, neck, or body for deep dermal hydration and cellular repair." },
       { name: "PDRN + HA Booster Combo", desc: "PDRN combined with hyaluronic acid for dual-action hydration at both cellular and structural levels." },
-      { name: "PDRN + Profhilo", desc: "PDRN for cellular repair paired with Profhilo for bio-remodelling — addressing both hydration and tissue laxity." }
+      { name: "PDRN + Profhilo", desc: "PDRN for cellular repair paired with Profhilo for bio-remodelling, addressing both hydration and tissue laxity." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=450&fit=crop"]
   },
@@ -3680,7 +3691,7 @@ const TREATMENT_EXTRAS = {
       { title: "Rare Pigmentation", desc: "Using incorrect settings on darker skin without pre-assessment can cause pigmentation. Our protocols are customised for Indian skin." }
     ],
     availableTreatments: [
-      { name: "Classic Carbon Peel", desc: "Single carbon + Q-switched laser session — delivers instant pore cleansing, oil control, and skin brightening with zero downtime." },
+      { name: "Classic Carbon Peel", desc: "Single carbon + Q-switched laser session, delivers instant pore cleansing, oil control, and skin brightening with zero downtime." },
       { name: "Carbon Peel + Collagen Boost", desc: "Carbon peel followed by collagen-stimulating serum infusion for enhanced firmness and long-term skin improvement." },
       { name: "Carbon Peel + Laser Toning Combo", desc: "Carbon peel combined with low-fluence Nd:YAG laser toning to treat both surface glow and underlying pigmentation." }
     ],
@@ -3715,7 +3726,7 @@ const TREATMENT_EXTRAS = {
     resultImages: ["https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=450&fit=crop"]
   },
   'face-body-tan-removal': {
-    causes: ["Prolonged UV radiation exposure triggering melanocytes to produce excess melanin as photoprotection","Repeated sun exposure without adequate SPF causing progressive and uneven melanin accumulation","Outdoor activities and commuting consistently exposing skin to UV radiation without protection","Post-inflammatory hyperpigmentation overlapping with tan, worsening unevenness","Delayed tanning — melanin transfer continuing to develop for 24–72 hours after sun exposure"],
+    causes: ["Prolonged UV radiation exposure triggering melanocytes to produce excess melanin as photoprotection","Repeated sun exposure without adequate SPF causing progressive and uneven melanin accumulation","Outdoor activities and commuting consistently exposing skin to UV radiation without protection","Post-inflammatory hyperpigmentation overlapping with tan, worsening unevenness","Delayed tanning, melanin transfer continuing to develop for 24–72 hours after sun exposure"],
     complications: [
       { title: "Temporary Photosensitivity", desc: "Post-treatment skin is more photosensitive. Strict SPF use for 48–72 hours is mandatory to prevent pigment rebound." },
       { title: "Gradual Results", desc: "Deep-seated melanin takes multiple sessions to clear. Superficial tan fades faster than chronic pigmentation." },
@@ -3736,9 +3747,9 @@ const TREATMENT_EXTRAS = {
       { title: "Incomplete Clearance", desc: "Some ink colours (particularly greens and yellows) and densely packed professional tattoos may not clear 100%. Additional sessions may be needed." }
     ],
     availableTreatments: [
-      { name: "Q-switched Nd:YAG 1064nm", desc: "Primary wavelength for removing black, dark blue, and green tattoo inks — the most common colours in professional tattoos." },
+      { name: "Q-switched Nd:YAG 1064nm", desc: "Primary wavelength for removing black, dark blue, and green tattoo inks, the most common colours in professional tattoos." },
       { name: "Q-switched Nd:YAG 532nm (KTP)", desc: "Frequency-doubled wavelength specifically targeting red, orange, and yellow inks invisible to the 1064nm beam." },
-      { name: "PicoSure / Picosecond Laser", desc: "Ultra-fast picosecond pulses shatter ink into even smaller particles for faster immune clearance — effective for stubborn, previously treated tattoos." }
+      { name: "PicoSure / Picosecond Laser", desc: "Ultra-fast picosecond pulses shatter ink into even smaller particles for faster immune clearance, effective for stubborn, previously treated tattoos." }
     ],
     resultImages: ["https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=450&fit=crop","https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"]
   }
@@ -3766,14 +3777,14 @@ function renderTreatment(slug) {
   document.getElementById('page-desc').setAttribute('content', t.desc);
   document.getElementById('breadcrumb-name').textContent = t.name;
 
-  const benefitsHTML = t.benefits.map(b => `
+  const benefitsHTML = (t.benefits || []).map(b => `
     <div class="benefit-card">
       <div class="benefit-icon" style="font-size:22px;background:var(--bg-light);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">${b.icon}</div>
       <h4>${b.title}</h4>
       <p>${b.desc}</p>
     </div>`).join('');
 
-  const stepsHTML = t.steps.map((s, i) => `
+  const stepsHTML = (t.steps || []).map((s, i) => `
     <div class="procedure-step">
       <div class="step-left">
         <div class="step-num">${i + 1}</div>
@@ -3785,13 +3796,13 @@ function renderTreatment(slug) {
       </div>
     </div>`).join('');
 
-  const whoHTML = t.who.map(w => `
+  const whoHTML = (t.who || []).map(w => `
     <li>
       <div class="who-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
       ${w}
     </li>`).join('');
 
-  const faqHTML = t.faqs.map(f => `
+  const faqHTML = (t.faqs || []).map(f => `
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         ${f.q}
@@ -3800,7 +3811,7 @@ function renderTreatment(slug) {
       <div class="faq-a">${f.a}</div>
     </div>`).join('');
 
-  const relatedHTML = t.related.map(r => `
+  const relatedHTML = (t.related || []).map(r => `
     <a href="treatment.html?t=${r.slug}" class="related-card">
       <img class="related-card-img" src="${r.img}" alt="${r.name}" loading="lazy">
       <div class="related-card-body">
@@ -3816,7 +3827,7 @@ function renderTreatment(slug) {
   const availableTreatments = extras.availableTreatments || [];
   const resultImages = extras.resultImages || [];
 
-  const whatParasHTML = t.what.map(p => `<p>${p}</p>`).join('');
+  const whatParasHTML = (t.what || []).map(p => `<p>${p}</p>`).join('');
 
   const causesHTML = causes.map(c => `
     <div class="cause-card">
@@ -3853,6 +3864,7 @@ function renderTreatment(slug) {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             ${t.category}
           </div>
+          <div class="treat-hero-name">${t.name}</div>
           <h1>${t.headline}</h1>
           <div class="treat-hero-img-mobile">
             <img src="${t.heroImg}" alt="${t.name}" loading="eager">
