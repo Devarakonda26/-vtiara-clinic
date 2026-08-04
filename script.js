@@ -2,6 +2,23 @@
    VTIARA Hair & Skin Clinic – JavaScript
    ========================================= */
 
+/* ─── Close all menus on back/forward navigation ─── */
+window.addEventListener('pageshow', function () {
+  document.querySelectorAll('.mega-menu, .dropdown-menu').forEach(function (m) {
+    m.style.display = '';
+  });
+  document.querySelectorAll('.nav-item.sub-open, .mega-col.col-open').forEach(function (el) {
+    el.classList.remove('sub-open', 'col-open');
+  });
+  var nav = document.getElementById('nav-links');
+  var hamburger = document.getElementById('hamburger');
+  var overlay = document.getElementById('nav-overlay');
+  if (nav) nav.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
+  document.body.classList.remove('menu-open');
+});
+
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ─── FAQ ACCORDION ─── */
@@ -47,53 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* ─── BOOK APPOINTMENT FORM ─── */
-  var bookForm = document.querySelector('.book-left');
-  if (bookForm) {
-    var submitBtn = bookForm.querySelector('.btn-submit');
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function () {
-        var name    = bookForm.querySelector('input[type="text"]');
-        var phone   = bookForm.querySelector('input[type="tel"]');
-        var email   = bookForm.querySelector('input[type="email"]');
-        var service = bookForm.querySelector('select');
-
-        // Simple validation
-        if (!name.value.trim()) {
-          alert('Please enter your full name.');
-          name.focus();
-          return;
-        }
-        if (!phone.value.trim()) {
-          alert('Please enter your mobile number.');
-          phone.focus();
-          return;
-        }
-        if (!email.value.trim() || !email.value.includes('@')) {
-          alert('Please enter a valid email address.');
-          email.focus();
-          return;
-        }
-        if (!service.value) {
-          alert('Please select a treatment you are interested in.');
-          service.focus();
-          return;
-        }
-
-        // Success feedback (replace with your real form submission logic)
-        submitBtn.textContent = '✓ Request Sent!';
-        submitBtn.style.background = '#16a34a';
-        submitBtn.style.color = '#fff';
-        submitBtn.disabled = true;
-
-        setTimeout(function () {
-          submitBtn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Book Appointment';
-          submitBtn.style.background = '';
-          submitBtn.style.color = '';
-          submitBtn.disabled = false;
-        }, 3000);
-      });
-    }
-  }
+  // Handled by submitBooking() in index.html via Formspree
 
 
   /* ─── TESTIMONIAL CAROUSEL (basic prev/next swap) ─── */
