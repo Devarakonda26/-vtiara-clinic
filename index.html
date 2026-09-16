@@ -3,10 +3,31 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VTIARA Hair & Skin Clinic – Bangalore</title>
+<link rel="icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="images/favicon/site.webmanifest" />
+<title>VTIARA Hair &amp; Skin Clinic, Bangalore | Laser &amp; Skin Treatments</title>
+<meta name="description" content="VTIARA Hair &amp; Skin Clinic in Bangalore offers expert laser hair removal, hair transplant, PRP, anti-aging and skin treatments. Book your consultation today." />
+<meta name="keywords" content="hair and skin clinic Bangalore, laser hair removal Bangalore, hair transplant Bangalore, skin treatments Bangalore, dermatologist Bangalore, VTIARA clinic" />
+<link rel="canonical" href="https://vtiaraclinic.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="VTIARA Hair &amp; Skin Clinic" />
+<meta property="og:title" content="VTIARA Hair &amp; Skin Clinic, Bangalore | Laser &amp; Skin Treatments" />
+<meta property="og:description" content="Expert laser hair removal, hair transplant, PRP, anti-aging and skin treatments in Bangalore. Book your consultation at VTIARA today." />
+<meta property="og:image" content="https://vtiaraclinic.com/images/logo.png" />
+<meta property="og:url" content="https://vtiaraclinic.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VTIARA Hair &amp; Skin Clinic, Bangalore | Laser &amp; Skin Treatments" />
+<meta name="twitter:description" content="Expert laser hair removal, hair transplant, PRP, anti-aging and skin treatments in Bangalore. Book your consultation at VTIARA today." />
+<meta name="twitter:image" content="https://vtiaraclinic.com/images/logo.png" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css?v=4" />
 <style>
+/* ── Shift footer social icons left, clear of floating WhatsApp/Call buttons ── */
+.social-links { margin-right: 70px; }
+
 /* ── Floating Branch Buttons ── */
 .float-group {
   position: fixed !important;
@@ -15,12 +36,18 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-end !important;
-  gap: 4px !important;
+  gap: 14px !important;
   z-index: 99999 !important;
 }
 /* Each row: labels on left, icon on right */
-.float-btn-wrap { position: relative; display: flex; flex-direction: row; align-items: center; gap: 8px; }
-.float-branch-menu { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+.float-btn-wrap { position: relative; display: flex; flex-direction: row; align-items: center; pointer-events: none !important; }
+.float-branch-menu {
+  position: absolute !important; top: 50% !important; right: calc(100% + 8px) !important;
+  transform: translateY(-50%) !important;
+  display: flex; flex-direction: column; gap: 5px; align-items: flex-end;
+}
+.float-btn-wrap .whatsapp-float,
+.float-btn-wrap .phone-float { pointer-events: auto !important; }
 .float-branch-item {
   display: flex; align-items: center; gap: 7px;
   background: #fff; border-radius: 30px; padding: 6px 12px 6px 10px;
@@ -255,19 +282,44 @@
   line-height: 1.35;
   max-width: 130px;
 }
+.treatment-circle-mobile-only { display: none; }
 @media (max-width: 900px) {
-  .treatment-circles-track { grid-template-columns: repeat(4, 1fr); padding: 16px 16px 20px; gap: 16px 10px; }
-  .treatment-circle-img { width: 108px; height: 108px; }
+  .treatment-circle-mobile-only { display: flex; }
+  .treatment-circles-track { grid-template-columns: repeat(3, 1fr); padding: 16px 16px 20px; gap: 20px 12px; }
+  .treatment-circle-img { width: 120px; height: 120px; }
   .treatment-circle-card { width: 100%; max-width: none; }
 }
 @media (max-width: 600px) {
-  .treatment-circles-track { grid-template-columns: repeat(4, 1fr); padding: 12px 10px 16px; gap: 14px 6px; }
-  .treatment-circle-img { width: 72px; height: 72px; border-width: 2px; }
-  .treatment-circle-label { font-size: 11px; max-width: 80px; }
+  .treatment-circles-track { grid-template-columns: repeat(3, 1fr); padding: 12px 10px 16px; gap: 16px 8px; }
+  .treatment-circle-img { width: 88px; height: 88px; border-width: 2px; }
+  .treatment-circle-label { font-size: 11px; max-width: 90px; }
 }
 @media (max-width: 400px) {
-  .treatment-circle-img { width: 60px; height: 60px; }
-  .treatment-circle-label { font-size: 10px; max-width: 70px; }
+  .treatment-circle-img { width: 76px; height: 76px; }
+  .treatment-circle-label { font-size: 10px; max-width: 80px; }
+}
+
+/* ── FLOATING BOOKING POPUP ── */
+.vt-popup-overlay{position:fixed;inset:0;background:rgba(13,33,55,0.6);z-index:100000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;}
+.vt-popup-overlay.open{opacity:1;visibility:visible;}
+.vt-popup-card{position:relative;width:100%;max-width:380px;background:var(--teal);border-radius:var(--radius);padding:32px 24px 24px;box-shadow:0 20px 60px rgba(0,0,0,0.35);transform:translateY(20px) scale(.96);opacity:0;transition:transform .3s ease,opacity .3s ease;}
+.vt-popup-overlay.open .vt-popup-card{transform:translateY(0) scale(1);opacity:1;}
+.vt-popup-close{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.vt-popup-close:hover{background:rgba(255,255,255,0.3);}
+.vt-popup-card h2{font-size:20px;font-weight:900;color:#fff;margin:0 0 18px;padding-right:20px;}
+.vt-popup-field{display:flex;align-items:center;background:#fff;border-radius:30px;overflow:hidden;margin-bottom:12px;}
+.vt-popup-field span{padding:0 14px;font-size:14px;font-weight:700;color:var(--navy);border-right:1px solid #ddd;white-space:nowrap;}
+.vt-popup-field input{flex:1;border:none;outline:none;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--navy);min-width:0;}
+.vt-popup-field select{flex:1;border:none;outline:none;padding:12px 36px 12px 14px;font-size:14px;line-height:1.4;font-family:inherit;color:var(--navy);background:#fff;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='16' viewBox='0 0 11 16'><path d='M1.2 6L5.5 2L9.8 6' stroke='%230D2137' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/><path d='M1.2 10L5.5 14L9.8 10' stroke='%230D2137' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;background-size:11px 16px;}
+.vt-popup-submit{width:100%;background:#fff;color:var(--teal);font-size:15px;font-weight:900;padding:12px;border-radius:30px;border:none;margin-top:2px;cursor:pointer;transition:background .2s,color .2s;}
+.vt-popup-submit:hover{background:var(--navy);color:#fff;}
+.vt-popup-submit:disabled{opacity:.7;cursor:default;}
+.vt-popup-callback{display:flex;align-items:center;gap:8px;margin-top:14px;}
+.vt-popup-callback-dot{width:10px;height:10px;border-radius:50%;background:#2ecc71;flex-shrink:0;animation:vtPopupPulse 1.5s infinite;}
+@keyframes vtPopupPulse{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.5);}50%{box-shadow:0 0 0 6px rgba(46,204,113,0);}}
+.vt-popup-callback span{font-size:12px;font-weight:700;color:#fff;}
+@media (max-width:480px){
+  .vt-popup-card{padding:26px 18px 20px;}
 }
 </style>
 </head>
@@ -276,10 +328,10 @@
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
   <div class="announcement-bar-track">
-    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
-    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
-    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
-    <div class="announcement-bar-item"><span>LIMITED OFFER</span> 🎉 Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
+    <div class="announcement-bar-item"><span>LIMITED OFFER</span> Get <strong>15% OFF</strong> on all Hair &amp; Skin treatments - Book your appointment today! <a href="#book">Book Now →</a></div>
   </div>
 </div>
 
@@ -322,7 +374,6 @@
             <!-- Laser Hair Reduction -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <span>Laser Hair Reduction</span>
               </div>
               <ul class="mega-links">
@@ -338,7 +389,6 @@
             <!-- Hair Re-Growth -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 20c0-3 3-5 6.5-5s6.5 2 6.5 5"/></svg></div>
                 <span>Hair Re-Growth</span>
               </div>
               <ul class="mega-links">
@@ -346,7 +396,6 @@
                 <li><a href="treatment.html?t=prp-hair-treatment" onclick="closeMenu()">PRP Hair Treatment</a></li>
                 <li><a href="treatment.html?t=hair-transplant" onclick="closeMenu()">Hair Transplant</a></li>
                 <li><a href="treatment.html?t=dandruff-treatment" onclick="closeMenu()">Dandruff Treatment</a></li>
-                <li><a href="treatment.html?t=hair-thread-treatment" onclick="closeMenu()">Hair Thread Treatment</a></li>
                 <li><a href="treatment.html?t=qr678-treatment" onclick="closeMenu()">QR678 Treatment</a></li>
               </ul>
             </div>
@@ -354,13 +403,11 @@
             <!-- Acne / Scar -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
                 <span>Acne / Scar</span>
               </div>
               <ul class="mega-links">
                 <li><a href="treatment.html?t=pimple-treatment" onclick="closeMenu()">Pimple Treatment</a></li>
                 <li><a href="treatment.html?t=acne-scar-treatment" onclick="closeMenu()">Acne Scar Treatment</a></li>
-                <li><a href="treatment.html?t=laser-skin-resurfacing" onclick="closeMenu()">Laser Skin Resurfacing</a></li>
                 <li><a href="treatment.html?t=mnrf-treatment" onclick="closeMenu()">MNRF Treatment</a></li>
                 <li><a href="treatment.html?t=subcision" onclick="closeMenu()">Subcision</a></li>
                 <li><a href="treatment.html?t=black-peel-treatment" onclick="closeMenu()">Black Peel Treatment</a></li>
@@ -370,39 +417,18 @@
             <!-- Skin Rejuvenation -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg></div>
                 <span>Skin Rejuvenation</span>
               </div>
               <ul class="mega-links">
                 <li><a href="treatment.html?t=skin-lightening-treatment" onclick="closeMenu()">Skin Lightening Treatment</a></li>
-                <li><a href="treatment.html?t=laser-toning" onclick="closeMenu()">Laser Toning</a></li>
                 <li><a href="treatment.html?t=chemical-peels" onclick="closeMenu()">Chemical Peels</a></li>
                 <li><a href="treatment.html?t=prp-gfc-face" onclick="closeMenu()">PRP/GFC For Face</a></li>
-                <li><a href="treatment.html?t=dermafrac-treatment" onclick="closeMenu()">DermaFrac Treatment</a></li>
-                <li><a href="treatment.html?t=pdrn-skin-booster" onclick="closeMenu()">PDRN Skin Booster</a></li>
-              </ul>
-            </div>
-
-            <!-- Insta Glow Solutions -->
-            <div class="mega-col">
-              <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-                <span>Insta Glow Solutions</span>
-              </div>
-              <ul class="mega-links">
-                <li><a href="treatment.html?t=medifacials" onclick="closeMenu()">Medifacials</a></li>
-                <li><a href="treatment.html?t=instaglow-rejuvenation" onclick="closeMenu()">InstaGlow Rejuvenation</a></li>
-                <li><a href="treatment.html?t=carbon-rejuvenation" onclick="closeMenu()">Carbon Rejuvenation</a></li>
-                <li><a href="treatment.html?t=hollywood-rejuvenation" onclick="closeMenu()">Hollywood Rejuvenation</a></li>
-                <li><a href="treatment.html?t=fire-ice-facial" onclick="closeMenu()">Fire &amp; Ice Facial</a></li>
-                <li><a href="treatment.html?t=hydrafacial" onclick="closeMenu()">HydraFacial</a></li>
               </ul>
             </div>
 
             <!-- Pigmentation -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <span>Pigmentation</span>
               </div>
               <ul class="mega-links">
@@ -418,14 +444,12 @@
             <!-- Anti-Aging -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                 <span>Anti-Aging</span>
               </div>
               <ul class="mega-links">
                 <li><a href="treatment.html?t=anti-aging-treatment" onclick="closeMenu()">Anti-Aging Treatment</a></li>
                 <li><a href="treatment.html?t=botox" onclick="closeMenu()">Botox</a></li>
-                <li><a href="treatment.html?t=hifu" onclick="closeMenu()">HIFU</a></li>
-                <li><a href="treatment.html?t=profhilo" onclick="closeMenu()">Profhilo</a></li>
+                <li><a href="treatment.html?t=skin-booster" onclick="closeMenu()">Skin Booster</a></li>
                 <li><a href="treatment.html?t=dermal-fillers" onclick="closeMenu()">Dermal Fillers</a></li>
                 <li><a href="treatment.html?t=skin-tightening" onclick="closeMenu()">Skin Tightening</a></li>
               </ul>
@@ -434,22 +458,19 @@
             <!-- More -->
             <div class="mega-col">
               <div class="mega-cat-head">
-                <div class="mega-cat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
                 <span>More</span>
               </div>
               <ul class="mega-links">
-                <li><a href="treatment.html?t=tattoo-removal" onclick="closeMenu()">Tattoo Removal</a></li>
                 <li><a href="treatment.html?t=stretch-marks-removal" onclick="closeMenu()">Stretch Marks Removal</a></li>
                 <li><a href="treatment.html?t=moles-removal" onclick="closeMenu()">Moles Removal</a></li>
                 <li><a href="treatment.html?t=warts-removal" onclick="closeMenu()">Warts Removal</a></li>
                 <li><a href="treatment.html?t=skin-tag-removal" onclick="closeMenu()">Skin Tag Removal</a></li>
-                <li><a href="treatment.html?t=geneiq" onclick="closeMenu()">GeneIQ</a></li>
               </ul>
             </div>
 
             <!-- View All Treatments -->
-            <div class="mega-col" style="border-right:none; display:flex; align-items:center; justify-content:center;">
-              <a href="treatments.html" onclick="closeMenu()" style="display:inline-flex; align-items:center; gap:8px; background:var(--teal); color:#fff; font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; white-space:nowrap; transition:background .2s;">
+            <div class="mega-col" style="margin-top:6px; padding:10px 16px 4px; border-top:1px solid var(--border);">
+              <a href="treatments.html" onclick="closeMenu()" style="display:flex; align-items:center; justify-content:center; gap:8px; background:var(--teal); color:#fff; font-size:13px; font-weight:700; padding:10px 14px; border-radius:8px; text-decoration:none; white-space:nowrap; transition:background .2s;">
                 View All Treatments
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </a>
@@ -459,7 +480,7 @@
         </div>
       </li>
 
-      <li class="nav-item"><a class="nav-link" href="#results" onclick="closeMenu()">Results</a></li>
+      <li class="nav-item"><a class="nav-link" href="results.html" onclick="closeMenu()">Results</a></li>
       <li class="nav-item"><a class="nav-link" href="#expert" onclick="closeMenu()">Our Expert</a></li>
       <li class="nav-item"><a class="nav-link" href="#testimonials" onclick="closeMenu()">Reviews</a></li>
 
@@ -609,78 +630,88 @@
   <div class="results-header">
     <div class="section-tag"><span class="dot"></span> Real Results</div>
     <h2 class="section-title">Visible Transformations, <span>Real Patients</span></h2>
-    <p class="section-desc">Before &amp; After results of Hair Treatments and Acne &amp; Pigmentation from VTIARA</p>
+    <p class="section-desc">Before &amp; After results from real VTIARA patients</p>
   </div>
-  <div class="carousel-container">
-  <div class="carousel-track">
+  <div class="transform-wrap">
+    <div class="transform-track" id="transformTrack">
 
-    <div class="result-card">
-      <img src="images/before-after-acne.png" alt="Acne Treatment Before After">
-      <span class="result-label">ACNE TREATMENT</span>
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/hair-transplant-results/result-3.png" alt="Frontal hairline redefined and thickened" loading="lazy">
+        </div>
+        <div class="transform-card-foot">HAIR TRANSPLANT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/hair-transplant-results/result-6.png" alt="Bald crown patch fully covered" loading="lazy">
+        </div>
+        <div class="transform-card-foot">HAIR TRANSPLANT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/gfc-results/gfc-2.png" alt="Bald patch at crown filled in" loading="lazy">
+        </div>
+        <div class="transform-card-foot">GFC TREATMENT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/gfc-results/result-14.png" alt="Bald crown patch filled in" loading="lazy">
+        </div>
+        <div class="transform-card-foot">GFC TREATMENT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/acne-results/acne-3.png" alt="Severe forehead acne cleared completely" loading="lazy">
+        </div>
+        <div class="transform-card-foot">ACNE TREATMENT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/acne-results/acne-5.png" alt="Cystic jawline acne calmed" loading="lazy">
+        </div>
+        <div class="transform-card-foot">ACNE TREATMENT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/acne-scar-results/scar-1.png" alt="Rolling scar texture visibly smoothed" loading="lazy">
+        </div>
+        <div class="transform-card-foot">ACNE SCAR TREATMENT</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/pigmentation-results/pigment-1.png" alt="Underarm pigmentation visibly lightened" loading="lazy">
+        </div>
+        <div class="transform-card-foot">PIGMENTATION</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/pigmentation-results/pigment-2.png" alt="Dark underarm skin tone evened out" loading="lazy">
+        </div>
+        <div class="transform-card-foot">PIGMENTATION</div>
+      </div>
+
+      <div class="transform-card">
+        <div class="transform-images">
+          <img src="images/laser-results/laser-1.png" alt="Underarm hair growth significantly reduced" loading="lazy">
+        </div>
+        <div class="transform-card-foot">LASER HAIR REMOVAL</div>
+      </div>
+
     </div>
-
-    <div class="result-card">
-      <img src="images/gfc-treatment.png" alt="GFC Treatment Before After">
-      <span class="result-label">GFC TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/before-after-hair-loss.png" alt="Hair Loss Treatment Before After">
-      <span class="result-label">HAIR LOSS TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/laser-hair-removal.png" alt="Laser Hair Removal Before After">
-      <span class="result-label">LASER HAIR REMOVAL TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/before-after-hair.png" alt="Hair Transplant Before After">
-      <span class="result-label">HAIR TRANSPLANTATION</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/hair-treatment.jpg" alt="Hair Treatment">
-      <span class="result-label">HAIR TREATMENT</span>
-    </div>
-
-   
-    <!-- Duplicate for infinite loop -->
-
-    <div class="result-card">
-      <img src="images/before-after-acne.png" alt="Acne Treatment Before After">
-      <span class="result-label">ACNE TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/gfc-treatment.png" alt="GFC Treatment Before After">
-      <span class="result-label">GFC TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/before-after-hair-loss.png" alt="Hair Loss Treatment Before After">
-      <span class="result-label">HAIR LOSS TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/laser-hair-removal.png" alt="Laser Hair Removal Before After">
-      <span class="result-label">LASER HAIR REMOVAL TREATMENT</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/before-after-hair.png" alt="Hair Transplant Before After">
-      <span class="result-label">HAIR TRANSPLANTATION</span>
-    </div>
-
-    <div class="result-card">
-      <img src="images/hair-treatment.jpg" alt="Hair Treatment">
-      <span class="result-label">HAIR TREATMENT</span>
-    </div>
-
-    
-
-</div>
-
+  </div>
+  <div class="treatment-circles-view-more">
+    <a href="results.html">
+      View All Results
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
   </div>
 </section>
 
@@ -720,7 +751,7 @@
     </div>
     <div class="expert-info">
       <div class="expert-name-row">
-        <h3>Dr MADAN KUMAR BJ</h3>
+        <h3>Dr. Madan Kumar BJ</h3>
         <div class="expert-rating"><span class="star">★</span> 4.9/5.0 Feedback</div>
       </div>
       <div class="expert-title">MD &amp; Co-Founder · Consultant Dermatologist &amp; Hair Transplant Surgeon</div>
@@ -730,16 +761,13 @@
         <span class="expert-tag">Hair Transplant</span>
         <span class="expert-tag">Trichology</span>
       </div>
-      <div class="expert-contacts">
-        <div class="expert-contact">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          manager@vtiaraclinic.com
+      <a class="expert-award" href="images/award-times-health-excellence-2025.png" target="_blank" rel="noopener">
+        <img src="images/award-times-health-excellence-2025.png" alt="Times Health Excellence 2025 - Certificate of Excellence awarded to Dr. Madan Kumar BJ">
+        <div class="expert-award-text">
+          <strong>Times Health Excellence 2025</strong>
+          Certificate of Excellence in Hair Transplantation, Aesthetic &amp; Dermatology
         </div>
-        <div class="expert-contact">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +91 6361347722
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1105,19 +1133,19 @@
     <div class="treatment-circles-track">
       <a href="treatment.html?t=laser-hair-removal" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://plus.unsplash.com/premium_photo-1661726996340-8398be0d48ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laser Hair Removal" loading="lazy"/>
+          <img src="images/treat-laser-skin-resurfacing.jpg" alt="Laser Hair Removal" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Laser Hair Removal</span>
       </a>
       <a href="treatment.html?t=prp-hair-treatment" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=300&fit=crop" alt="PRP Hair Treatment" loading="lazy"/>
+          <img src="images/stock-photo-1576091160550-2173dba999ef.jpg" alt="PRP Hair Treatment" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">PRP Hair Treatment</span>
       </a>
       <a href="treatment.html?t=hair-loss-treatment" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://i.pinimg.com/1200x/5b/40/a8/5b40a89cfa34c148bc6a8c98a50d3ae1.jpg" alt="Hair Loss Treatment" loading="lazy"/>
+          <img src="images/treat-hair-loss-treatment.jpg" alt="Hair Loss Treatment" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Hair Loss Treatment</span>
       </a>
@@ -1129,27 +1157,33 @@
       </a>
       <a href="treatment.html?t=acne-scar-treatment" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop" alt="Acne Treatment" loading="lazy"/>
+          <img src="images/treat-facial-hair-reduction.jpg" alt="Acne Treatment" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Acne &amp; Scar Treatment</span>
       </a>
       <a href="treatment.html?t=skin-lightening-treatment" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop" alt="Skin Lightening" loading="lazy"/>
+          <img src="images/stock-photo-1571781926291-c477ebfd024b.jpg" alt="Skin Lightening" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Skin Lightening</span>
       </a>
       <a href="treatment.html?t=anti-aging-treatment" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=300&h=300&fit=crop" alt="Anti-Aging" loading="lazy"/>
+          <img src="images/stock-photo-1570172619644-dfd03ed5d881.jpg" alt="Anti-Aging" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Anti-Aging Treatment</span>
       </a>
       <a href="treatment.html?t=hyperpigmentation" class="treatment-circle-card">
         <div class="treatment-circle-img">
-          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=300&h=300&fit=crop" alt="Pigmentation Treatment" loading="lazy"/>
+          <img src="images/stock-photo-1587854692152-cbe660dbde88.jpg" alt="Pigmentation Treatment" loading="lazy"/>
         </div>
         <span class="treatment-circle-label">Pigmentation Treatment</span>
+      </a>
+      <a href="treatment.html?t=chemical-peels" class="treatment-circle-card treatment-circle-mobile-only">
+        <div class="treatment-circle-img">
+          <img src="images/treat-chemical-peels.jpg" alt="Chemical Peels" loading="lazy"/>
+        </div>
+        <span class="treatment-circle-label">Chemical Peels</span>
       </a>
     </div>
     <div class="treatment-circles-view-more">
@@ -1276,32 +1310,19 @@
             <option>PRP Hair Treatment</option>
             <option>Hair Transplant</option>
             <option>Dandruff Treatment</option>
-            <option>Hair Thread Treatment</option>
             <option>QR678 Treatment</option>
           </optgroup>
           <optgroup label="── Acne / Scar ──">
             <option>Pimple Treatment</option>
             <option>Acne Scar Treatment</option>
-            <option>Laser Skin Resurfacing</option>
             <option>MNRF Treatment</option>
             <option>Subcision</option>
             <option>Black Peel Treatment</option>
           </optgroup>
           <optgroup label="── Skin Rejuvenation ──">
             <option>Skin Lightening Treatment</option>
-            <option>Laser Toning</option>
             <option>Chemical Peels</option>
             <option>PRP/GFC For Face</option>
-            <option>DermaFrac Treatment</option>
-            <option>PDRN Skin Booster</option>
-          </optgroup>
-          <optgroup label="── Insta Glow ──">
-            <option>Medifacials</option>
-            <option>InstaGlow Rejuvenation</option>
-            <option>Carbon Rejuvenation</option>
-            <option>Hollywood Rejuvenation</option>
-            <option>Fire &amp; Ice Facial</option>
-            <option>HydraFacial</option>
           </optgroup>
           <optgroup label="── Pigmentation ──">
             <option>Hyperpigmentation</option>
@@ -1314,18 +1335,15 @@
           <optgroup label="── Anti-Aging ──">
             <option>Anti-Aging Treatment</option>
             <option>Botox</option>
-            <option>HIFU</option>
-            <option>Profhilo</option>
+            <option>Skin Booster</option>
             <option>Dermal Fillers</option>
             <option>Skin Tightening</option>
           </optgroup>
           <optgroup label="── More ──">
-            <option>Tattoo Removal</option>
             <option>Stretch Marks Removal</option>
             <option>Moles Removal</option>
             <option>Warts Removal</option>
             <option>Skin Tag Removal</option>
-            <option>GeneIQ</option>
           </optgroup>
         </select>
       </div>
@@ -1391,7 +1409,13 @@
       <div class="map-placeholder">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d77.6366766!3d12.9787742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a9f70a345b%3A0xb3f841618a29018e!2sVtiara+Hair+%26+Skin+Clinic+-+Indiranagar!5e0!3m2!1sen!2sin!4v1721800000000"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="VTIARA Clinic Location">
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="VTIARA Clinic Location - Indiranagar">
+        </iframe>
+      </div>
+      <div class="map-placeholder" style="margin-top:8px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d77.5675389!3d13.0321656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17c008d1104b%3A0xd3908989aa511aab!2sVtiara+Hair+and+Clinic+-+New+Bel+Road!5e0!3m2!1sen!2sin!4v1721800000000"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="VTIARA Clinic Location - New BEL Road">
         </iframe>
       </div>
   </div><!-- /.book-right -->
@@ -1411,7 +1435,7 @@
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="#results" onclick="closeMenu()">Results</a></li>
+        <li><a href="results.html" onclick="closeMenu()">Results</a></li>
         <li><a href="#expert" onclick="closeMenu()">Our Expert</a></li>
         <li><a href="#testimonials" onclick="closeMenu()">Reviews</a></li>
         <li><a href="#about" onclick="closeMenu()">About Vtiara</a></li>
@@ -1452,7 +1476,6 @@
         <li><a href="treatment.html?t=prp-hair-treatment" onclick="closeMenu()">PRP Hair Treatment</a></li>
         <li><a href="treatment.html?t=hair-transplant" onclick="closeMenu()">Hair Transplant</a></li>
         <li><a href="treatment.html?t=dandruff-treatment" onclick="closeMenu()">Dandruff Treatment</a></li>
-        <li><a href="treatment.html?t=hair-thread-treatment" onclick="closeMenu()">Hair Thread Treatment</a></li>
         <li><a href="treatment.html?t=qr678-treatment" onclick="closeMenu()">QR678 Treatment</a></li>
       </ul>
     </div>
@@ -1461,7 +1484,6 @@
       <ul>
         <li><a href="treatment.html?t=pimple-treatment" onclick="closeMenu()">Pimple Treatment</a></li>
         <li><a href="treatment.html?t=acne-scar-treatment" onclick="closeMenu()">Acne Scar Treatment</a></li>
-        <li><a href="treatment.html?t=laser-skin-resurfacing" onclick="closeMenu()">Laser Skin Resurfacing</a></li>
         <li><a href="treatment.html?t=mnrf-treatment" onclick="closeMenu()">MNRF Treatment</a></li>
         <li><a href="treatment.html?t=subcision" onclick="closeMenu()">Subcision</a></li>
         <li><a href="treatment.html?t=black-peel-treatment" onclick="closeMenu()">Black Peel Treatment</a></li>
@@ -1471,22 +1493,8 @@
       <h4>Skin Rejuvenation</h4>
       <ul>
         <li><a href="treatment.html?t=skin-lightening-treatment" onclick="closeMenu()">Skin Lightening Treatment</a></li>
-        <li><a href="treatment.html?t=laser-toning" onclick="closeMenu()">Laser Toning</a></li>
         <li><a href="treatment.html?t=chemical-peels" onclick="closeMenu()">Chemical Peels</a></li>
         <li><a href="treatment.html?t=prp-gfc-face" onclick="closeMenu()">PRP/GFC For Face</a></li>
-        <li><a href="treatment.html?t=dermafrac-treatment" onclick="closeMenu()">DermaFrac Treatment</a></li>
-        <li><a href="treatment.html?t=pdrn-skin-booster" onclick="closeMenu()">PDRN Skin Booster</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Insta Glow Solutions</h4>
-      <ul>
-        <li><a href="treatment.html?t=medifacials" onclick="closeMenu()">Medifacials</a></li>
-        <li><a href="treatment.html?t=instaglow-rejuvenation" onclick="closeMenu()">InstaGlow Rejuvenation</a></li>
-        <li><a href="treatment.html?t=carbon-rejuvenation" onclick="closeMenu()">Carbon Rejuvenation</a></li>
-        <li><a href="treatment.html?t=hollywood-rejuvenation" onclick="closeMenu()">Hollywood Rejuvenation</a></li>
-        <li><a href="treatment.html?t=fire-ice-facial" onclick="closeMenu()">Fire &amp; Ice Facial</a></li>
-        <li><a href="treatment.html?t=hydrafacial" onclick="closeMenu()">HydraFacial</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1505,8 +1513,7 @@
       <ul>
         <li><a href="treatment.html?t=anti-aging-treatment" onclick="closeMenu()">Anti-Aging Treatment</a></li>
         <li><a href="treatment.html?t=botox" onclick="closeMenu()">Botox</a></li>
-        <li><a href="treatment.html?t=hifu" onclick="closeMenu()">HIFU</a></li>
-        <li><a href="treatment.html?t=profhilo" onclick="closeMenu()">Profhilo</a></li>
+        <li><a href="treatment.html?t=skin-booster" onclick="closeMenu()">Skin Booster</a></li>
         <li><a href="treatment.html?t=dermal-fillers" onclick="closeMenu()">Dermal Fillers</a></li>
         <li><a href="treatment.html?t=skin-tightening" onclick="closeMenu()">Skin Tightening</a></li>
       </ul>
@@ -1514,28 +1521,26 @@
     <div class="footer-col">
       <h4>More Treatments</h4>
       <ul>
-        <li><a href="treatment.html?t=tattoo-removal" onclick="closeMenu()">Tattoo Removal</a></li>
         <li><a href="treatment.html?t=stretch-marks-removal" onclick="closeMenu()">Stretch Marks Removal</a></li>
         <li><a href="treatment.html?t=moles-removal" onclick="closeMenu()">Moles Removal</a></li>
         <li><a href="treatment.html?t=warts-removal" onclick="closeMenu()">Warts Removal</a></li>
         <li><a href="treatment.html?t=skin-tag-removal" onclick="closeMenu()">Skin Tag Removal</a></li>
-        <li><a href="treatment.html?t=geneiq" onclick="closeMenu()">GeneIQ</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 VTIARA Hair &amp; Skin Clinic. All rights reserved.</div>
     <div class="social-links">
-      <a href="#" class="social-link" aria-label="Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61552901284322&amp;mibextid=ZbWKwL" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
       </a>
-      <a href="#" class="social-link" aria-label="Twitter">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-      </a>
-      <a href="#" class="social-link" aria-label="Instagram">
+      <a href="https://www.instagram.com/vtiaraclinic?igsh=dXdobWF2Y3V5ZHBv" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a href="#" class="social-link" aria-label="LinkedIn">
+      <a href="https://www.youtube.com/@vtiarahairskinclinic850" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/vtiara-hair-skin-clinic/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
     </div>
@@ -1626,12 +1631,12 @@ document.addEventListener('click', function(e) {
     };
     var waNumber = waNumbers[branch] || '916361347722'; // default to New BEL Road
     var waText = 'Hi VTIARA! I would like to book an appointment.\n\n'
-      + '👤 Name: ' + name + '\n'
-      + '📞 Phone: ' + phone + '\n'
-      + (email    ? '📧 Email: ' + email + '\n' : '')
-      + (treatment ? '💆 Treatment: ' + treatment + '\n' : '')
-      + (branch   ? '📍 Branch: ' + branch + '\n' : '')
-      + (message  ? '📝 Message: ' + message : '');
+      + 'Name: ' + name + '\n'
+      + 'Phone: ' + phone + '\n'
+      + (email    ? 'Email: ' + email + '\n' : '')
+      + (treatment ? 'Treatment: ' + treatment + '\n' : '')
+      + (branch   ? 'Branch: ' + branch + '\n' : '')
+      + (message  ? 'Message: ' + message : '');
     // ─────────────────────────────────────────────────────────────────────
 
     // Also send silently to Formspree for records
@@ -1747,24 +1752,32 @@ document.addEventListener('click', function(e) {
       var hideTimer = null;
       var menu = item.querySelector(menuSelector);
       if (!menu) return;
-      function showMenu() {
-        if (window.innerWidth <= 768) return;
-        clearTimeout(hideTimer);
-        /* For simple dropdowns, align horizontally under the trigger */
-        if (menuSelector === '.dropdown-menu') {
+      function updatePosition() {
+        /* Align menu flush under the navbar, under the trigger */
+        if (menuSelector === '.dropdown-menu' || menuSelector === '.mega-menu') {
           var nav = document.getElementById('main-nav');
           var navRect = nav.getBoundingClientRect();
           var itemRect = item.getBoundingClientRect();
           menu.style.top = navRect.bottom + 'px';
+          var menuWidth = menu.offsetWidth || 218;
           var left = itemRect.left;
-          var maxLeft = navRect.right - 218;
+          var maxLeft = navRect.right - menuWidth;
           menu.style.left = Math.min(left, maxLeft) + 'px';
         }
+      }
+      function showMenu() {
+        if (window.innerWidth <= 768) return;
+        clearTimeout(hideTimer);
+        updatePosition();
         menu.style.display = 'block';
+        window.addEventListener('scroll', updatePosition, { passive: true });
+        window.addEventListener('resize', updatePosition);
       }
       function scheduleHide() {
         if (window.innerWidth <= 768) return;
         menu.style.display = '';
+        window.removeEventListener('scroll', updatePosition);
+        window.removeEventListener('resize', updatePosition);
       }
       item.addEventListener('mouseenter', showMenu);
       item.addEventListener('mouseleave', scheduleHide);
@@ -1878,6 +1891,80 @@ document.addEventListener('click', function(e) {
   setInterval(() => {
     goToSlide((asCurrentSlide + 1) % asSlides.length);
   }, 3500);
+
+  /* ── Floating booking popup ── */
+  document.addEventListener('DOMContentLoaded', function(){
+    var overlay=document.getElementById('vtPopupOverlay');
+    if(!overlay)return;
+    function openPopup(){
+      overlay.classList.add('open');
+      localStorage.setItem('vtiaraPopupSeen','1');
+    }
+    function closePopup(){
+      overlay.classList.remove('open');
+    }
+    if(!localStorage.getItem('vtiaraPopupSeen')){
+      setTimeout(openPopup,3000);
+    }
+    document.getElementById('vtPopupClose').addEventListener('click',closePopup);
+    overlay.addEventListener('click',function(e){
+      if(e.target===overlay)closePopup();
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape')closePopup();
+    });
+    document.getElementById('vtPopupForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=document.getElementById('vtPopupSubmit');
+      btn.textContent='Submitting...';btn.disabled=true;
+      fetch(FORMSPREE_URL,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){btn.textContent='✓ We\'ll call you back!';}
+        else{btn.textContent='Error – Try Again';btn.disabled=false;}
+      }).catch(function(){btn.textContent='Error – Try Again';btn.disabled=false;});
+    });
+  });
 </script>
+
+<!-- FLOATING BOOKING POPUP -->
+<div class="vt-popup-overlay" id="vtPopupOverlay">
+  <div class="vt-popup-card">
+    <button type="button" class="vt-popup-close" id="vtPopupClose" aria-label="Close">&times;</button>
+    <h2>Book Your Free Consultation</h2>
+    <form id="vtPopupForm">
+      <div class="vt-popup-field">
+        <span>+91</span>
+        <input type="tel" name="phone" placeholder="Mobile No." required maxlength="10" pattern="[0-9]{10}">
+      </div>
+      <div class="vt-popup-field">
+        <select name="treatment">
+          <option value="">Select Treatment</option>
+          <option>Laser Hair Removal</option>
+          <option>PRP Hair Treatment</option>
+          <option>GFC Hair Treatment</option>
+          <option>Hair Transplant (FUE)</option>
+          <option>Acne Treatment</option>
+          <option>Acne Scar Treatment</option>
+          <option>Pigmentation Treatment</option>
+          <option>Skin Lightening</option>
+          <option>Anti-Aging Treatment</option>
+          <option>Not Sure – Need Consultation</option>
+        </select>
+      </div>
+      <div class="vt-popup-field">
+        <select name="branch">
+          <option value="">Select Branch</option>
+          <option>Indiranagar, Bangalore</option>
+          <option>New BEL Road, Bangalore</option>
+        </select>
+      </div>
+      <button type="submit" class="vt-popup-submit" id="vtPopupSubmit">Submit</button>
+    </form>
+    <div class="vt-popup-callback">
+      <div class="vt-popup-callback-dot"></div>
+      <span>30 Minutes Call Back. Guaranteed!</span>
+    </div>
+  </div>
+</div>
 </body>
 </html>
