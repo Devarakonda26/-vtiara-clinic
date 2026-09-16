@@ -492,7 +492,6 @@
         </a>
         <div class="dropdown-menu">
           <a href="#about" class="dropdown-item" onclick="closeMenu()">About Vtiara</a>
-          <a href="#expert" class="dropdown-item" onclick="closeMenu()">Our Expert</a>
           <a href="#faq" class="dropdown-item" onclick="closeMenu()">FAQ's</a>
           <a href="#book" class="dropdown-item" onclick="closeMenu()">Book Appointment</a>
         </div>
@@ -752,7 +751,7 @@
     <div class="expert-info">
       <div class="expert-name-row">
         <h3>Dr. Madan Kumar BJ</h3>
-        <div class="expert-rating"><span class="star">★</span> 4.9/5.0 Feedback</div>
+        <div class="expert-rating"><span class="star">★</span> 4.9/5.0 <span class="expert-rating-word">Feedback</span></div>
       </div>
       <div class="expert-title">MD &amp; Co-Founder · Consultant Dermatologist &amp; Hair Transplant Surgeon</div>
       <p class="expert-bio">Founder of Vtiara Hair &amp; Skin Clinic, Dr. Madan Kumar BJ specializes in advanced dermatology, trichology, and hair restoration treatments. With a patient-first approach and expertise in aesthetic dermatology, he is committed to delivering safe, effective, and personalized skin and hair care solutions.</p>
@@ -1279,73 +1278,17 @@
       <p>Fill in your details and our care team will reach out within 2 business hours to confirm your slot.</p>
     </div>
     <div class="book-left">
-      <div class="form-row">
-        <div class="form-group" style="margin-bottom:0">
-          <label>Full Name</label>
-          <input type="text" id="f-name" class="form-control" placeholder="Your name" />
-        </div>
-        <div class="form-group" style="margin-bottom:0">
-          <label>Mobile Number</label>
-          <input type="tel" id="f-phone" class="form-control" placeholder="+91 XXXXXXXXXX" />
-        </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="f-name" class="form-control" placeholder="Your name" />
       </div>
       <div class="form-group">
-        <label>Email</label>
+        <label>Mobile Number</label>
+        <input type="tel" id="f-phone" class="form-control" placeholder="+91 XXXXXXXXXX" />
+      </div>
+      <div class="form-group">
+        <label>Email (optional)</label>
         <input type="email" id="f-email" class="form-control" placeholder="you@gmail.com" />
-      </div>
-      <div class="form-group">
-        <label>Treatments Interested In</label>
-        <select id="f-treatment" class="form-control">
-          <option value="">Select Treatments</option>
-          <optgroup label="── Laser Hair Reduction ──">
-            <option>Laser Hair Removal</option>
-            <option>Upper Lip Hair Reduction</option>
-            <option>Facial Hair Reduction</option>
-            <option>Underarm Hair Reduction</option>
-            <option>Bikini Hair Reduction</option>
-            <option>Full Body Laser</option>
-          </optgroup>
-          <optgroup label="── Hair Re-Growth ──">
-            <option>Hair Loss Treatment</option>
-            <option>PRP Hair Treatment</option>
-            <option>Hair Transplant</option>
-            <option>Dandruff Treatment</option>
-            <option>QR678 Treatment</option>
-          </optgroup>
-          <optgroup label="── Acne / Scar ──">
-            <option>Pimple Treatment</option>
-            <option>Acne Scar Treatment</option>
-            <option>MNRF Treatment</option>
-            <option>Subcision</option>
-            <option>Black Peel Treatment</option>
-          </optgroup>
-          <optgroup label="── Skin Rejuvenation ──">
-            <option>Skin Lightening Treatment</option>
-            <option>Chemical Peels</option>
-            <option>PRP/GFC For Face</option>
-          </optgroup>
-          <optgroup label="── Pigmentation ──">
-            <option>Hyperpigmentation</option>
-            <option>Melasma Treatment</option>
-            <option>Dark Circle Treatment</option>
-            <option>Cosmelan Peel</option>
-            <option>Dull Skin Treatment</option>
-            <option>Face &amp; Body Tan Removal</option>
-          </optgroup>
-          <optgroup label="── Anti-Aging ──">
-            <option>Anti-Aging Treatment</option>
-            <option>Botox</option>
-            <option>Skin Booster</option>
-            <option>Dermal Fillers</option>
-            <option>Skin Tightening</option>
-          </optgroup>
-          <optgroup label="── More ──">
-            <option>Stretch Marks Removal</option>
-            <option>Moles Removal</option>
-            <option>Warts Removal</option>
-            <option>Skin Tag Removal</option>
-          </optgroup>
-        </select>
       </div>
       <div class="form-group">
         <label>Select Branch</label>
@@ -1607,7 +1550,6 @@ document.addEventListener('click', function(e) {
     var name      = document.getElementById('f-name').value.trim();
     var phone     = document.getElementById('f-phone').value.trim();
     var email     = document.getElementById('f-email').value.trim();
-    var treatment = document.getElementById('f-treatment').value;
     var branch    = document.getElementById('f-branch').value;
     var message   = document.getElementById('f-message').value.trim();
     var msg       = document.getElementById('form-msg');
@@ -1634,7 +1576,6 @@ document.addEventListener('click', function(e) {
       + 'Name: ' + name + '\n'
       + 'Phone: ' + phone + '\n'
       + (email    ? 'Email: ' + email + '\n' : '')
-      + (treatment ? 'Treatment: ' + treatment + '\n' : '')
       + (branch   ? 'Branch: ' + branch + '\n' : '')
       + (message  ? 'Message: ' + message : '');
     // ─────────────────────────────────────────────────────────────────────
@@ -1647,7 +1588,6 @@ document.addEventListener('click', function(e) {
         name:      name,
         phone:     phone,
         email:     email,
-        treatment: treatment || 'Not specified',
         branch:    branch    || 'Not specified',
         message:   message   || 'No message'
       })
@@ -1663,7 +1603,6 @@ document.addEventListener('click', function(e) {
     document.getElementById('f-name').value = '';
     document.getElementById('f-phone').value = '';
     document.getElementById('f-email').value = '';
-    document.getElementById('f-treatment').value = '';
     document.getElementById('f-branch').value = '';
     document.getElementById('f-message').value = '';
     btn.disabled = false;
